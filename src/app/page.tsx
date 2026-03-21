@@ -46,9 +46,9 @@ export default function Home() {
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
       <Nav />
 
-      <section style={{ background: 'linear-gradient(135deg, #c2e8e3 0%, var(--cream) 50%, #fdefd0 100%)', padding: '100px 24px 88px', minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
+      <section style={{ background: 'linear-gradient(135deg, #c2e8e3 0%, var(--cream) 50%, #fdefd0 100%)', padding: '80px 24px 64px', minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
         <div className="container" style={{ width: '100%' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
             <div className="fade-up">
               <div className="eyebrow" style={{ background: 'var(--teal-light)', color: 'var(--teal)', padding: '6px 16px', borderRadius: 2, border: '1px solid var(--teal-mid)' }}>
                 B2B Culinary Consultancy · Est. 2013 · Cairo, Egypt
@@ -68,9 +68,9 @@ export default function Home() {
             </div>
             <div className="hero-right fade-up-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {[{ v: '2013', l: 'Founded' }, { v: '10', l: "Int'l Chefs" }, { v: '6', l: 'Service Pillars' }, { v: '15+', l: 'Major Clients' }].map(s => (
-                <div key={s.v} className="card" style={{ padding: '32px 24px', textAlign: 'center' }}>
-                  <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 300, color: 'var(--teal)', lineHeight: 1 }}>{s.v}</div>
-                  <div style={{ fontSize: 11, letterSpacing: '0.18em', color: '#888', marginTop: 10, textTransform: 'uppercase', fontWeight: 500 }}>{s.l}</div>
+                <div key={s.v} className="card" style={{ padding: '28px 20px', textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--serif)', fontSize: 48, fontWeight: 300, color: 'var(--teal)', lineHeight: 1 }}>{s.v}</div>
+                  <div style={{ fontSize: 11, letterSpacing: '0.18em', color: '#888', marginTop: 8, textTransform: 'uppercase', fontWeight: 500 }}>{s.l}</div>
                 </div>
               ))}
             </div>
@@ -78,12 +78,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '24px 24px' }}>
+      <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '20px 24px', overflowX: 'auto' }}>
         <div className="container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
             <div className="eyebrow" style={{ color: '#aaa', marginBottom: 0, flexShrink: 0 }}>Trusted By</div>
             {['AUC', 'Nestle Egypt', 'Maggi', 'Norwegian Embassy', 'ILO', 'Prime Holding', 'Sea Queen Fleet'].map(c => (
-              <div key={c} style={{ fontSize: 13, fontWeight: 500, color: '#666', letterSpacing: '0.04em' }}>{c}</div>
+              <div key={c} style={{ fontSize: 12, fontWeight: 500, color: '#666', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>{c}</div>
             ))}
           </div>
         </div>
@@ -98,12 +98,12 @@ export default function Home() {
           </div>
           <div className="grid-3">
             {services.map(s => (
-              <a key={s.num} href={s.href} className="card" style={{ padding: '32px 28px', display: 'block' }}>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 64, fontWeight: 300, color: s.color, lineHeight: 1, marginBottom: 4, opacity: 0.3 }}>{s.num}</div>
-                <div className="badge" style={{ background: s.bg, color: s.color, marginBottom: 16 }}>{s.kw}</div>
-                <h3 style={{ fontSize: 22, marginBottom: 12, color: 'var(--forest)' }}>{s.title}</h3>
+              <a key={s.num} href={s.href} className="card" style={{ padding: '28px 24px', display: 'block' }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 300, color: s.color, lineHeight: 1, marginBottom: 4, opacity: 0.3 }}>{s.num}</div>
+                <div className="badge" style={{ background: s.bg, color: s.color, marginBottom: 14 }}>{s.kw}</div>
+                <h3 style={{ fontSize: 20, marginBottom: 10, color: 'var(--forest)' }}>{s.title}</h3>
                 <p style={{ fontSize: 14, color: '#666', lineHeight: 1.7, fontWeight: 300 }}>{s.desc}</p>
-                <div style={{ marginTop: 20, fontSize: 12, color: s.color, fontWeight: 500, letterSpacing: '0.06em' }}>Learn more →</div>
+                <div style={{ marginTop: 16, fontSize: 12, color: s.color, fontWeight: 500, letterSpacing: '0.06em' }}>Learn more →</div>
               </a>
             ))}
           </div>
@@ -118,10 +118,10 @@ export default function Home() {
           </div>
           <div style={{ display: 'flex', gap: 0, justifyContent: 'center', flexWrap: 'wrap' }}>
             {steps.map((step, i) => (
-              <div key={step} style={{ textAlign: 'center', padding: '0 24px', position: 'relative' }}>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(168,216,210,0.15)', border: '1.5px solid rgba(168,216,210,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontFamily: 'var(--serif)', fontSize: 22, color: 'var(--amber)' }}>{i + 1}</div>
-                <div style={{ fontSize: 13, color: '#a8d8d2', fontWeight: 500, letterSpacing: '0.06em' }}>{step}</div>
-                {i < steps.length - 1 && <div className="hide-mobile" style={{ position: 'absolute', top: 25, right: -8, width: 16, height: 1, background: 'rgba(168,216,210,0.3)' }} />}
+              <div key={step} style={{ textAlign: 'center', padding: '0 20px', position: 'relative' }}>
+                <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(168,216,210,0.15)', border: '1.5px solid rgba(168,216,210,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', fontFamily: 'var(--serif)', fontSize: 20, color: 'var(--amber)' }}>{i + 1}</div>
+                <div style={{ fontSize: 12, color: '#a8d8d2', fontWeight: 500, letterSpacing: '0.06em' }}>{step}</div>
+                {i < steps.length - 1 && <div className="hide-mobile" style={{ position: 'absolute', top: 23, right: -8, width: 16, height: 1, background: 'rgba(168,216,210,0.3)' }} />}
               </div>
             ))}
           </div>
@@ -160,8 +160,8 @@ export default function Home() {
           </div>
           <div className="grid-4">
             {clients.map(c => (
-              <div key={c.name} className="card" style={{ padding: '24px 20px' }}>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 20, fontWeight: 500, color: 'var(--forest)', marginBottom: 8 }}>{c.name}</div>
+              <div key={c.name} className="card" style={{ padding: '20px 16px' }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 500, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 300 }}>{c.sector}</div>
               </div>
             ))}
@@ -171,38 +171,38 @@ export default function Home() {
 
       <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
+          <div className="community-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
             <div>
               <div className="eyebrow" style={{ color: 'var(--teal)' }}>Community & CSR</div>
               <h2>Free Sessions for <em style={{ color: 'var(--teal)' }}>New Foodies</em></h2>
               <div className="divider" />
-              <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 32 }}>
+              <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 28 }}>
                 We believe in growing Egypt's culinary ecosystem. Kitchen Three offers free industry sessions, downloadable guides, and handouts for aspiring food entrepreneurs.
               </p>
-              <div style={{ display: 'flex', gap: 12 }}>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 {subDone ? (
                   <div style={{ fontSize: 14, color: 'var(--teal)', fontWeight: 500 }}>You are on the list!</div>
                 ) : (
                   <>
-                    <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" style={{ flex: 1, padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)' }} />
-                    <button className="btn btn-primary" onClick={() => { if (email) setSubDone(true) }} style={{ padding: '12px 24px' }}>Subscribe</button>
+                    <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" style={{ flex: 1, minWidth: 180, padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)' }} />
+                    <button className="btn btn-primary" onClick={() => { if (email) setSubDone(true) }} style={{ padding: '12px 20px' }}>Subscribe</button>
                   </>
                 )}
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {[
                 { title: 'Egypt F&B Startup Checklist', desc: 'Everything you need to launch a food business in Egypt.' },
                 { title: 'How to Write a Menu That Sells', desc: 'Menu engineering principles from our consultant team.' },
                 { title: 'HACCP Made Simple', desc: 'A plain-English guide to food safety compliance.' },
               ].map(g => (
-                <div key={g.title} className="card" style={{ padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16 }}>
+                <div key={g.title} className="card" style={{ padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
                   <div>
-                    <div style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--teal)', textTransform: 'uppercase', fontWeight: 500, marginBottom: 4 }}>Free PDF Guide</div>
-                    <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--forest)', marginBottom: 4 }}>{g.title}</div>
-                    <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 300 }}>{g.desc}</div>
+                    <div style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--teal)', textTransform: 'uppercase', fontWeight: 500, marginBottom: 3 }}>Free PDF Guide</div>
+                    <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--forest)', marginBottom: 3 }}>{g.title}</div>
+                    <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 300 }}>{g.desc}</div>
                   </div>
-                  <a href="/resources" style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap', letterSpacing: '0.06em' }}>Download →</a>
+                  <a href="/resources" style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap' }}>Download →</a>
                 </div>
               ))}
             </div>
@@ -212,36 +212,36 @@ export default function Home() {
 
       <section id="contact" className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
+          <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
             <div>
               <div className="eyebrow" style={{ color: 'var(--amber)' }}>Work With Us</div>
               <h2>Let's Create Something <em style={{ color: 'var(--teal)' }}>Extraordinary</em></h2>
               <div className="divider" />
-              <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 32 }}>
+              <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 28 }}>
                 Available for consulting engagements across Egypt and the region. Whether you are launching a new concept or transforming an existing operation, we are ready to partner with you.
               </p>
-              <div style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2 }}>
+              <div style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.2 }}>
                 <div>Cairo, Egypt</div>
                 <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal)' }}>kitchenthreecairo@gmail.com</a></div>
                 <div><a href="https://www.kitchenthree.co" style={{ color: 'var(--teal)' }}>www.kitchenthree.co</a></div>
               </div>
             </div>
-            <div className="card" style={{ padding: 36 }}>
+            <div className="card" style={{ padding: 28 }}>
               {sent ? (
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                <div style={{ textAlign: 'center', padding: '32px 0' }}>
                   <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
                   <div style={{ fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--teal)', marginBottom: 8 }}>Message Sent</div>
                   <div style={{ fontSize: 14, color: 'var(--muted)' }}>We will be in touch within 24 hours.</div>
                 </div>
               ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                  <h3 style={{ fontSize: 20, marginBottom: 8 }}>Send a Message</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                  <h3 style={{ fontSize: 18, marginBottom: 4 }}>Send a Message</h3>
                   {[['name', 'Your Name'], ['email', 'Email Address'], ['company', 'Company / Organisation']].map(([k, p]) => (
                     <input key={k} placeholder={p} value={(form as any)[k]} onChange={e => setForm({ ...form, [k]: e.target.value })}
-                      style={{ padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+                      style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
                   ))}
                   <textarea placeholder="Tell us about your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={4}
-                    style={{ padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%', resize: 'vertical' }} />
+                    style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%', resize: 'vertical' }} />
                   <button className="btn btn-primary" style={{ width: '100%', padding: '14px' }}
                     onClick={() => { if (form.name && form.email && form.message) {
                       fetch('https://formspree.io/f/xojkprga', {
@@ -260,6 +260,12 @@ export default function Home() {
       </section>
 
       <Footer />
+      <style>{`
+        @media (max-width: 768px) {
+          .community-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+      `}</style>
     </div>
   )
 }
