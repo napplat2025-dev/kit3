@@ -13,20 +13,20 @@ const services = [
 ]
 
 const chefs = [
-  { initials: 'YB', name: 'Yann Bonneau', country: 'France', bio: 'Champion of Spain in pastry. Co-founder, World Cup of Chocolatine.' },
-  { initials: 'EB', name: 'Enzo Bonneau', country: 'France', bio: 'Waterside Inn *** Michelin. La Dame de Pic ** Michelin.' },
-  { initials: 'NK', name: 'Niko Koulousias', country: 'Greece', bio: "Prince Harry's royal wedding. Queen Elizabeth's 70th Jubilee." },
-  { initials: 'HA', name: 'Hadil Amasheh', country: 'Jordan/Egypt', bio: 'AUC alumna & Goldman Sachs 10K Women. 20+ years experience.' },
-  { initials: 'GL', name: 'Gérard Livigni', country: 'France', bio: 'MOF finalist 2011 — Meilleur Ouvrier de France.' },
-  { initials: 'RS', name: 'Ramy Somoeil', country: 'Egypt', bio: '20+ years Lebanese, Italian & Mediterranean cuisine.' },
-  { initials: 'WK', name: 'Walid Karim', country: 'Egypt', bio: '20+ years pizza mastery. Mercato Italiano, Casper & Gambini.' },
-  { initials: 'GM', name: 'Giovani Mascari', country: 'Italy', bio: 'Creator of trademarked Sushi Pizza. Executive pizzaiolo.' },
-  { initials: 'LM', name: 'Luca Montersino', country: 'Italy', bio: 'Italian TV pastry sensation. Culinary empire Italy to Tokyo & NY.' },
-  { initials: 'LB', name: 'Luca Borgioli', country: 'Italy', bio: 'Gold medal, FIPGC World Panettone Championship 2020.' },
+  { slug: 'yann-bonneau', name: 'Yann Bonneau', country: 'France', photo: '/images/chefs/yann-bonneau.jpg' },
+  { slug: 'enzo-bonneau', name: 'Enzo Bonneau', country: 'France', photo: '/images/chefs/enzo-bonneau.jpg' },
+  { slug: 'niko-koulousias', name: 'Niko Koulousias', country: 'Greece', photo: '/images/chefs/niko-koulousias.jpg' },
+  { slug: 'hadil-amasheh', name: 'Hadil Amasheh', country: 'Jordan/Egypt', photo: '/images/chefs/hadil-amasheh.jpg' },
+  { slug: 'gerard-livigni', name: 'Gerard Livigni', country: 'France', photo: '/images/chefs/gerard-livigni.jpg' },
+  { slug: 'ramy-somoeil', name: 'Ramy Somoeil', country: 'Egypt', photo: '/images/chefs/ramy-somoeil.jpg' },
+  { slug: 'walid-karim', name: 'Walid Karim', country: 'Egypt', photo: '/images/chefs/walid-karim.jpg' },
+  { slug: 'giovani-mascari', name: 'Giovani Mascari', country: 'Italy', photo: '/images/chefs/giovani-mascari.jpg' },
+  { slug: 'luca-montersino', name: 'Luca Montersino', country: 'Italy', photo: '/images/chefs/luca-montersino.jpg' },
+  { slug: 'luca-borgioli', name: 'Luca Borgioli', country: 'Italy', photo: '/images/chefs/luca-borgioli.jpg' },
 ]
 
 const clients = [
-  { name: 'AUC', sector: 'University — F&B Consulting' }, { name: 'Nestlé Egypt', sector: 'FMCG — Product Development' },
+  { name: 'AUC', sector: 'University — F&B Consulting' }, { name: 'Nestle Egypt', sector: 'FMCG — Product Development' },
   { name: 'Maggi', sector: 'FMCG — Culinary Training' }, { name: 'Norwegian Embassy', sector: 'Diplomatic — Event Consulting' },
   { name: 'ILO', sector: 'International Org — Catering' }, { name: 'Prime Holding', sector: 'Corporate — F&B Operations' },
   { name: 'Sea Queen Fleet', sector: 'Maritime — Catering Services' }, { name: "Vinny's Pizza Bar", sector: 'HORECA — Culinary Consulting' },
@@ -46,7 +46,6 @@ export default function Home() {
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
       <Nav />
 
-      {/* ── HERO ── */}
       <section style={{ background: 'linear-gradient(135deg, #c2e8e3 0%, var(--cream) 50%, #fdefd0 100%)', padding: '100px 24px 88px', minHeight: '90vh', display: 'flex', alignItems: 'center' }}>
         <div className="container" style={{ width: '100%' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
@@ -79,19 +78,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TRUSTED BY ── */}
       <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '24px 24px' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap', justifyContent: 'center' }}>
             <div className="eyebrow" style={{ color: '#aaa', marginBottom: 0, flexShrink: 0 }}>Trusted By</div>
-            {['AUC', 'Nestlé Egypt', 'Maggi', 'Norwegian Embassy', 'ILO', 'Prime Holding', 'Sea Queen Fleet'].map(c => (
+            {['AUC', 'Nestle Egypt', 'Maggi', 'Norwegian Embassy', 'ILO', 'Prime Holding', 'Sea Queen Fleet'].map(c => (
               <div key={c} style={{ fontSize: 13, fontWeight: 500, color: '#666', letterSpacing: '0.04em' }}>{c}</div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
       <section className="section" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="section-header">
@@ -113,7 +110,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── APPROACH ── */}
       <section className="section" style={{ background: 'var(--forest)' }}>
         <div className="container">
           <div className="section-header" style={{ color: '#fff' }}>
@@ -132,7 +128,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CHEFS ── */}
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
           <div className="section-header">
@@ -142,12 +137,13 @@ export default function Home() {
           </div>
           <div className="grid-5">
             {chefs.map(c => (
-              <div key={c.name} className="card" style={{ padding: '24px 20px', textAlign: 'center' }}>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'linear-gradient(135deg, var(--teal-light), var(--teal-mid))', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px', fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 500, color: 'var(--teal)' }}>{c.initials}</div>
-                <div style={{ fontSize: 14, fontWeight: 500, color: 'var(--forest)', marginBottom: 4 }}>{c.name}</div>
-                <div style={{ fontSize: 11, color: 'var(--amber)', letterSpacing: '0.1em', marginBottom: 10, textTransform: 'uppercase' }}>{c.country}</div>
-                <div style={{ fontSize: 12, color: '#777', lineHeight: 1.6, fontWeight: 300 }}>{c.bio}</div>
-              </div>
+              <a key={c.slug} href={'/chefs/' + c.slug} style={{ textDecoration: 'none', textAlign: 'center', display: 'block' }}>
+                <div style={{ width: 80, height: 80, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 10px', border: '2px solid var(--border)' }}>
+                  <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--forest)', marginBottom: 2 }}>{c.name}</div>
+                <div style={{ fontSize: 10, color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>{c.country}</div>
+              </a>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 40 }}>
@@ -156,7 +152,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CLIENTS ── */}
       <section className="section" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="section-header">
@@ -174,7 +169,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── COMMUNITY ── */}
       <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }}>
@@ -187,7 +181,7 @@ export default function Home() {
               </p>
               <div style={{ display: 'flex', gap: 12 }}>
                 {subDone ? (
-                  <div style={{ fontSize: 14, color: 'var(--teal)', fontWeight: 500 }}>✓ You're on the list!</div>
+                  <div style={{ fontSize: 14, color: 'var(--teal)', fontWeight: 500 }}>You are on the list!</div>
                 ) : (
                   <>
                     <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" style={{ flex: 1, padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)' }} />
@@ -216,7 +210,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
       <section id="contact" className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
@@ -225,12 +218,12 @@ export default function Home() {
               <h2>Let's Create Something <em style={{ color: 'var(--teal)' }}>Extraordinary</em></h2>
               <div className="divider" />
               <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 32 }}>
-                Available for consulting engagements across Egypt and the region. Whether you're launching a new concept or transforming an existing operation, we're ready to partner with you.
+                Available for consulting engagements across Egypt and the region. Whether you are launching a new concept or transforming an existing operation, we are ready to partner with you.
               </p>
               <div style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2 }}>
-                <div>📍 Cairo, Egypt</div>
-                <div>✉️ <a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal)' }}>kitchenthreecairo@gmail.com</a></div>
-                <div>🌐 <a href="https://www.kitchenthree.co" style={{ color: 'var(--teal)' }}>www.kitchenthree.co</a></div>
+                <div>Cairo, Egypt</div>
+                <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal)' }}>kitchenthreecairo@gmail.com</a></div>
+                <div><a href="https://www.kitchenthree.co" style={{ color: 'var(--teal)' }}>www.kitchenthree.co</a></div>
               </div>
             </div>
             <div className="card" style={{ padding: 36 }}>
@@ -238,7 +231,7 @@ export default function Home() {
                 <div style={{ textAlign: 'center', padding: '40px 0' }}>
                   <div style={{ fontSize: 40, marginBottom: 16 }}>✓</div>
                   <div style={{ fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--teal)', marginBottom: 8 }}>Message Sent</div>
-                  <div style={{ fontSize: 14, color: 'var(--muted)' }}>We'll be in touch within 24 hours.</div>
+                  <div style={{ fontSize: 14, color: 'var(--muted)' }}>We will be in touch within 24 hours.</div>
                 </div>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -251,12 +244,12 @@ export default function Home() {
                     style={{ padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%', resize: 'vertical' }} />
                   <button className="btn btn-primary" style={{ width: '100%', padding: '14px' }}
                     onClick={() => { if (form.name && form.email && form.message) {
-        fetch('https://formspree.io/f/xojkprga', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({name: form.name, email: form.email, company: form.company, message: form.message})
-        }).then(() => setSent(true)).catch(() => setSent(true))
-      } }}>
+                      fetch('https://formspree.io/f/xojkprga', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({name: form.name, email: form.email, company: form.company, message: form.message})
+                      }).then(() => setSent(true)).catch(() => setSent(true))
+                    }}}>
                     Send Message
                   </button>
                 </div>
