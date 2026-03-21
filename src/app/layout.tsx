@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: { default: 'Kitchen Three | B2B Culinary Consultancy — Cairo, Egypt', template: '%s | Kitchen Three' },
   description: "Egypt's leading B2B culinary consultancy. Chef matchmaking, food business consulting, HACCP-certified kitchen solutions, menu design, and culinary training — serving HORECA, corporates, and F&B brands since 2013.",
   keywords: ['culinary consultancy Egypt', 'B2B food consultant Cairo', 'chef matchmaking Egypt', 'HACCP training Cairo', 'restaurant consulting Egypt', 'menu design Egypt', 'cloud kitchen Egypt', 'food brand development Egypt', 'HORECA consultant Cairo'],
+  icons: {
+    icon: '/images/logo.jpg',
+    apple: '/images/logo.jpg',
+  },
   openGraph: {
     title: 'Kitchen Three | B2B Culinary Consultancy — Cairo, Egypt',
     description: "Egypt's leading B2B culinary consultancy. Michelin-pedigreed chefs, HACCP-certified operations, and full-service food business consulting since 2013.",
