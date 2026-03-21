@@ -3,6 +3,22 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { chefs } from './chefsData'
 
+function ChefCard({ c }: { c: typeof chefs[0] }) {
+  return (
+    <a href={'/chefs/' + c.slug} style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff' }}>
+      <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
+        <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+      </div>
+      <div style={{ padding: '18px 20px 20px' }}>
+        <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>
+        <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
+        <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 14 }}>{c.title}</div>
+        <div style={{ fontSize: 12, color: c.color, fontWeight: 600 }}>View profile →</div>
+      </div>
+    </a>
+  )
+}
+
 export default function ChefsClient() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
@@ -25,19 +41,7 @@ export default function ChefsClient() {
       <section className="section">
         <div className="container">
           <div className="grid-4" style={{ gap: 24 }}>
-            {chefs.map(function(c) { return (
-              <a key={c.slug} href={'/chefs/' + c.slug} style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff', transition: 'all 0.25s' }}>
-                <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
-                  <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
-                </div>
-                <div style={{ padding: '18px 20px 20px' }}>
-                  <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
-                  <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 14 }}>{c.title}</div>
-                  <div style={{ fontSize: 12, color: c.color, fontWeight: 600, letterSpacing: '0.04em' }}>View profile →</div>
-                </div>
-              </a>
-            )})}
+            {chefs.map(c => <ChefCard key={c.slug} c={c} />)}
           </div>
         </div>
       </section>
