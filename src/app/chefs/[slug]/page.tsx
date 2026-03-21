@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import { chefs } from "../chefsData"
 import ChefProfileClient from "./ChefProfileClient"
 export function generateStaticParams() { return chefs.map(c => ({ slug: c.slug })) }
-export default async function ChefPage({ params }) {
+export default async function ChefPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const chef = chefs.find(c => c.slug === slug)
   if (!chef) notFound()
