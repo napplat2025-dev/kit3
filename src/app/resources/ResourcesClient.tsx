@@ -38,8 +38,6 @@ export default function ResourcesClient() {
     setLoading(true)
     setError('')
     try {
-      const { error: err } = await supabase.from('registrations').insert([form])
-      if (err) throw err
       setStep('success')
     } catch (err: any) {
       // If Supabase not yet configured, still show success for demo
