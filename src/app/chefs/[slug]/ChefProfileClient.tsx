@@ -33,13 +33,13 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <a href="/" style={{ fontSize: 11, color: '#a8d8d2', letterSpacing: '0.08em', textDecoration: 'none', textTransform: 'uppercase' }}>Home</a>
-            <span style={{ color: '#a8d8d2' }}></span>
+            <span style={{ color: '#a8d8d2' }}>›</span>
             <a href="/chefs" style={{ fontSize: 11, color: '#a8d8d2', letterSpacing: '0.08em', textDecoration: 'none', textTransform: 'uppercase' }}>Our Chefs</a>
-            <span style={{ color: '#a8d8d2' }}></span>
+            <span style={{ color: '#a8d8d2' }}>›</span>
             <span style={{ fontSize: 11, color: 'var(--amber)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{chef.name}</span>
           </div>
           <a href="/chefs" style={{ fontSize: 12, color: '#d4efeb', textDecoration: 'none', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 6, border: '1px solid rgba(168,216,210,0.3)', padding: '6px 14px', borderRadius: 2 }}>
-            ? Back to all chefs
+            ← Back to all chefs
           </a>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 56, alignItems: 'end' }} className="chef-hero-grid">
             <div style={{ width: '100%', aspectRatio: '3/4', borderRadius: 4, overflow: 'hidden', border: '3px solid ' + chef.color }}>
-              <img src={chef.photo} alt={chef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              <img loading="lazy" src={chef.photo} alt={chef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
             </div>
             <div style={{ paddingBottom: 8 }}>
               <div className="eyebrow" style={{ color: 'var(--amber)', marginBottom: 12 }}>{chef.country}</div>
@@ -64,7 +64,7 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
               </div>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a href="/#contact" className="btn btn-primary">Enquire About This Chef</a>
-                <a href="/chefs" className="btn btn-white" style={{ fontSize: 12 }}>? View All Chefs</a>
+                <a href="/chefs" className="btn btn-white" style={{ fontSize: 12 }}>← View All Chefs</a>
               </div>
             </div>
           </div>
@@ -105,14 +105,14 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
           <div className="section-header">
             <div className="eyebrow" style={{ color: chef.color }}>Signature Dishes</div>
             <h2>{chef.name.split(' ')[0]}'s <em style={{ color: chef.color }}>Culinary Creations</em></h2>
-            <p>Signature dishes and creations coming soon. Contact us to request a full portfolio.</p>
+            <p>Signature dishes and creations coming soon. Contact us to request a full portfolio from {chef.name.split(' ')[0]}.</p>
           </div>
           <div className="grid-3" style={{ gap: 24 }}>
             {[1, 2, 3].map(i => (
               <div key={i} style={{ background: '#fff', borderRadius: 4, border: '1px solid var(--border)', overflow: 'hidden' }}>
                 <div style={{ height: 200, background: chef.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: 32, marginBottom: 8 }}>??</div>
+                    <div style={{ fontSize: 32, marginBottom: 8 }}>🍽</div>
                     <div style={{ fontSize: 12, color: chef.color, fontWeight: 600 }}>Photo coming soon</div>
                   </div>
                 </div>
@@ -132,10 +132,10 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
             {prevChef ? (
               <a href={'/chefs/' + prevChef.slug} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)', transition: 'all 0.2s' }}>
                 <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid ' + prevChef.color }}>
-                  <img src={prevChef.photo} alt={prevChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                  <img loading="lazy" src={prevChef.photo} alt={prevChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>? Previous Chef</div>
+                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>← Previous Chef</div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{prevChef.name}</div>
                   <div style={{ fontSize: 11, color: 'var(--muted)' }}>{prevChef.country}</div>
                 </div>
@@ -144,12 +144,12 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
             {nextChef ? (
               <a href={'/chefs/' + nextChef.slug} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)', transition: 'all 0.2s' }}>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>Next Chef ?</div>
+                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>Next Chef →</div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{nextChef.name}</div>
                   <div style={{ fontSize: 11, color: 'var(--muted)' }}>{nextChef.country}</div>
                 </div>
                 <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid ' + nextChef.color }}>
-                  <img src={nextChef.photo} alt={nextChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                  <img loading="lazy" src={nextChef.photo} alt={nextChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
               </a>
             ) : <div />}
@@ -169,4 +169,4 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
       `}</style>
     </div>
   )
-}
+}
