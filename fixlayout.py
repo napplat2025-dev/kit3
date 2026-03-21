@@ -1,0 +1,8 @@
+f = open("src/app/layout.tsx", "r", encoding="utf-8", errors="ignore")
+c = f.read()
+f.close()
+c = c.replace("import { WhatsAppButton } from \"@/components/Nav\"", "import { WhatsAppButton } from \"@/components/WhatsApp\"")
+if "WhatsApp" not in c: c = c.replace("import \"./globals.css\"", "import \"./globals.css\"\nimport { WhatsAppButton } from \"@/components/WhatsApp\"")
+if "<WhatsAppButton />" not in c: c = c.replace("<body>{children}</body>", "<body>{children}<WhatsAppButton /></body>")
+open("src/app/layout.tsx", "w", encoding="utf-8", newline="\n").write(c)
+print("done")
