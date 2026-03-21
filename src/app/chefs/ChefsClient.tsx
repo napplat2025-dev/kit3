@@ -30,21 +30,19 @@ export default function ChefsClient() {
         <div className="container">
           <div className="grid-4" style={{ gap: 24 }}>
             {chefs.map(c => (
-              <a
+              
                 key={c.slug}
                 href={`/chefs/${c.slug}`}
                 style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff', transition: 'all 0.25s' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 32px rgba(0,0,0,0.1)'; (e.currentTarget as HTMLElement).style.borderColor = c.color }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}
               >
-                {/* Photo */}
                 <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
-                  <img src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', transition: 'transform 0.4s ease' }}
+                  <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', transition: 'transform 0.4s ease' }}
                     onMouseEnter={e => (e.currentTarget as HTMLElement).style.transform = 'scale(1.04)'}
                     onMouseLeave={e => (e.currentTarget as HTMLElement).style.transform = 'none'}
                   />
                 </div>
-                {/* Info */}
                 <div style={{ padding: '18px 20px 20px' }}>
                   <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>
                   <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
