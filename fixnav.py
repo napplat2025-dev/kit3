@@ -1,0 +1,5 @@
+content = open("src/components/Nav.tsx", "r", encoding="utf-8", errors="ignore").read()
+idx = content.find("export function WhatsAppButton")
+if idx != -1: content = content[:idx].rstrip()
+open("src/components/Nav.tsx", "w", encoding="utf-8", newline="\n").write(content + "\n")
+print("stripped")
