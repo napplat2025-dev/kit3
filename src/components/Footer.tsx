@@ -9,7 +9,7 @@ export default function Footer() {
             <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.</p>
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
               <div>Cairo, Egypt</div>
-              <div><a href="mailto:info@kitchenthree.co" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>info@kitchenthree.co</a></div>
+              <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kitchenthreecairo@gmail.com</a></div>
             </div>
           </div>
           <div>
