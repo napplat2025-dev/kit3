@@ -1,0 +1,6 @@
+f = open("src/app/layout.tsx", "r", encoding="utf-8", errors="ignore")
+c = f.read()
+f.close()
+print("HAS IMPORT:", "WhatsAppButton" in c)
+print("HAS BODY TAG:", "<body>" in c)
+print(c[:200])
