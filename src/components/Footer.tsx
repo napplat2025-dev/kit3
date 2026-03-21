@@ -19,7 +19,7 @@ export default function Footer() {
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                   </svg>
                 </a>
-                <a href="https://www.linkedin.com/company/kitchen-three/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/company/kitchenthree/" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.2)'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'; (e.currentTarget as HTMLElement).style.color = '#7ab8b0'; }}>
