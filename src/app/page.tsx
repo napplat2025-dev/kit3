@@ -250,7 +250,13 @@ export default function Home() {
                   <textarea placeholder="Tell us about your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={4}
                     style={{ padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%', resize: 'vertical' }} />
                   <button className="btn btn-primary" style={{ width: '100%', padding: '14px' }}
-                    onClick={() => { if (form.name && form.email && form.message) setSent(true) }}>
+                    onClick={() => { if (form.name && form.email && form.message) {
+        fetch('https://formspree.io/f/xojkprga', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({name: form.name, email: form.email, company: form.company, message: form.message})
+        }).then(() => setSent(true)).catch(() => setSent(true))
+      } }}>
                     Send Message
                   </button>
                 </div>
