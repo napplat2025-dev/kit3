@@ -1,53 +1,114 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { WhatsAppButton } from '@/components/WhatsApp'
 
 export const metadata: Metadata = {
-  title: { default: 'Kitchen Three | B2B Culinary Consultancy — Cairo, Egypt', template: '%s | Kitchen Three' },
-  description: "Egypt's leading B2B culinary consultancy. Chef matchmaking, food business consulting, HACCP-certified kitchen solutions, menu design, and culinary training — serving HORECA, corporates, and F&B brands since 2013.",
-  keywords: ['culinary consultancy Egypt', 'B2B food consultant Cairo', 'chef matchmaking Egypt', 'HACCP training Cairo', 'restaurant consulting Egypt', 'menu design Egypt', 'cloud kitchen Egypt', 'food brand development Egypt', 'HORECA consultant Cairo'],
-  icons: {
-    icon: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
-  },
+  title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+  description: 'Egypt\'s leading B2B culinary consultancy. Michelin-trained chefs, HACCP-certified operations, menu engineering, cloud kitchen services, and F&B brand development. Est. Cairo 2013.',
+  keywords: 'culinary consultancy Egypt, F&B consultant Cairo, Michelin chef hire Egypt, cloud kitchen Egypt, menu engineering Cairo, food brand development Egypt, HACCP certified kitchen Egypt',
+  metadataBase: new URL('https://www.kitchenthree.co'),
+  alternates: { canonical: 'https://www.kitchenthree.co' },
   openGraph: {
-    title: 'Kitchen Three | B2B Culinary Consultancy — Cairo, Egypt',
-    description: "Egypt's leading B2B culinary consultancy. Michelin-pedigreed chefs, HACCP-certified operations, and full-service food business consulting since 2013.",
+    title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+    description: 'Egypt\'s leading B2B culinary consultancy since 2013. World-class chefs, HACCP-certified operations, and end-to-end F&B solutions.',
     url: 'https://www.kitchenthree.co',
     siteName: 'Kitchen Three',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: '/images/logo.jpg', width: 800, height: 600, alt: 'Kitchen Three — B2B Culinary Consultancy Cairo Egypt' }],
   },
-  robots: { index: true, follow: true },
-  alternates: { canonical: 'https://www.kitchenthree.co' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+    description: 'Egypt\'s leading B2B culinary consultancy since 2013.',
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
 }
 
-const schema = {
+const schemaOrg = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Kitchen Three',
-  description: "Egypt's leading B2B culinary consultancy offering chef matchmaking, food business consulting, menu design, culinary training, and HACCP-certified kitchen solutions.",
-  url: 'https://www.kitchenthree.co',
-  logo: 'https://www.kitchenthree.co/images/logo.jpg',
-  foundingDate: '2013',
-  address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' },
-  areaServed: ['Egypt', 'MENA'],
-  serviceType: ['Culinary Consulting', 'Chef Matchmaking', 'Menu Design', 'HACCP Training', 'Cloud Kitchen Services', 'Food Brand Development'],
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.kitchenthree.co/#organization',
+      name: 'Kitchen Three',
+      alternateName: 'Kitchen 3',
+      url: 'https://www.kitchenthree.co',
+      logo: { '@type': 'ImageObject', url: 'https://www.kitchenthree.co/images/logo.jpg' },
+      description: 'Egypt\'s leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.',
+      foundingDate: '2013',
+      foundingLocation: 'Cairo, Egypt',
+      areaServed: ['Egypt', 'Middle East', 'North Africa'],
+      email: 'info@kitchenthree.co',
+      sameAs: [
+        'https://www.facebook.com/kitchenthree',
+        'https://www.linkedin.com/company/kitchenthree',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Cairo',
+        addressCountry: 'EG',
+      },
+      knowsAbout: [
+        'Culinary Consulting',
+        'Chef Matchmaking',
+        'HACCP Certification',
+        'Cloud Kitchen Operations',
+        'Menu Engineering',
+        'Food Brand Development',
+        'F&B Training',
+        'Restaurant Technology',
+      ],
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': 'https://www.kitchenthree.co/#localbusiness',
+      name: 'Kitchen Three',
+      url: 'https://www.kitchenthree.co',
+      image: 'https://www.kitchenthree.co/images/logo.jpg',
+      description: 'B2B culinary consultancy offering chef matchmaking, menu engineering, cloud kitchen services, and F&B brand development in Egypt.',
+      priceRange: '$$$$',
+      servesCuisine: 'Culinary Consulting',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Cairo',
+        addressCountry: 'EG',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 30.0444,
+        longitude: 31.2357,
+      },
+      openingHours: 'Mo-Fr 09:00-18:00',
+      sameAs: [
+        'https://www.facebook.com/kitchenthree',
+        'https://www.linkedin.com/company/kitchenthree',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.kitchenthree.co/#website',
+      url: 'https://www.kitchenthree.co',
+      name: 'Kitchen Three',
+      publisher: { '@id': 'https://www.kitchenthree.co/#organization' },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: 'https://www.kitchenthree.co/?s={search_term_string}',
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
       </head>
-      <body>
-        {children}
-        <WhatsAppButton />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
