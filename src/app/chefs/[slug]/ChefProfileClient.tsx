@@ -7,7 +7,6 @@ export default function ChefsClient() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
       <Nav />
-
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>
         <div className="container">
           <div style={{ marginBottom: 20 }}>
@@ -23,18 +22,11 @@ export default function ChefsClient() {
           </p>
         </div>
       </section>
-
       <section className="section">
         <div className="container">
           <div className="grid-4" style={{ gap: 24 }}>
-            {chefs.map(c => (
-              
-                key={c.slug}
-                href={'/chefs/' + c.slug}
-                style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff', transition: 'all 0.25s' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 32px rgba(0,0,0,0.1)'; (e.currentTarget as HTMLElement).style.borderColor = c.color }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = 'none'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}
-              >
+            {chefs.map(function(c) { return (
+              <a key={c.slug} href={'/chefs/' + c.slug} style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff', transition: 'all 0.25s' }}>
                 <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
                   <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
@@ -42,16 +34,13 @@ export default function ChefsClient() {
                   <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>
                   <div style={{ fontSize: 16, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
                   <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.6, marginBottom: 14 }}>{c.title}</div>
-                  <div style={{ fontSize: 12, color: c.color, fontWeight: 600, letterSpacing: '0.04em', display: 'flex', alignItems: 'center', gap: 4 }}>
-                    View profile <span style={{ fontSize: 14 }}>→</span>
-                  </div>
+                  <div style={{ fontSize: 12, color: c.color, fontWeight: 600, letterSpacing: '0.04em' }}>View profile →</div>
                 </div>
               </a>
-            ))}
+            )})}
           </div>
         </div>
       </section>
-
       <section style={{ background: 'var(--forest)', padding: '72px 0', textAlign: 'center' }}>
         <div className="container">
           <div style={{ maxWidth: 560, margin: '0 auto' }}>
@@ -65,7 +54,6 @@ export default function ChefsClient() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   )
