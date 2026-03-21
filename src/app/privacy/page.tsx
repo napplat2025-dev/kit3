@@ -1,12 +1,6 @@
+'use client'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Kitchen Three',
-  description: 'Privacy Policy for Kitchen Three — Egypt\'s leading B2B culinary consultancy. How we collect, use, and protect your personal data.',
-  robots: { index: true, follow: true },
-}
 
 export default function PrivacyPolicy() {
   return (
@@ -42,7 +36,7 @@ export default function PrivacyPolicy() {
               },
               {
                 title: '4. Legal Basis for Processing',
-                body: 'We process your data on the basis of your consent (when you submit a form or subscribe) and our legitimate interest in responding to business enquiries. This is consistent with Egypt\'s Personal Data Protection Law No. 151 of 2020.',
+                body: "We process your data on the basis of your consent (when you submit a form or subscribe) and our legitimate interest in responding to business enquiries. This is consistent with Egypt's Personal Data Protection Law No. 151 of 2020.",
               },
               {
                 title: '5. Data Storage & Security',
