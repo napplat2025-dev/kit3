@@ -57,7 +57,12 @@ export default function Footer() {
         </div>
         <div style={{ borderTop: '1px solid rgba(168,216,210,0.15)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ fontSize: 12, color: '#4a8a80' }}>© 2026 Kitchen Three LLC — Cairo, Egypt. All rights reserved.</div>
-          <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#4a8a80', textTransform: 'uppercase' }}>B2B Culinary Consultancy · Est. 2013</div>
+          <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="/privacy" style={{ fontSize: 11, color: '#4a8a80', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a8a80'}>Privacy Policy</a>
+            <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#4a8a80', textTransform: 'uppercase' }}>B2B Culinary Consultancy · Est. 2013</div>
+          </div>
         </div>
       </div>
     </footer>
