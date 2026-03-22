@@ -1,10 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { client } from '@/sanity/lib/client'
-import { ARTICLE_QUERY } from '@/sanity/lib/queries'
 
 const colorMap: Record<string, { color: string; bg: string }> = {
   teal:   { color: 'var(--teal)',   bg: 'var(--teal-light)' },
@@ -57,7 +55,7 @@ function renderBody(body: Block[]) {
     listBuffer = []
   }
 
-  body.forEach((block, i) => {
+  body.forEach((block) => {
     if (block._type === 'block') {
       if (block.listItem === 'bullet') {
         listBuffer.push(block)
@@ -116,18 +114,22 @@ function renderBody(body: Block[]) {
   return elements
 }
 
-export default function ArticlePage() {
-  const params = useParams()
-  const slug = params?.slug as string
+export default function ArticlePage({ params }: { params: { slug: string } }) {
+  const slug = params.slug
   const [article, setArticle] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (slug) {
-      client.fetch(ARTICLE_QUERY, { slug }).then((data: any) => {
+      client.fetch(
+        `*[_type == "article" && slug.current == $slug][0] {
+          _id, title, slug, category, excerpt, readTime, featured, publishedAt, body
+        }`,
+        { slug }
+      ).then((data: any) => {
         setArticle(data)
         setLoading(false)
-      })
+      }).catch(() => setLoading(false))
     }
   }, [slug])
 
@@ -158,14 +160,13 @@ export default function ArticlePage() {
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
       <Nav />
 
-      {/* Hero */}
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>
         <div className="container">
           <div style={{ maxWidth: 760 }}>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20, flexWrap: 'wrap' }}>
               <a href="/blog" style={{ fontSize: 11, color: '#7ab8b0', letterSpacing: '0.08em', textDecoration: 'none', textTransform: 'uppercase' }}>← Blog</a>
               <span style={{ color: '#7ab8b0' }}>›</span>
-              <span style={{ background: 'rgba(168,216,210,0.15)', color: color, padding: '4px 12px', borderRadius: 2, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>{article.category}</span>
+              <span style={{ background: 'rgba(168,216,210,0.15)', color, padding: '4px 12px', borderRadius: 2, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600 }}>{article.category}</span>
               <span style={{ fontSize: 12, color: '#7ab8b0' }}>{article.readTime}</span>
             </div>
             <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 400, color: '#ffffff', marginBottom: 20, lineHeight: 1.15 }}>
@@ -178,14 +179,12 @@ export default function ArticlePage() {
         </div>
       </section>
 
-      {/* Article body */}
       <section className="section">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 280px', gap: 56, alignItems: 'start' }} className="article-grid">
 
             <article>
               {renderBody(article.body)}
-
               <div style={{ marginTop: 24, padding: '16px 20px', background: '#fff', border: '1px solid var(--border)', borderRadius: 4 }}>
                 <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
                   This article is intended for educational purposes. For specific advice, consult directly with the relevant authorities or an accredited consultant.
@@ -193,14 +192,12 @@ export default function ArticlePage() {
               </div>
             </article>
 
-            {/* Sidebar */}
             <aside style={{ position: 'sticky', top: 24 }}>
               <div style={{ background: 'var(--teal-light)', border: '1px solid var(--teal-mid)', borderRadius: 4, padding: '20px', marginBottom: 16 }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--teal)', textTransform: 'uppercase', fontWeight: 600, marginBottom: 10 }}>Need Expert Help?</div>
                 <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300, marginBottom: 14 }}>Kitchen Three provides consulting, compliance support, and F&B strategy for businesses across Egypt.</p>
                 <a href="/#contact" className="btn btn-primary" style={{ display: 'block', textAlign: 'center', fontSize: 12, padding: '10px 16px' }}>Get In Touch</a>
               </div>
-
               <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 4, padding: '20px' }}>
                 <div style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--muted)', textTransform: 'uppercase', fontWeight: 600, marginBottom: 12 }}>About Kitchen Three</div>
                 <p style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300, marginBottom: 12 }}>Egypt's leading B2B culinary consultancy since 2013. HACCP certified, Codex Alimentarius compliant.</p>
@@ -212,7 +209,6 @@ export default function ArticlePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section style={{ background: 'var(--forest)', padding: '64px 0', textAlign: 'center' }}>
         <div className="container">
           <div style={{ maxWidth: 540, margin: '0 auto' }}>
