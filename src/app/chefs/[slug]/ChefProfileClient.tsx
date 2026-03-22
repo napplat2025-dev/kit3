@@ -1,6 +1,7 @@
 'use client'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import { useState } from 'react'
 
 type Chef = {
   slug: string
@@ -24,10 +25,14 @@ type Props = {
   allChefs: Chef[]
 }
 
-export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
+export default function ChefProfileClient({ chef, prevChef, nextChef, allChefs }: Props) {
+  const [activePhoto, setActivePhoto] = useState<string | null>(null)
+
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
       <Nav />
+
+      {/* BREADCRUMB */}
       <div style={{ background: 'var(--forest)', padding: '20px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -37,16 +42,23 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
             <span style={{ color: '#a8d8d2' }}>›</span>
             <span style={{ fontSize: 11, color: 'var(--amber)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{chef.name}</span>
           </div>
-          <a href="/chefs" style={{ fontSize: 12, color: '#d4efeb', textDecoration: 'none', fontWeight: 500, border: '1px solid rgba(168,216,210,0.3)', padding: '6px 14px', borderRadius: 2 }}>
-            Back to all chefs
+          <a href="/chefs" style={{ fontSize: 12, color: '#d4efeb', textDecoration: 'none', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 6, border: '1px solid rgba(168,216,210,0.3)', padding: '6px 14px', borderRadius: 2 }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
+          >
+            ← Back to all chefs
           </a>
         </div>
       </div>
-      <section style={{ background: 'var(--forest)', paddingBottom: 64, paddingTop: 40 }}>
+
+      {/* HERO */}
+      <section style={{ background: 'var(--forest)', paddingBottom: 64 }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 56, alignItems: 'end' }} className="chef-hero-grid">
-            <div style={{ width: '100%', aspectRatio: '3/4', borderRadius: 4, overflow: 'hidden', border: '3px solid ' + chef.color }}>
-              <img loading="lazy" src={chef.photo} alt={chef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          <div style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: 56, alignItems: 'end' }} className="chef-hero-grid">
+            <div style={{ position: 'relative' }}>
+              <div style={{ width: '100%', aspectRatio: '3/4', borderRadius: 4, overflow: 'hidden', border: `3px solid ${chef.color}` }}>
+                <img src={chef.photo} alt={chef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              </div>
             </div>
             <div style={{ paddingBottom: 8 }}>
               <div className="eyebrow" style={{ color: 'var(--amber)', marginBottom: 12 }}>{chef.country}</div>
@@ -62,15 +74,17 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
               </div>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                 <a href="/#contact" className="btn btn-primary">Enquire About This Chef</a>
-                <a href="/chefs" className="btn btn-white" style={{ fontSize: 12 }}>View All Chefs</a>
+                <a href="/chefs" className="btn btn-white" style={{ fontSize: 12 }}>← View All Chefs</a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* BIO */}
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', gap: 56 }} className="chef-bio-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: 56 }} className="chef-bio-grid">
             <div>
               <div className="eyebrow" style={{ color: chef.color }}>About</div>
               <h2 style={{ fontFamily: 'var(--serif)', marginBottom: 24 }}>The Story of <em style={{ color: chef.color }}>{chef.name.split(' ')[0]}</em></h2>
@@ -78,12 +92,12 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
               <div style={{ marginBottom: 16, fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--forest)' }}>Specialties</div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                 {chef.specialties.map(sp => (
-                  <span key={sp} style={{ background: chef.bg, color: chef.color, fontSize: 13, padding: '7px 16px', borderRadius: 2, fontWeight: 600, border: '1px solid ' + chef.color + '33' }}>{sp}</span>
+                  <span key={sp} style={{ background: chef.bg, color: chef.color, fontSize: 13, padding: '7px 16px', borderRadius: 2, fontWeight: 600, border: `1px solid ${chef.color}33` }}>{sp}</span>
                 ))}
               </div>
             </div>
             <div style={{ alignSelf: 'start' }}>
-              <div style={{ background: chef.bg, borderRadius: 4, padding: 28, borderLeft: '4px solid ' + chef.color, marginBottom: 20 }}>
+              <div style={{ background: chef.bg, borderRadius: 4, padding: 28, borderLeft: `4px solid ${chef.color}`, marginBottom: 20 }}>
                 <div style={{ fontSize: 11, color: chef.color, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 10 }}>Available For</div>
                 <div style={{ fontSize: 15, color: 'var(--forest)', lineHeight: 1.8 }}>{chef.available}</div>
               </div>
@@ -96,53 +110,79 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
           </div>
         </div>
       </section>
-      <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
-        <div className="container">
-          <div className="section-header">
-            <div className="eyebrow" style={{ color: chef.color }}>Signature Dishes</div>
-            <h2>{chef.name.split(' ')[0]}'s <em style={{ color: chef.color }}>Culinary Creations</em></h2>
-            <p>Signature dishes coming soon. Contact us to request a full portfolio.</p>
-          </div>
-          <div className="grid-3" style={{ gap: 24 }}>
-            {[1, 2, 3].map(i => (
-              <div key={i} style={{ background: '#fff', borderRadius: 4, border: '1px solid var(--border)', overflow: 'hidden' }}>
-                <div style={{ height: 200, background: chef.bg, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: 32, marginBottom: 8 }}>🍽</div>
-                    <div style={{ fontSize: 12, color: chef.color, fontWeight: 600 }}>Photo coming soon</div>
-                  </div>
+
+      {/* SIGNATURE DISHES */}
+      {chef.signatures && chef.signatures.length > 0 && (
+        <section className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
+          <div className="container">
+            <div className="section-header">
+              <div className="eyebrow" style={{ color: chef.color }}>Signature Dishes</div>
+              <h2>{chef.name.split(' ')[0]}'s <em style={{ color: chef.color }}>Culinary Creations</em></h2>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 12 }}>
+              {chef.signatures.map((src, i) => (
+                <div key={i} onClick={() => setActivePhoto(src)}
+                  style={{ borderRadius: 4, overflow: 'hidden', cursor: 'pointer', border: `1px solid ${chef.color}22`, aspectRatio: '4/3', position: 'relative' }}
+                  onMouseEnter={e => (e.currentTarget as HTMLElement).style.border = `1px solid ${chef.color}`}
+                  onMouseLeave={e => (e.currentTarget as HTMLElement).style.border = `1px solid ${chef.color}22`}
+                >
+                  <img
+                    src={src}
+                    alt={`${chef.name} signature dish ${i + 1}`}
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.3s' }}
+                    onMouseEnter={e => (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.04)'}
+                    onMouseLeave={e => (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'}
+                  />
                 </div>
-                <div style={{ padding: '16px 20px' }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)', marginBottom: 4 }}>Signature dish {i}</div>
-                  <div style={{ fontSize: 12, color: 'var(--muted)' }}>Details to be added</div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+
+          {/* LIGHTBOX */}
+          {activePhoto && (
+            <div onClick={() => setActivePhoto(null)}
+              style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.92)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              <img src={activePhoto} alt="Signature dish"
+                style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain', borderRadius: 4, boxShadow: '0 0 60px rgba(0,0,0,0.5)' }} />
+              <div style={{ position: 'absolute', top: 24, right: 32, color: '#fff', fontSize: 32, cursor: 'pointer', lineHeight: 1 }}>×</div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* PREV / NEXT */}
       <section style={{ background: '#fff', borderTop: '1px solid var(--border)', padding: '40px 0' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
             {prevChef ? (
-              <a href={'/chefs/' + prevChef.slug} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)' }}>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid ' + prevChef.color }}>
-                  <img loading="lazy" src={prevChef.photo} alt={prevChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+              <a href={`/chefs/${prevChef.slug}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)', transition: 'all 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = prevChef.color; (e.currentTarget as HTMLElement).style.background = '#fff' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.background = 'var(--cream)' }}
+              >
+                <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: `2px solid ${prevChef.color}` }}>
+                  <img src={prevChef.photo} alt={prevChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
                 <div>
-                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>Previous Chef</div>
+                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>← Previous Chef</div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{prevChef.name}</div>
+                  <div style={{ fontSize: 11, color: 'var(--muted)' }}>{prevChef.country}</div>
                 </div>
               </a>
             ) : <div />}
+
             {nextChef ? (
-              <a href={'/chefs/' + nextChef.slug} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)' }}>
+              <a href={`/chefs/${nextChef.slug}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16, padding: '20px 24px', border: '1px solid var(--border)', borderRadius: 4, background: 'var(--cream)', transition: 'all 0.2s', textAlign: 'right' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = nextChef.color; (e.currentTarget as HTMLElement).style.background = '#fff' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLElement).style.background = 'var(--cream)' }}
+              >
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>Next Chef</div>
+                  <div style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>Next Chef →</div>
                   <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{nextChef.name}</div>
+                  <div style={{ fontSize: 11, color: 'var(--muted)' }}>{nextChef.country}</div>
                 </div>
-                <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid ' + nextChef.color }}>
-                  <img loading="lazy" src={nextChef.photo} alt={nextChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                <div style={{ width: 52, height: 52, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: `2px solid ${nextChef.color}` }}>
+                  <img src={nextChef.photo} alt={nextChef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
               </a>
             ) : <div />}
@@ -152,6 +192,7 @@ export default function ChefProfileClient({ chef, prevChef, nextChef }: Props) {
           </div>
         </div>
       </section>
+
       <Footer />
       <style>{`
         @media (max-width: 768px) {
