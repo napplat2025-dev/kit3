@@ -1,28 +1,65 @@
 'use client'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { client } from '@/sanity/lib/client'
+import { ARTICLES_QUERY } from '@/sanity/lib/queries'
 
-const articles = [
-  { slug: 'how-to-start-cloud-kitchen-egypt', category: 'Startup Guide', title: 'How to Start a Cloud Kitchen in Egypt: The Complete 2025 Guide', excerpt: 'Cloud kitchens are the fastest-growing segment in Egypt F&B market. This guide covers everything — licensing, equipment, delivery platform integration, and the financial model that makes cloud kitchens work.', readTime: '8 min read', date: 'March 2025', color: 'var(--teal)', bg: 'var(--teal-light)', featured: true },
-  { slug: 'haccp-requirements-egypt-small-business', category: 'Compliance', title: 'HACCP Requirements for Small Food Businesses in Egypt', excerpt: 'A plain-language breakdown of HACCP compliance requirements for restaurants, catering operations, and food brands in Egypt — what you actually need, what you can skip, and how to get certified.', readTime: '8 min read', date: 'February 2025', color: 'var(--amber)', bg: 'var(--amber-light)', featured: true },
-  { slug: 'menu-engineering-egypt-restaurants', category: 'Operations', title: 'Menu Engineering: How Egypt Top Restaurants Price and Position Dishes', excerpt: 'Menu engineering is the science of making your menu work harder. We break down the psychology, math, and design principles behind high-performing restaurant menus.', readTime: '7 min read', date: 'January 2025', color: 'var(--coral)', bg: 'var(--coral-light)', featured: true },
-  { slug: 'food-brand-development-egypt', category: 'Branding', title: 'How to Build a Food Brand in Egypt: From Name to Launch', excerpt: 'Egypt food market is growing fast — and getting crowded. Here is how to build a food brand that stands out, from the name and visual identity through to your go-to-market strategy.', readTime: '9 min read', date: 'December 2024', color: 'var(--teal)', bg: 'var(--teal-light)', featured: false },
-  { slug: 'culinary-consultant-what-do-they-do', category: 'Industry', title: 'What Does a Culinary Consultant Actually Do? A Complete Guide', excerpt: 'The term culinary consultant covers a wide range of expertise. This guide explains the different types of culinary consulting engagements, what to expect, and how to choose the right consultant.', readTime: '5 min read', date: 'November 2024', color: 'var(--amber)', bg: 'var(--amber-light)', featured: false },
-  { slug: 'michelin-star-chef-hire-egypt', category: 'Chef Matchmaking', title: 'How to Hire a Michelin-Star Chef for Your Event or Restaurant in Egypt', excerpt: 'Access to world-class culinary talent is no longer limited to five-star hotels. Here is how the chef matchmaking process works — and what to look for when hiring a Michelin-pedigreed chef.', readTime: '5 min read', date: 'October 2024', color: 'var(--coral)', bg: 'var(--coral-light)', featured: false },
-  { slug: 'egypt-fb-market-trends-2025', category: 'Industry', title: "Egypt F&B Market in 2025: Trends, Opportunities, and What's Next", excerpt: 'A data-driven look at Egypt food and beverage industry — the segments growing fastest, the consumer trends reshaping menus, and where the opportunities lie.', readTime: '10 min read', date: 'September 2024', color: 'var(--teal)', bg: 'var(--teal-light)', featured: false },
-  { slug: 'zero-waste-kitchen-egypt', category: 'Sustainability', title: 'Zero-Waste Kitchen Operations: A Practical Guide for Egypt Restaurants', excerpt: 'Zero-waste kitchens reduce costs and environmental impact. This practical guide shows how Egyptian restaurants and food businesses can implement zero-waste principles.', readTime: '6 min read', date: 'August 2024', color: 'var(--amber)', bg: 'var(--amber-light)', featured: false },
-]
+const categoryColors: Record<string, { color: string; bg: string }> = {
+  'Startup Guide': { color: 'var(--teal)', bg: 'var(--teal-light)' },
+  'Compliance': { color: 'var(--amber)', bg: 'var(--amber-light)' },
+  'Operations': { color: 'var(--coral)', bg: 'var(--coral-light)' },
+  'Branding': { color: 'var(--teal)', bg: 'var(--teal-light)' },
+  'Industry': { color: 'var(--amber)', bg: 'var(--amber-light)' },
+  'Chef Matchmaking': { color: 'var(--coral)', bg: 'var(--coral-light)' },
+  'Sustainability': { color: 'var(--teal)', bg: 'var(--teal-light)' },
+}
 
 const categories = ['All', 'Startup Guide', 'Compliance', 'Operations', 'Branding', 'Industry', 'Chef Matchmaking', 'Sustainability']
 
-// Articles that have a full page built
-const liveArticles = ['haccp-requirements-egypt-small-business']
+type Article = {
+  _id: string
+  title: string
+  slug: { current: string }
+  category: string
+  excerpt: string
+  readTime: string
+  featured: boolean
+  publishedAt: string
+}
 
 export default function BlogClient() {
   const [cat, setCat] = useState('All')
+  const [articles, setArticles] = useState<Article[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    client.fetch(ARTICLES_QUERY).then((data: Article[]) => {
+      setArticles(data)
+      setLoading(false)
+    })
+  }, [])
+
   const filtered = cat === 'All' ? articles : articles.filter(a => a.category === cat)
   const featured = articles.filter(a => a.featured)
+
+  const getColor = (category: string) => categoryColors[category]?.color || 'var(--teal)'
+  const getBg = (category: string) => categoryColors[category]?.bg || 'var(--teal-light)'
+
+  const formatDate = (dateStr: string) => {
+    if (!dateStr) return ''
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+  }
+
+  if (loading) return (
+    <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+      <Nav />
+      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ fontSize: 16, color: 'var(--muted)' }}>Loading articles...</div>
+      </div>
+      <Footer />
+    </div>
+  )
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
@@ -40,32 +77,26 @@ export default function BlogClient() {
         </div>
       </section>
 
-      {cat === 'All' && (
+      {cat === 'All' && featured.length > 0 && (
         <section className="section" style={{ paddingBottom: 0 }}>
           <div className="container">
             <div className="eyebrow" style={{ color: 'var(--muted)' }}>Featured Articles</div>
             <div className="featured-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16, marginBottom: 48 }}>
-              {featured.map((a, i) => {
-                const isLive = liveArticles.includes(a.slug)
-                const CardTag = isLive ? 'a' : 'div'
-                const cardProps = isLive ? { href: `/blog/${a.slug}` } : {}
-                return (
-                  <CardTag key={a.slug} {...cardProps}
-                    style={{ background: a.bg, borderRadius: 4, padding: i === 0 ? '36px 28px' : '24px 20px', border: '1px solid ' + a.color + '22', cursor: isLive ? 'pointer' : 'default', display: 'block', textDecoration: 'none' }}>
-                    <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 14, flexWrap: 'wrap' }}>
-                      <span style={{ background: '#fff', color: a.color, padding: '3px 10px', borderRadius: 2, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>{a.category}</span>
-                      <span style={{ fontSize: 11, color: 'var(--muted)' }}>{a.readTime}</span>
-                      {isLive && <span style={{ fontSize: 9, background: a.color, color: '#fff', padding: '2px 6px', borderRadius: 2, letterSpacing: '0.08em', fontWeight: 600 }}>READ NOW</span>}
-                    </div>
-                    <h2 style={{ fontFamily: 'var(--serif)', fontSize: i === 0 ? 24 : 18, fontWeight: 400, color: 'var(--forest)', marginBottom: 10, lineHeight: 1.3 }}>{a.title}</h2>
-                    {i === 0 && <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.8, fontWeight: 300, marginBottom: 16 }}>{a.excerpt}</p>}
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: 11, color: 'var(--muted)' }}>{a.date}</span>
-                      <span style={{ fontSize: 12, color: a.color, fontWeight: 600 }}>{isLive ? 'READ →' : 'COMING SOON'}</span>
-                    </div>
-                  </CardTag>
-                )
-              })}
+              {featured.slice(0, 3).map((a, i) => (
+                <a key={a._id} href={`/blog/${a.slug.current}`}
+                  style={{ background: getBg(a.category), borderRadius: 4, padding: i === 0 ? '36px 28px' : '24px 20px', border: '1px solid ' + getColor(a.category) + '22', cursor: 'pointer', display: 'block', textDecoration: 'none' }}>
+                  <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 14, flexWrap: 'wrap' }}>
+                    <span style={{ background: '#fff', color: getColor(a.category), padding: '3px 10px', borderRadius: 2, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>{a.category}</span>
+                    <span style={{ fontSize: 11, color: 'var(--muted)' }}>{a.readTime}</span>
+                  </div>
+                  <h2 style={{ fontFamily: 'var(--serif)', fontSize: i === 0 ? 24 : 18, fontWeight: 400, color: 'var(--forest)', marginBottom: 10, lineHeight: 1.3 }}>{a.title}</h2>
+                  {i === 0 && <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.8, fontWeight: 300, marginBottom: 16 }}>{a.excerpt}</p>}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: 11, color: 'var(--muted)' }}>{formatDate(a.publishedAt)}</span>
+                    <span style={{ fontSize: 12, color: getColor(a.category), fontWeight: 600 }}>READ →</span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -81,30 +112,32 @@ export default function BlogClient() {
               </button>
             ))}
           </div>
-          <div className="grid-3" style={{ gap: 16 }}>
-            {filtered.map(a => {
-              const isLive = liveArticles.includes(a.slug)
-              const CardTag = isLive ? 'a' : 'div'
-              const cardProps = isLive ? { href: `/blog/${a.slug}` } : {}
-              return (
-                <CardTag key={a.slug} {...cardProps}
-                  style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 4, padding: '24px 20px', cursor: isLive ? 'pointer' : 'default', position: 'relative', overflow: 'hidden', display: 'block', textDecoration: 'none' }}>
-                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 3, background: a.color }} />
+
+          {filtered.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 0', color: 'var(--muted)' }}>
+              <div style={{ fontSize: 16, marginBottom: 8 }}>No articles in this category yet.</div>
+              <div style={{ fontSize: 13 }}>Check back soon.</div>
+            </div>
+          ) : (
+            <div className="grid-3" style={{ gap: 16 }}>
+              {filtered.map(a => (
+                <a key={a._id} href={`/blog/${a.slug.current}`}
+                  style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 4, padding: '24px 20px', cursor: 'pointer', position: 'relative', overflow: 'hidden', display: 'block', textDecoration: 'none' }}>
+                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 3, background: getColor(a.category) }} />
                   <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, marginTop: 4, flexWrap: 'wrap' }}>
-                    <span style={{ background: a.bg, color: a.color, padding: '3px 10px', borderRadius: 2, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>{a.category}</span>
+                    <span style={{ background: getBg(a.category), color: getColor(a.category), padding: '3px 10px', borderRadius: 2, fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500 }}>{a.category}</span>
                     <span style={{ fontSize: 11, color: 'var(--muted)' }}>{a.readTime}</span>
-                    {isLive && <span style={{ fontSize: 9, background: a.color, color: '#fff', padding: '2px 6px', borderRadius: 2, letterSpacing: '0.08em', fontWeight: 600 }}>LIVE</span>}
                   </div>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 400, color: 'var(--forest)', marginBottom: 8, lineHeight: 1.3 }}>{a.title}</h3>
                   <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7, fontWeight: 300, marginBottom: 14 }}>{a.excerpt}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: 11, color: 'var(--muted)' }}>{a.date}</span>
-                    <span style={{ fontSize: 11, color: a.color, fontWeight: 600 }}>{isLive ? 'READ →' : 'COMING SOON'}</span>
+                    <span style={{ fontSize: 11, color: 'var(--muted)' }}>{formatDate(a.publishedAt)}</span>
+                    <span style={{ fontSize: 11, color: getColor(a.category), fontWeight: 600 }}>READ →</span>
                   </div>
-                </CardTag>
-              )
-            })}
-          </div>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
