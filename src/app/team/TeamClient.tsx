@@ -117,7 +117,7 @@ export default function TeamClient() {
             </h2>
             <p style={{ fontSize: 15, color: '#d4efeb', marginBottom: 32, fontWeight: 300, lineHeight: 1.8 }}>Available for consulting engagements across Egypt and the MENA region.</p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="/#contact" className="btn btn-primary">Get In Touch</a>
+              <a href="/contact" className="btn btn-primary">Get In Touch</a>
               <a href="/services" className="btn btn-outline" style={{ borderColor: 'rgba(168,216,210,0.5)', color: '#d4efeb' }}>View Our Services</a>
             </div>
           </div>
