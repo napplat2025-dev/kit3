@@ -113,12 +113,13 @@ function renderBody(body: Block[]) {
   return elements
 }
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const article = await client.fetch(
     `*[_type == "article" && slug.current == $slug][0] {
       _id, title, slug, category, excerpt, readTime, featured, publishedAt, body
     }`,
-   { slug: params.slug }
+    { slug }
   )
 
   if (!article) notFound()
