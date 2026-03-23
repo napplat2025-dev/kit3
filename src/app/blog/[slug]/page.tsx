@@ -118,7 +118,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
     `*[_type == "article" && slug.current == $slug][0] {
       _id, title, slug, category, excerpt, readTime, featured, publishedAt, body
     }`,
-    { params.slug }
+   { slug: params.slug }
   )
 
   if (!article) notFound()
