@@ -35,7 +35,7 @@ export default function Nav() {
               </a>
             )
           })}
-          <a href="/#contact" className="btn btn-primary" style={{ padding: '9px 22px' }}>Get In Touch</a>
+          <a href="/contact" className="btn btn-primary" style={{ padding: '9px 22px' }}>Get In Touch</a>
         </div>
         <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(!open)} aria-label="Menu">
           <span /><span /><span />
@@ -45,7 +45,7 @@ export default function Nav() {
         {links.map(({ label, href }) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
         ))}
-        <a href="/#contact" className="btn btn-primary" onClick={() => setOpen(false)}>Get In Touch</a>
+        <a href="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>Get In Touch</a>
       </div>
     </>
   )
