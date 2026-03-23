@@ -94,7 +94,7 @@ export default function ClientsClient() {
               Join Our <em style={{ color: 'var(--amber)' }}>Client Portfolio</em>
             </h2>
             <p style={{ fontSize: 15, color: '#d4efeb', fontWeight: 300, lineHeight: 1.8, marginBottom: 32 }}>Let us discuss how Kitchen Three can serve your business.</p>
-            <a href="/#contact" className="btn btn-white">Get In Touch</a>
+            <a href="/contact" className="btn btn-white">Get In Touch</a>
           </div>
         </div>
       </section>
