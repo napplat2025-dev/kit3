@@ -1,8 +1,7 @@
-'use client'
-import { useEffect, useState } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { client } from '@/sanity/lib/client'
+import { notFound } from 'next/navigation'
 
 const colorMap: Record<string, { color: string; bg: string }> = {
   teal:   { color: 'var(--teal)',   bg: 'var(--teal-light)' },
@@ -38,10 +37,10 @@ function renderBody(body: Block[]) {
   const elements: React.ReactNode[] = []
   let listBuffer: Block[] = []
 
-  const flushList = () => {
+  const flushList = (key: string) => {
     if (listBuffer.length === 0) return
     elements.push(
-      <ul key={`list-${listBuffer[0]._key}`} style={{ paddingLeft: 0, listStyle: 'none', marginBottom: 20 }}>
+      <ul key={`list-${key}`} style={{ paddingLeft: 0, listStyle: 'none', marginBottom: 20 }}>
         {listBuffer.map(b => (
           <li key={b._key} style={{ display: 'flex', gap: 12, marginBottom: 10, alignItems: 'flex-start' }}>
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--teal)', flexShrink: 0, marginTop: 8 }} />
@@ -61,7 +60,7 @@ function renderBody(body: Block[]) {
         listBuffer.push(block)
         return
       }
-      flushList()
+      flushList(block._key)
 
       const text = block.children?.map(c => c.text).join('') || ''
       if (!text) return
@@ -86,7 +85,7 @@ function renderBody(body: Block[]) {
         )
       }
     } else if (block._type === 'callout') {
-      flushList()
+      flushList(block._key)
       const c = colorMap[block.color || 'teal'] || colorMap.teal
       elements.push(
         <div key={block._key} style={{ background: c.bg, border: '1px solid ' + c.color + '44', borderLeft: '4px solid ' + c.color, borderRadius: 4, padding: '20px 24px', marginTop: 20, marginBottom: 24 }}>
@@ -95,7 +94,7 @@ function renderBody(body: Block[]) {
         </div>
       )
     } else if (block._type === 'keyTakeaways') {
-      flushList()
+      flushList(block._key)
       elements.push(
         <div key={block._key} style={{ background: 'var(--forest)', borderRadius: 4, padding: '28px 32px', marginTop: 32, marginBottom: 24 }}>
           <div style={{ fontSize: 11, letterSpacing: '0.16em', color: 'var(--amber)', textTransform: 'uppercase', fontWeight: 600, marginBottom: 16 }}>Key Takeaways</div>
@@ -110,49 +109,19 @@ function renderBody(body: Block[]) {
     }
   })
 
-  flushList()
+  flushList('end')
   return elements
 }
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
-  const slug = params.slug
-  const [article, setArticle] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    if (slug) {
-      client.fetch(
-        `*[_type == "article" && slug.current == $slug][0] {
-          _id, title, slug, category, excerpt, readTime, featured, publishedAt, body
-        }`,
-        { slug }
-      ).then((data: any) => {
-        setArticle(data)
-        setLoading(false)
-      }).catch(() => setLoading(false))
-    }
-  }, [slug])
-
-  if (loading) return (
-    <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
-      <Nav />
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontSize: 16, color: 'var(--muted)' }}>Loading article...</div>
-      </div>
-      <Footer />
-    </div>
+export default async function ArticlePage({ params }: { params: { slug: string } }) {
+  const article = await client.fetch(
+    `*[_type == "article" && slug.current == $slug][0] {
+      _id, title, slug, category, excerpt, readTime, featured, publishedAt, body
+    }`,
+    { params.slug }
   )
 
-  if (!article) return (
-    <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
-      <Nav />
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16 }}>
-        <div style={{ fontSize: 18, color: 'var(--forest)' }}>Article not found</div>
-        <a href="/blog" className="btn btn-outline">Back to Blog</a>
-      </div>
-      <Footer />
-    </div>
-  )
+  if (!article) notFound()
 
   const color = categoryColor[article.category] || 'var(--teal)'
 
