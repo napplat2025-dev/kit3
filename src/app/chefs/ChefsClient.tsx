@@ -61,7 +61,7 @@ export default function ChefsClient() {
             <p style={{ fontSize: 15, color: '#d4efeb', fontWeight: 300, lineHeight: 1.8, marginBottom: 32 }}>
               Tell us about your project and we will match you with the right talent from our roster.
             </p>
-            <a href="/#contact" className="btn btn-white">Start the Conversation</a>
+            <a href="/contact" className="btn btn-white">Start the Conversation</a>
           </div>
         </div>
       </section>
