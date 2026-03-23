@@ -85,7 +85,7 @@ export default function ServicesClient() {
                   </div>
                 ))}
               </div>
-              <a href="/#contact" className="btn btn-primary" style={{ marginTop: 32 }}>Enquire About This Service</a>
+              <a href="/contact" className="btn btn-primary" style={{ marginTop: 32 }}>Enquire About This Service</a>
             </div>
           </div>
         </section>
@@ -96,7 +96,7 @@ export default function ServicesClient() {
           <div className="eyebrow" style={{ color: 'var(--amber)' }}>Ready to Start?</div>
           <h2 style={{ color: '#fff', marginBottom: 20 }}>Let's Build Something <em style={{ color: 'var(--amber)' }}>Extraordinary</em></h2>
           <p style={{ fontSize: 15, color: '#7ab8b0', marginBottom: 36, fontWeight: 300, lineHeight: 1.8 }}>Available for consulting engagements across Egypt and the MENA region.</p>
-          <a href="/#contact" className="btn btn-white">Get In Touch</a>
+          <a href="/contact" className="btn btn-white">Get In Touch</a>
         </div>
       </section>
       <Footer />
