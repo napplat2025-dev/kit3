@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import Footer from '@/components/Footer'
 
 const flame = '#E8540A'
 const ember = '#C73A05'
@@ -20,7 +19,7 @@ const timelineOptions = ['As soon as possible', 'Within 2 weeks', 'Within 1 mont
 
 const KFLogo = ({ size = 40 }: { size?: number }) => (
   <div style={{
-    width: size, height: size, background: '#fff', border: `${Math.max(2, size * 0.06)}px solid ${dark}`,
+    width: size, height: size, background: '#fff', border: `${Math.max(2, Math.round(size * 0.06))}px solid ${dark}`,
     borderRadius: size * 0.15, display: 'flex', alignItems: 'center', justifyContent: 'center',
     fontFamily: 'Georgia, Garamond, serif', fontSize: size * 0.42, fontWeight: 700,
     color: dark, letterSpacing: 1, flexShrink: 0
@@ -44,7 +43,7 @@ export default function KFDigitalStudio() {
   const toggleArr = (key: 'pages' | 'features', val: string) =>
     setForm(f => ({ ...f, [key]: f[key].includes(val) ? f[key].filter(v => v !== val) : [...f[key], val] }))
 
-  const openModal = () => { setModalOpen(true); setStep(1); setSubmitted(false) }
+  const openModal = () => { setModalOpen(true); setStep(1); setSubmitted(false); setMenuOpen(false) }
   const closeModal = () => setModalOpen(false)
 
   const handleSubmit = async () => {
@@ -73,34 +72,74 @@ export default function KFDigitalStudio() {
 
   const chipStyle = (active: boolean): React.CSSProperties => ({
     padding: '8px 14px', borderRadius: 2, fontSize: 12, cursor: 'pointer',
-    fontFamily: 'inherit', fontWeight: 400, border: active ? `1px solid ${flame}` : `1px solid ${border}`,
-    background: active ? `rgba(232,84,10,0.08)` : bg, color: active ? flame : muted,
-    transition: 'all 0.2s'
+    fontFamily: 'inherit', fontWeight: 400,
+    border: active ? `1px solid ${flame}` : `1px solid ${border}`,
+    background: active ? `rgba(232,84,10,0.08)` : bg,
+    color: active ? flame : muted, transition: 'all 0.2s'
   })
 
   const steps = ['About You', 'Your Goals', 'Pages & Features', 'Style & Feel', 'Budget & Timeline']
 
+  const navLinks = [['#how', 'Process'], ['#services', 'Services'], ['#why', 'Why Us']]
+
   return (
     <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", background: bg, color: dark, overflowX: 'hidden' }}>
 
-      {/* KF NAV */}
-      <nav style={{ position: 'sticky', top: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 40px', background: 'rgba(250,247,242,0.96)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${border}` }}>
-        <a href="/partners/kf-digital-studio" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          <KFLogo size={38} />
-          <span style={{ fontFamily: 'Georgia, serif', fontSize: 16, fontWeight: 700, color: dark, letterSpacing: 2 }}>KF DIGITAL STUDIO</span>
-        </a>
-        <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
-          {[['#how', 'Process'], ['#services', 'Services'], ['#why', 'Why Us']].map(([href, label]) => (
-            <a key={label} href={href} style={{ color: muted, textDecoration: 'none', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', transition: 'color 0.2s' }}
+      {/* NAV */}
+      <nav style={{ position: 'sticky', top: 0, zIndex: 100, background: 'rgba(250,247,242,0.96)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${border}` }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 24px' }}>
+
+          {/* Left — Back + Logo */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: muted, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', borderRight: `1px solid ${border}`, paddingRight: 16, whiteSpace: 'nowrap' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = flame}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = muted}>
-              {label}
+              ← Kitchen Three
             </a>
-          ))}
-          <button onClick={openModal} style={{ background: flame, color: '#fff', border: 'none', padding: '9px 20px', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit' }}>
-            Start a Project
+            <a href="/partners/kf-digital-studio" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+              <KFLogo size={36} />
+              <span className="kf-brand-name" style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: dark, letterSpacing: 2 }}>KF DIGITAL STUDIO</span>
+            </a>
+          </div>
+
+          {/* Desktop Links */}
+          <div className="kf-desktop-nav" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
+            {navLinks.map(([href, label]) => (
+              <a key={label} href={href} style={{ color: muted, textDecoration: 'none', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = flame}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = muted}>
+                {label}
+              </a>
+            ))}
+            <button onClick={openModal} style={{ background: flame, color: '#fff', border: 'none', padding: '9px 20px', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
+              Start a Project
+            </button>
+          </div>
+
+          {/* Hamburger */}
+          <button className="kf-hamburger" onClick={() => setMenuOpen(!menuOpen)}
+            style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 4, flexDirection: 'column', gap: 5 }}>
+            <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? flame : dark, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+            <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? flame : dark, transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? flame : dark, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
           </button>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div style={{ borderTop: `1px solid ${border}`, background: bg, padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {navLinks.map(([href, label]) => (
+              <a key={label} href={href} onClick={() => setMenuOpen(false)}
+                style={{ padding: '14px 0', fontSize: 13, color: dark, textDecoration: 'none', letterSpacing: 1, textTransform: 'uppercase', borderBottom: `1px solid ${border}` }}>
+                {label}
+              </a>
+            ))}
+            <button onClick={openModal}
+              style={{ marginTop: 16, background: flame, color: '#fff', border: 'none', padding: '14px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', width: '100%' }}>
+              Start a Project
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* HERO */}
@@ -110,7 +149,7 @@ export default function KFDigitalStudio() {
           AI-Powered Digital Studio
         </div>
         <KFLogo size={64} />
-        <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(56px, 10vw, 120px)', lineHeight: 0.92, letterSpacing: 4, color: dark, marginBottom: 24, marginTop: 24, fontWeight: 700 }}>
+        <h1 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(48px, 10vw, 120px)', lineHeight: 0.92, letterSpacing: 4, color: dark, marginBottom: 24, marginTop: 24, fontWeight: 700 }}>
           YOUR BRAND<br />
           <span style={{ background: `linear-gradient(135deg, ${flame} 0%, ${gold} 60%, ${ember} 100%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>RISES HERE</span>
         </h1>
@@ -132,9 +171,9 @@ export default function KFDigitalStudio() {
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>The Process</div>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>HOW WE WORK</h2>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>HOW WE WORK</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: border, border: `1px solid ${border}` }}>
+          <div className="kf-steps" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: border, border: `1px solid ${border}` }}>
             {[
               { num: '01', title: 'Discovery Brief', desc: 'You complete our intelligent intake questionnaire — crafted to surface your goals, audience, and vision with precision.' },
               { num: '02', title: 'The Proposal', desc: "We come back with a clear, tailored proposal — what we'll build, who we'll bring in, timeline, and investment." },
@@ -155,9 +194,9 @@ export default function KFDigitalStudio() {
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>What We Offer</div>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>SERVICES</h2>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>SERVICES</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: border }}>
+          <div className="kf-services" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: border }}>
             {[
               { icon: '🌐', title: 'Website Creation', desc: 'Landing pages to full business sites. Fast, mobile-first, built to convert.', tag: 'Core Service' },
               { icon: '🎨', title: 'Logo & Branding', desc: 'A brand identity that speaks before you do. Crafted by top designers.', tag: 'Add-on' },
@@ -180,15 +219,15 @@ export default function KFDigitalStudio() {
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>Why KF</div>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(32px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>WE DO IT DIFFERENTLY</h2>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>WE DO IT DIFFERENTLY</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
+          <div className="kf-why" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {[
                 { title: 'Discovery-first approach', desc: 'We never build before we understand. Every decision is intentional.' },
                 { title: 'AI-accelerated delivery', desc: 'Faster turnarounds powered by the best AI tools available today.' },
                 { title: 'Curated professional network', desc: 'Need a photographer or copywriter? We bring in the right people.' },
-                { title: 'Transparent proposals', desc: 'No surprises. You know exactly what you\'re getting and what it costs.' },
+                { title: 'Transparent proposals', desc: "No surprises. You know exactly what you're getting and what it costs." },
               ].map(item => (
                 <div key={item.title} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                   <div style={{ width: 6, height: 6, background: flame, borderRadius: '50%', flexShrink: 0, marginTop: 7 }} />
@@ -214,14 +253,14 @@ export default function KFDigitalStudio() {
       {/* CTA */}
       <section style={{ textAlign: 'center', padding: '80px 24px', background: bg3, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse 55% 70% at 50% 50%, rgba(232,84,10,0.06) 0%, transparent 70%)`, pointerEvents: 'none' }} />
-        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 700, letterSpacing: 3, marginBottom: 16, color: dark }}>READY TO RISE?</h2>
+        <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(36px, 6vw, 80px)', fontWeight: 700, letterSpacing: 3, marginBottom: 16, color: dark }}>READY TO RISE?</h2>
         <p style={{ color: muted, fontSize: 16, maxWidth: 460, margin: '0 auto 32px', lineHeight: 1.7 }}>Start with our discovery brief and receive a tailored proposal within 48 hours. No commitment, no fluff.</p>
         <button onClick={openModal} style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '16px 40px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', fontWeight: 500 }}>
           Start Your Discovery Brief
         </button>
       </section>
 
-      {/* KF FOOTER */}
+      {/* FOOTER */}
       <footer style={{ borderTop: `1px solid ${border}`, padding: '24px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, background: bg }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <KFLogo size={32} />
@@ -243,7 +282,7 @@ export default function KFDigitalStudio() {
             <div style={{ padding: '20px 24px', borderBottom: `1px solid ${border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, background: bg, zIndex: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <KFLogo size={28} />
-                <span style={{ fontFamily: 'Georgia, serif', fontSize: 16, fontWeight: 700, letterSpacing: 2, color: dark }}>KF Discovery Brief</span>
+                <span style={{ fontFamily: 'Georgia, serif', fontSize: 15, fontWeight: 700, letterSpacing: 2, color: dark }}>KF Discovery Brief</span>
               </div>
               <button onClick={closeModal} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: muted, lineHeight: 1 }}>✕</button>
             </div>
@@ -262,24 +301,24 @@ export default function KFDigitalStudio() {
 
                 <div style={{ padding: '28px 24px' }}>
 
-                  {/* Step 1 — About You */}
+                  {/* Step 1 */}
                   {step === 1 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>About You</h3>
                       <p style={{ fontSize: 13, color: muted, marginBottom: 8 }}>Let's start with the basics — who you are and what you do.</p>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div className="kf-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                         <div><label style={labelStyle}>Full Name *</label><input style={inputStyle} placeholder="Your full name" value={form.fullName} onChange={e => setForm(f => ({ ...f, fullName: e.target.value }))} /></div>
                         <div><label style={labelStyle}>Business Name *</label><input style={inputStyle} placeholder="Your business" value={form.businessName} onChange={e => setForm(f => ({ ...f, businessName: e.target.value }))} /></div>
                       </div>
                       <div><label style={labelStyle}>Industry / Field *</label><input style={inputStyle} placeholder="e.g. Restaurant, Retail, Consulting" value={form.industry} onChange={e => setForm(f => ({ ...f, industry: e.target.value }))} /></div>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                      <div className="kf-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                         <div><label style={labelStyle}>Email *</label><input style={inputStyle} type="email" placeholder="your@email.com" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} /></div>
                         <div><label style={labelStyle}>Phone / WhatsApp</label><input style={inputStyle} placeholder="+20 xxx xxx xxxx" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} /></div>
                       </div>
                     </div>
                   )}
 
-                  {/* Step 2 — Your Goals */}
+                  {/* Step 2 */}
                   {step === 2 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Your Goals</h3>
@@ -303,39 +342,33 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 3 — Pages & Features */}
+                  {/* Step 3 */}
                   {step === 3 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Pages & Features</h3>
                       <div>
                         <label style={labelStyle}>Pages Needed</label>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                          {pageOptions.map(p => (
-                            <button key={p} type="button" onClick={() => toggleArr('pages', p)} style={chipStyle(form.pages.includes(p))}>{p}</button>
-                          ))}
+                          {pageOptions.map(p => <button key={p} type="button" onClick={() => toggleArr('pages', p)} style={chipStyle(form.pages.includes(p))}>{p}</button>)}
                         </div>
                       </div>
                       <div>
                         <label style={labelStyle}>Special Features</label>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                          {featureOptions.map(f => (
-                            <button key={f} type="button" onClick={() => toggleArr('features', f)} style={chipStyle(form.features.includes(f))}>{f}</button>
-                          ))}
+                          {featureOptions.map(f => <button key={f} type="button" onClick={() => toggleArr('features', f)} style={chipStyle(form.features.includes(f))}>{f}</button>)}
                         </div>
                       </div>
                     </div>
                   )}
 
-                  {/* Step 4 — Style & Feel */}
+                  {/* Step 4 */}
                   {step === 4 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Style & Feel</h3>
                       <div>
                         <label style={labelStyle}>What vibe should your website have?</label>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                          {vibeOptions.map(v => (
-                            <button key={v} type="button" onClick={() => setForm(f => ({ ...f, vibe: v }))} style={chipStyle(form.vibe === v)}>{v}</button>
-                          ))}
+                          {vibeOptions.map(v => <button key={v} type="button" onClick={() => setForm(f => ({ ...f, vibe: v }))} style={chipStyle(form.vibe === v)}>{v}</button>)}
                         </div>
                       </div>
                       <div><label style={labelStyle}>Websites you love</label><input style={inputStyle} placeholder="Share links or names" value={form.websitesLove} onChange={e => setForm(f => ({ ...f, websitesLove: e.target.value }))} /></div>
@@ -344,7 +377,7 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 5 — Budget & Timeline */}
+                  {/* Step 5 */}
                   {step === 5 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Budget & Timeline</h3>
@@ -362,12 +395,12 @@ export default function KFDigitalStudio() {
                       <div>
                         <label style={labelStyle}>Ideal Timeline</label>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                          {timelineOptions.map(t => (
-                            <button key={t} type="button" onClick={() => setForm(f => ({ ...f, timeline: t }))} style={chipStyle(form.timeline === t)}>{t}</button>
-                          ))}
+                          {timelineOptions.map(t => <button key={t} type="button" onClick={() => setForm(f => ({ ...f, timeline: t }))} style={chipStyle(form.timeline === t)}>{t}</button>)}
                         </div>
                       </div>
-                      <div><label style={labelStyle}>Anything else we should know?</label><textarea style={{ ...inputStyle, resize: 'vertical' }} rows={3} placeholder="Optional notes..." value={form.extra} onChange={e => setForm(f => ({ ...f, extra: e.target.value }))} /></div>
+                      <div><label style={labelStyle}>Anything else we should know?</label>
+                        <textarea style={{ ...inputStyle, resize: 'vertical' }} rows={3} placeholder="Optional notes..." value={form.extra} onChange={e => setForm(f => ({ ...f, extra: e.target.value }))} />
+                      </div>
                     </div>
                   )}
 
@@ -375,16 +408,19 @@ export default function KFDigitalStudio() {
 
                 {/* Form Nav */}
                 <div style={{ padding: '16px 24px', borderTop: `1px solid ${border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: bg2 }}>
-                  <button onClick={() => setStep(s => Math.max(1, s - 1))} style={{ background: 'none', border: `1px solid ${border}`, padding: '10px 20px', fontSize: 13, cursor: step === 1 ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', color: step === 1 ? border : dark, opacity: step === 1 ? 0.4 : 1 }} disabled={step === 1}>
+                  <button onClick={() => setStep(s => Math.max(1, s - 1))} disabled={step === 1}
+                    style={{ background: 'none', border: `1px solid ${border}`, padding: '10px 20px', fontSize: 13, cursor: step === 1 ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', color: step === 1 ? border : dark, opacity: step === 1 ? 0.4 : 1 }}>
                     ← Back
                   </button>
                   <span style={{ fontSize: 12, color: muted }}>{step} / {steps.length}</span>
                   {step < steps.length ? (
-                    <button onClick={() => setStep(s => s + 1)} style={{ background: flame, color: '#fff', border: 'none', padding: '10px 24px', fontSize: 13, cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit' }}>
+                    <button onClick={() => setStep(s => s + 1)}
+                      style={{ background: flame, color: '#fff', border: 'none', padding: '10px 24px', fontSize: 13, cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit' }}>
                       Next →
                     </button>
                   ) : (
-                    <button onClick={handleSubmit} disabled={submitting} style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '10px 24px', fontSize: 13, cursor: submitting ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', opacity: submitting ? 0.7 : 1 }}>
+                    <button onClick={handleSubmit} disabled={submitting}
+                      style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '10px 24px', fontSize: 13, cursor: submitting ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', opacity: submitting ? 0.7 : 1 }}>
                       {submitting ? 'Sending...' : 'Submit ✓'}
                     </button>
                   )}
@@ -406,11 +442,16 @@ export default function KFDigitalStudio() {
 
       <style>{`
         @media (max-width: 768px) {
-          .kf-nav-links { display: none !important; }
-          .kf-services-grid { grid-template-columns: 1fr 1fr !important; }
-          .kf-steps-grid { grid-template-columns: 1fr !important; }
-          .kf-why-grid { grid-template-columns: 1fr !important; }
+          .kf-desktop-nav { display: none !important; }
+          .kf-hamburger { display: flex !important; }
+          .kf-brand-name { display: none !important; }
+          .kf-steps { grid-template-columns: 1fr !important; }
+          .kf-services { grid-template-columns: 1fr 1fr !important; }
+          .kf-why { grid-template-columns: 1fr !important; gap: 32px !important; }
           .kf-form-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 480px) {
+          .kf-services { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>
