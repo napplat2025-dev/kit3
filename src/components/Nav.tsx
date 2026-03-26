@@ -9,6 +9,7 @@ const links = [
   { label: 'Blog', href: '/blog' },
   { label: 'Resources', href: '/resources' },
   { label: 'Team', href: '/team' },
+  { label: 'Partners', href: '/partners/kf-digital-studio' },
 ]
 
 export default function Nav() {
