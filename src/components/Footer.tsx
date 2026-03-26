@@ -10,7 +10,7 @@ export default function Footer() {
             <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.</p>
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
               <div>Cairo, Egypt</div>
-              <div><a href="mailto:info@kitchenthree.co" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>info@kitchenthree.co</a></div>
+              <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kitchenthreecairo@gmail.com</a></div>
               <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
                 <a href="https://www.facebook.com/kitchenthree" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Company</div>
-            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['Resources', '/resources'], ['Team', '/team'], ['Contact', '/#contact']].map(([label, href]) => (
+            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['Resources', '/resources'], ['Team', '/team'], ['Contact', '/contact']].map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>
