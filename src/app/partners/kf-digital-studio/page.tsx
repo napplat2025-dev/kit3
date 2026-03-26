@@ -26,12 +26,18 @@ const KFLogo = ({ size = 40 }: { size?: number }) => (
   }}>KF</div>
 )
 
+type ModalPath = null | 'upload' | 'questionnaire'
+
 export default function KFDigitalStudio() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [path, setPath] = useState<ModalPath>(null)
   const [step, setStep] = useState(1)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [fileName, setFileName] = useState('')
+  const [uploadForm, setUploadForm] = useState({ name: '', email: '', phone: '', notes: '' })
+  const [uploadSubmitted, setUploadSubmitted] = useState(false)
   const [form, setForm] = useState({
     fullName: '', businessName: '', industry: '', email: '', phone: '',
     mainGoal: '', audience: '', hasWebsite: 'No, this is a brand new website',
@@ -43,20 +49,41 @@ export default function KFDigitalStudio() {
   const toggleArr = (key: 'pages' | 'features', val: string) =>
     setForm(f => ({ ...f, [key]: f[key].includes(val) ? f[key].filter(v => v !== val) : [...f[key], val] }))
 
-  const openModal = () => { setModalOpen(true); setStep(1); setSubmitted(false); setMenuOpen(false) }
+  const openModal = () => {
+    setModalOpen(true)
+    setPath(null)
+    setStep(1)
+    setSubmitted(false)
+    setUploadSubmitted(false)
+    setFileName('')
+    setMenuOpen(false)
+  }
   const closeModal = () => setModalOpen(false)
 
-  const handleSubmit = async () => {
+  const handleQSubmit = async () => {
     setSubmitting(true)
     try {
       await fetch('https://formspree.io/f/xojkprga', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'KF Digital Studio Discovery Brief' })
+        body: JSON.stringify({ ...form, source: 'KF Digital Studio — Questionnaire' })
       })
     } catch (e) {}
     setSubmitting(false)
     setSubmitted(true)
+  }
+
+  const handleUploadSubmit = async () => {
+    setSubmitting(true)
+    try {
+      await fetch('https://formspree.io/f/xojkprga', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...uploadForm, briefFile: fileName, source: 'KF Digital Studio — Brief Upload' })
+      })
+    } catch (e) {}
+    setSubmitting(false)
+    setUploadSubmitted(true)
   }
 
   const inputStyle: React.CSSProperties = {
@@ -79,7 +106,6 @@ export default function KFDigitalStudio() {
   })
 
   const steps = ['About You', 'Your Goals', 'Pages & Features', 'Style & Feel', 'Budget & Timeline']
-
   const navLinks = [['#how', 'Process'], ['#services', 'Services'], ['#why', 'Why Us']]
 
   return (
@@ -88,8 +114,6 @@ export default function KFDigitalStudio() {
       {/* NAV */}
       <nav style={{ position: 'sticky', top: 0, zIndex: 100, background: 'rgba(250,247,242,0.96)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${border}` }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 24px' }}>
-
-          {/* Left — Back + Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: muted, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', borderRight: `1px solid ${border}`, paddingRight: 16, whiteSpace: 'nowrap' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = flame}
@@ -101,8 +125,6 @@ export default function KFDigitalStudio() {
               <span className="kf-brand-name" style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: dark, letterSpacing: 2 }}>KF DIGITAL STUDIO</span>
             </a>
           </div>
-
-          {/* Desktop Links */}
           <div className="kf-desktop-nav" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
             {navLinks.map(([href, label]) => (
               <a key={label} href={href} style={{ color: muted, textDecoration: 'none', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', transition: 'color 0.2s' }}
@@ -115,8 +137,6 @@ export default function KFDigitalStudio() {
               Start a Project
             </button>
           </div>
-
-          {/* Hamburger */}
           <button className="kf-hamburger" onClick={() => setMenuOpen(!menuOpen)}
             style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: 4, flexDirection: 'column', gap: 5 }}>
             <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? flame : dark, transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
@@ -124,8 +144,6 @@ export default function KFDigitalStudio() {
             <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? flame : dark, transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
           </button>
         </div>
-
-        {/* Mobile Menu */}
         {menuOpen && (
           <div style={{ borderTop: `1px solid ${border}`, background: bg, padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: 0 }}>
             {navLinks.map(([href, label]) => (
@@ -134,8 +152,7 @@ export default function KFDigitalStudio() {
                 {label}
               </a>
             ))}
-            <button onClick={openModal}
-              style={{ marginTop: 16, background: flame, color: '#fff', border: 'none', padding: '14px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', width: '100%' }}>
+            <button onClick={openModal} style={{ marginTop: 16, background: flame, color: '#fff', border: 'none', padding: '14px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', width: '100%' }}>
               Start a Project
             </button>
           </div>
@@ -287,7 +304,78 @@ export default function KFDigitalStudio() {
               <button onClick={closeModal} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: muted, lineHeight: 1 }}>✕</button>
             </div>
 
-            {!submitted ? (
+            {/* GATE — choose path */}
+            {path === null && (
+              <div style={{ padding: '40px 32px', textAlign: 'center' }}>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 24, fontWeight: 700, color: dark, marginBottom: 8 }}>Let's Get Started</h3>
+                <p style={{ fontSize: 14, color: muted, lineHeight: 1.7, marginBottom: 32, maxWidth: 400, margin: '0 auto 32px' }}>
+                  Do you already have a project brief ready to share, or would you like to fill in our discovery questionnaire?
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                  <div onClick={() => setPath('upload')}
+                    style={{ border: `1px solid ${border}`, borderRadius: 4, padding: '28px 20px', cursor: 'pointer', textAlign: 'center', background: bg, transition: 'all 0.2s' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = flame; (e.currentTarget as HTMLElement).style.background = `rgba(232,84,10,0.04)` }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; (e.currentTarget as HTMLElement).style.background = bg }}>
+                    <div style={{ fontSize: 36, marginBottom: 12 }}>📎</div>
+                    <h4 style={{ fontSize: 14, fontWeight: 500, color: dark, marginBottom: 6 }}>I have a brief</h4>
+                    <p style={{ fontSize: 12, color: muted, lineHeight: 1.5 }}>Upload your existing document and we'll take it from there</p>
+                  </div>
+                  <div onClick={() => setPath('questionnaire')}
+                    style={{ border: `1px solid ${border}`, borderRadius: 4, padding: '28px 20px', cursor: 'pointer', textAlign: 'center', background: bg, transition: 'all 0.2s' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = flame; (e.currentTarget as HTMLElement).style.background = `rgba(232,84,10,0.04)` }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = border; (e.currentTarget as HTMLElement).style.background = bg }}>
+                    <div style={{ fontSize: 36, marginBottom: 12 }}>📋</div>
+                    <h4 style={{ fontSize: 14, fontWeight: 500, color: dark, marginBottom: 6 }}>I need the questionnaire</h4>
+                    <p style={{ fontSize: 12, color: muted, lineHeight: 1.5 }}>Answer a few questions so we can understand your project</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* UPLOAD PATH */}
+            {path === 'upload' && !uploadSubmitted && (
+              <div style={{ padding: '28px 24px' }}>
+                <button onClick={() => setPath(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: muted, marginBottom: 20, padding: 0, fontFamily: 'inherit' }}>← Back</button>
+                <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 8 }}>Upload Your Brief</h3>
+                <p style={{ fontSize: 13, color: muted, marginBottom: 24, lineHeight: 1.7 }}>Upload your document and leave your contact details. We'll review it and come back to you within 48 hours.</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <div><label style={labelStyle}>Your Name *</label><input style={inputStyle} placeholder="Your full name" value={uploadForm.name} onChange={e => setUploadForm(f => ({ ...f, name: e.target.value }))} /></div>
+                  <div><label style={labelStyle}>Your Email *</label><input style={inputStyle} type="email" placeholder="your@email.com" value={uploadForm.email} onChange={e => setUploadForm(f => ({ ...f, email: e.target.value }))} /></div>
+                  <div><label style={labelStyle}>Phone / WhatsApp</label><input style={inputStyle} placeholder="+20 xxx xxx xxxx" value={uploadForm.phone} onChange={e => setUploadForm(f => ({ ...f, phone: e.target.value }))} /></div>
+                  <div>
+                    <label style={labelStyle}>Your Brief *</label>
+                    <div style={{ border: `2px dashed ${border}`, borderRadius: 2, padding: '32px 24px', textAlign: 'center', cursor: 'pointer', background: bg2 }}
+                      onClick={() => document.getElementById('briefFileInput')?.click()}>
+                      <div style={{ fontSize: 24, marginBottom: 8 }}>📎</div>
+                      <div style={{ fontSize: 13, color: muted, marginBottom: 4 }}>{fileName || 'Click to upload or drag and drop'}</div>
+                      <div style={{ fontSize: 11, color: muted, opacity: 0.7 }}>PDF, Word, PowerPoint, images — max 10MB</div>
+                      <input id="briefFileInput" type="file" style={{ display: 'none' }} accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.jpeg,.png"
+                        onChange={e => setFileName(e.target.files?.[0]?.name || '')} />
+                    </div>
+                  </div>
+                  <div><label style={labelStyle}>Any notes for us?</label>
+                    <textarea style={{ ...inputStyle, resize: 'vertical' }} rows={3} placeholder="Optional" value={uploadForm.notes} onChange={e => setUploadForm(f => ({ ...f, notes: e.target.value }))} />
+                  </div>
+                  <button onClick={handleUploadSubmit} disabled={submitting || !uploadForm.name || !uploadForm.email}
+                    style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '14px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: submitting ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', opacity: submitting ? 0.7 : 1 }}>
+                    {submitting ? 'Sending...' : 'Send Brief →'}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* UPLOAD SUCCESS */}
+            {path === 'upload' && uploadSubmitted && (
+              <div style={{ textAlign: 'center', padding: '60px 32px' }}>
+                <div style={{ fontSize: 48, marginBottom: 16 }}>🔥</div>
+                <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 28, fontWeight: 700, color: dark, marginBottom: 12 }}>Brief Received!</h2>
+                <p style={{ fontSize: 15, color: muted, lineHeight: 1.8, marginBottom: 32 }}>Thank you for reaching out. We'll review your brief and come back with a tailored proposal within 48 hours.</p>
+                <button onClick={closeModal} style={{ background: flame, color: '#fff', border: 'none', padding: '12px 28px', fontSize: 13, cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit' }}>Back to Site</button>
+              </div>
+            )}
+
+            {/* QUESTIONNAIRE PATH */}
+            {path === 'questionnaire' && !submitted && (
               <>
                 {/* Progress */}
                 <div style={{ padding: '12px 24px', background: bg2, borderBottom: `1px solid ${border}` }}>
@@ -300,10 +388,9 @@ export default function KFDigitalStudio() {
                 </div>
 
                 <div style={{ padding: '28px 24px' }}>
-
-                  {/* Step 1 */}
                   {step === 1 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                      <button onClick={() => setPath(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 13, color: muted, padding: 0, fontFamily: 'inherit', textAlign: 'left' }}>← Back</button>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>About You</h3>
                       <p style={{ fontSize: 13, color: muted, marginBottom: 8 }}>Let's start with the basics — who you are and what you do.</p>
                       <div className="kf-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -318,7 +405,6 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 2 */}
                   {step === 2 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Your Goals</h3>
@@ -342,7 +428,6 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 3 */}
                   {step === 3 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Pages & Features</h3>
@@ -361,7 +446,6 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 4 */}
                   {step === 4 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Style & Feel</h3>
@@ -377,7 +461,6 @@ export default function KFDigitalStudio() {
                     </div>
                   )}
 
-                  {/* Step 5 */}
                   {step === 5 && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                       <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>Budget & Timeline</h3>
@@ -403,13 +486,12 @@ export default function KFDigitalStudio() {
                       </div>
                     </div>
                   )}
-
                 </div>
 
                 {/* Form Nav */}
                 <div style={{ padding: '16px 24px', borderTop: `1px solid ${border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: bg2 }}>
-                  <button onClick={() => setStep(s => Math.max(1, s - 1))} disabled={step === 1}
-                    style={{ background: 'none', border: `1px solid ${border}`, padding: '10px 20px', fontSize: 13, cursor: step === 1 ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', color: step === 1 ? border : dark, opacity: step === 1 ? 0.4 : 1 }}>
+                  <button onClick={() => step === 1 ? setPath(null) : setStep(s => s - 1)}
+                    style={{ background: 'none', border: `1px solid ${border}`, padding: '10px 20px', fontSize: 13, cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', color: dark }}>
                     ← Back
                   </button>
                   <span style={{ fontSize: 12, color: muted }}>{step} / {steps.length}</span>
@@ -419,23 +501,27 @@ export default function KFDigitalStudio() {
                       Next →
                     </button>
                   ) : (
-                    <button onClick={handleSubmit} disabled={submitting}
+                    <button onClick={handleQSubmit} disabled={submitting}
                       style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '10px 24px', fontSize: 13, cursor: submitting ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', opacity: submitting ? 0.7 : 1 }}>
                       {submitting ? 'Sending...' : 'Submit ✓'}
                     </button>
                   )}
                 </div>
               </>
-            ) : (
+            )}
+
+            {/* QUESTIONNAIRE SUCCESS */}
+            {path === 'questionnaire' && submitted && (
               <div style={{ textAlign: 'center', padding: '60px 32px' }}>
                 <div style={{ fontSize: 48, marginBottom: 16 }}>🔥</div>
                 <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 28, fontWeight: 700, color: dark, marginBottom: 12 }}>Brief Received!</h2>
-                <p style={{ fontSize: 15, color: muted, lineHeight: 1.8, marginBottom: 32 }}>Thank you! We've received your brief and will come back to you with a tailored proposal within 48 hours.</p>
+                <p style={{ fontSize: 15, color: muted, lineHeight: 1.8, marginBottom: 32 }}>Thank you! We've received your answers and will come back with a tailored proposal within 48 hours.</p>
                 <button onClick={closeModal} style={{ background: flame, color: '#fff', border: 'none', padding: '12px 28px', fontSize: 13, cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit' }}>
                   Back to Site
                 </button>
               </div>
             )}
+
           </div>
         </div>
       )}
