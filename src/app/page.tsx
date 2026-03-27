@@ -39,7 +39,7 @@ const steps = ['Consult', 'Design', 'Execute', 'Train', 'Handover', 'Monitor & O
 export default function Home() {
   const [email, setEmail] = useState('')
   const [subDone, setSubDone] = useState(false)
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' })
   const [sent, setSent] = useState(false)
 
   return (
@@ -236,7 +236,7 @@ export default function Home() {
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                   <h3 style={{ fontSize: 18, marginBottom: 4 }}>Send a Message</h3>
-                  {[['name', 'Your Name'], ['email', 'Email Address'], ['company', 'Company / Organisation']].map(([k, p]) => (
+                  {[['name', 'Your Name'], ['email', 'Email Address'], ['phone', 'Phone / WhatsApp'], ['company', 'Company / Organisation']].map(([k, p]) => (
                     <input key={k} placeholder={p} value={(form as any)[k]} onChange={e => setForm({ ...form, [k]: e.target.value })}
                       style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
                   ))}
@@ -246,8 +246,8 @@ export default function Home() {
                     onClick={() => { if (form.name && form.email && form.message) {
                       fetch('https://formspree.io/f/xojkprga', {
                         method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({name: form.name, email: form.email, company: form.company, message: form.message})
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, company: form.company, message: form.message })
                       }).then(() => setSent(true)).catch(() => setSent(true))
                     }}}>
                     Send Message
