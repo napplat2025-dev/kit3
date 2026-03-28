@@ -27,6 +27,10 @@ const services = [
     desc:'Modern food businesses run on technology. Kitchen Three designs and deploys complete digital infrastructure for restaurants, cloud kitchens, and food brands — from the first online order to the loyalty program that keeps customers coming back.',
     bullets:['Online menu builder and digital menu management','Ordering systems and delivery integration','Reservations and table management','Mobile app development for food businesses','Payment processing and POS integration','CRM, loyalty programs, and customer retention tools'],
     clients:"Garten, Vinny's Pizza Bar, Happy Bites" },
+  { num:'07', title:'Site Selection & Lease Advisory', slug:'site-selection', tagline:'The Right Location. The Right Terms.', color:'var(--teal)', bg:'var(--teal-light)', kw:'Restaurant Location Hunting Cairo',
+    desc:"Location is one of the most consequential decisions in any F&B venture — and one of the most underserved. Kitchen Three brings 13 years of Cairo market knowledge to every site decision, from foot traffic analysis and competitive mapping to lease negotiation and landlord management. We don't just find you a space — we find you the right space.",
+    bullets:['Foot traffic analysis and catchment area mapping','Competitive landscape assessment per location','Lease negotiation and landlord management','F&B-specific fit-out and compliance assessment','Site shortlisting and comparative evaluation','End-to-end location management from search to signed lease'],
+    clients:"Vinny's Pizza Bar, Garten, Mori, Wok & Wok" },
 ]
 
 export default function ServicesClient() {
@@ -45,7 +49,7 @@ export default function ServicesClient() {
             Fully Fledged Culinary Services<br /><em style={{ color: 'var(--teal)' }}>Under One Roof</em>
           </h1>
           <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 600, lineHeight: 1.9, fontWeight: 300 }}>
-            Six integrated service pillars designed to take your food business from concept to operational excellence. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
+            Seven integrated service pillars designed to take your food business from concept to operational excellence. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
           </p>
         </div>
       </section>
