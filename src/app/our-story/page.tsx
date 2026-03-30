@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Our Story | Kitchen Three — Egypt's Culinary Consultancy Since 2013",
@@ -15,6 +16,11 @@ const milestones = [
       "In November 2013, Cookies & Pies was born — a cloud kitchen family business built around a simple belief: that real food, made with premium ingredients and genuine care, could build something lasting. It was also a personal mission — to create a platform that empowered Hadil, my wife and partner in crime, to do what she does best.",
       "What started as a home kitchen operation quickly proved there was a serious market for quality. We baked. We delivered. We refined. And we listened closely to what the market was telling us it needed.",
     ],
+    photos: [
+      { src: "/images/our-story/cookies-pies-logo.jpg", alt: "Cookies & Pies — where it all began" },
+      { src: "/images/our-story/cookies-pies-stall.jpg", alt: "Cookies & Pies market stall" },
+      { src: "/images/our-story/pastries-oven.jpg", alt: "Freshly baked pastries" },
+    ],
   },
   {
     year: "2016",
@@ -24,6 +30,12 @@ const milestones = [
       "Between 2014 and 2016, we extended into bakery and pastry lines, rebranded, and built a proper digital presence. By 2016, a new chapter opened: the Kitchen Three Culinary School.",
       "Working alongside the Egyptian Chefs Association and a growing network of professional chefs, we began delivering structured culinary training — for seasoned professionals sharpening their craft, for food entrepreneurs turning passion into business, and for home cooks ready to take their kitchens seriously. The school became the beating heart of our training pillar, and it remains so today.",
       "Alongside it, we launched kitchen rental — giving operators, chefs, and food startups access to a fully equipped, professional kitchen for menu testing, chef evaluations, event execution, and hands-on courses. No overheads. No compromise on quality.",
+    ],
+    photos: [
+      { src: "/images/our-story/training-class.jpg", alt: "Kitchen Three culinary training class" },
+      { src: "/images/our-story/hadil-teaching.jpg", alt: "Hadil teaching pastry class" },
+      { src: "/images/our-story/kids-pasta.jpg", alt: "Kids pasta making class" },
+      { src: "/images/our-story/certificates-class.jpg", alt: "Graduates with certificates" },
     ],
   },
   {
@@ -35,6 +47,11 @@ const milestones = [
       "We contracted school cafeterias, delivering nutritious daily meals to students across New Cairo and the New Capital. We secured corporate accounts, becoming the culinary partner of choice for companies, banks, and institutions needing consistent, high-quality food for their people.",
       "We were no longer just advising the food industry. We were operating inside it, at scale, every day.",
     ],
+    photos: [
+      { src: "/images/our-story/michelin-chef-event.jpg", alt: "Michelin chef Giorgio Diana — Sous-vide masterclass 2018" },
+      { src: "/images/our-story/catering-buffet.jpg", alt: "Kitchen Three catering service" },
+      { src: "/images/our-story/christmas-event.jpg", alt: "Christmas event at Nefertari school" },
+    ],
   },
   {
     year: "2018",
@@ -44,6 +61,7 @@ const milestones = [
       "By 2018, culinary consultancy had become a core offering in its own right. Clients kept asking us how we did what we did — how we developed recipes, structured kitchens, sourced suppliers, built brands. So we formalized it.",
       "Everything came together under one name: Kitchen Three — a full-service culinary consultancy operating across eight pillars, from concept and brand design to chef placement, technology, and site selection.",
     ],
+    photos: [],
   },
   {
     year: "2021",
@@ -54,6 +72,7 @@ const milestones = [
       "What came out of that period was clarity. In June 2021, we launched Kitchen Hive — an international-standard cloud kitchen facility in New Cairo's industrial zone, built to a specification no local competitor has matched since: HACCP certified, Codex Alimentarius compliant, fully equipped, and ready for serious food businesses.",
       "We didn't rebuild what we had. We built what the market needed next.",
     ],
+    photos: [],
   },
   {
     year: "Today",
@@ -62,6 +81,10 @@ const milestones = [
     body: [
       "Twelve years on, Kitchen Three is one of Egypt's culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
       "Our clients range from first-time Cairo investors and growing F&B brands to international groups entering Egypt. What they all share is the same starting point we had in November 2013: a belief that quality, made with the right ingredients and the right people, is the only recipe that lasts.",
+    ],
+    photos: [
+      { src: "/images/our-story/kt-today-1.jpg", alt: "Kitchen Three today" },
+      { src: "/images/our-story/kt-today-2.jpg", alt: "Kitchen Three team" },
     ],
   },
 ];
@@ -99,7 +122,6 @@ export default function OurStoryPage() {
             key={i}
             className="grid md:grid-cols-[220px_1fr] gap-6 md:gap-20 py-16 border-b border-gray-100 last:border-0"
           >
-            {/* Year */}
             <div className="flex flex-col gap-1 md:pt-1">
               <span
                 className="text-[#1a7f6e] font-extrabold leading-none"
@@ -115,7 +137,6 @@ export default function OurStoryPage() {
               </span>
             </div>
 
-            {/* Content */}
             <div>
               <h2
                 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-snug"
@@ -123,13 +144,41 @@ export default function OurStoryPage() {
               >
                 {m.heading}
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-10">
                 {m.body.map((para, j) => (
                   <p key={j} className="text-gray-600 leading-relaxed text-lg">
                     {para}
                   </p>
                 ))}
               </div>
+
+              {m.photos.length > 0 && (
+                <div
+                  className={`grid gap-3 ${
+                    m.photos.length === 2
+                      ? "grid-cols-2"
+                      : m.photos.length === 3
+                      ? "grid-cols-3"
+                      : "grid-cols-2 md:grid-cols-4"
+                  }`}
+                >
+                  {m.photos.map((photo, k) => (
+                    <div
+                      key={k}
+                      className="relative overflow-hidden rounded-sm bg-gray-100"
+                      style={{ aspectRatio: "4/3" }}
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 50vw, 25vw"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -153,7 +202,7 @@ export default function OurStoryPage() {
               Let&apos;s talk about your F&amp;B concept.
             </p>
           </div>
-          <a
+          
             href="/contact"
             className="inline-block bg-[#1a7f6e] hover:bg-[#156b5c] text-white font-semibold px-10 py-4 rounded-sm transition-colors duration-200 whitespace-nowrap text-sm uppercase tracking-widest"
           >
