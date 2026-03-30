@@ -11,6 +11,7 @@ export default function Footer() {
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
               <div>Cairo, Egypt</div>
               <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kitchenthreecairo@gmail.com</a></div>
+              <div><a href="tel:+201222186669" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>+20 122 218 6669</a></div>
               <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
                 <a href="https://www.facebook.com/kitchenthree" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
