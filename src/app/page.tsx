@@ -38,6 +38,63 @@ const clients = [
 
 const steps = ['Consult', 'Design', 'Execute', 'Train', 'Handover', 'Monitor & Optimise']
 
+const personas = [
+  {
+    icon: '🚀',
+    title: 'First-Time F&B Entrepreneurs',
+    desc: 'You have a concept, a vision, and the drive — but need a partner who can take it from idea to open doors without the costly mistakes.',
+    pillars: ['Concept & Feasibility', 'Menu Engineering', 'Brand Design', 'Site Selection'],
+    color: 'var(--teal)',
+    bg: 'var(--teal-light)',
+    cta: '/services#culinary-consulting',
+  },
+  {
+    icon: '📈',
+    title: 'Existing Operations Seeking Growth',
+    desc: 'Your restaurant is open but margins are tight, costs are climbing, or growth has stalled. We diagnose what is broken and build the path back to profitability.',
+    pillars: ['Financial Turnaround', 'Operations Audit', 'Menu Restructure', 'Staff Training'],
+    color: 'var(--amber)',
+    bg: 'var(--amber-light)',
+    cta: '/services#financial-turnaround',
+  },
+  {
+    icon: '🏢',
+    title: 'Corporates & HORECA Operators',
+    desc: 'Hotels, corporate catering, institutions, and multi-site operators who need professional culinary infrastructure, certified kitchens, and world-class chef talent.',
+    pillars: ['Chef Matchmaking', 'Cloud Kitchen', 'Recruitment & Training', 'Technology Stack'],
+    color: 'var(--coral)',
+    bg: 'var(--coral-light)',
+    cta: '/services#chef-matchmaking',
+  },
+  {
+    icon: '🌍',
+    title: 'GCC & International Investors',
+    desc: 'Entering the Egypt market post-2024? Kitchen Three is your on-the-ground partner — combining local market knowledge with international culinary standards and full compliance infrastructure.',
+    pillars: ['Market Entry Advisory', 'Michelin Chef Hire', 'Brand Localisation', 'Full Compliance'],
+    color: 'var(--teal)',
+    bg: 'var(--teal-light)',
+    cta: '/contact',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud Kitchen & Delivery Brands',
+    desc: 'Launching a delivery-first concept or scaling a ghost kitchen operation? Our HACCP-certified central kitchen and full digital stack are built for exactly this.',
+    pillars: ['Cloud Kitchen Rental', 'HACCP Compliance', 'Ordering & Delivery Tech', 'Brand Development'],
+    color: 'var(--amber)',
+    bg: 'var(--amber-light)',
+    cta: '/services#cloud-kitchen',
+  },
+  {
+    icon: '✨',
+    title: 'Creative Founders & Concept Builders',
+    desc: 'You have the aesthetic vision and the Instagram following — we bring the operational rigour, food costing, and brand depth to turn it into a sustainable business.',
+    pillars: ['Concept Development', 'Food Theater & Design', 'Menu Engineering', 'Launch Strategy'],
+    color: 'var(--coral)',
+    bg: 'var(--coral-light)',
+    cta: '/services#design-services',
+  },
+]
+
 export default function Home() {
   const [email, setEmail] = useState('')
   const [subDone, setSubDone] = useState(false)
@@ -171,6 +228,32 @@ export default function Home() {
               <div key={c.name} className="card" style={{ padding: '20px 16px' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 500, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 300 }}>{c.sector}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Work With */}
+      <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
+        <div className="container">
+          <div className="section-header">
+            <div className="eyebrow" style={{ color: 'var(--teal)' }}>Who We Work With</div>
+            <h2>Built for the People <em style={{ color: 'var(--teal)' }}>Who Build F&B</em></h2>
+            <p>Whether you are launching your first concept, rescuing an existing operation, or entering Egypt as a GCC investor — Kitchen Three has the right team and the right tools for your situation.</p>
+          </div>
+          <div className="grid-3">
+            {personas.map(p => (
+              <div key={p.title} className="card" style={{ padding: '28px 24px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontSize: 36, marginBottom: 16 }}>{p.icon}</div>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: p.color, textTransform: 'uppercase', marginBottom: 10 }}>{p.title}</div>
+                <p style={{ fontSize: 14, color: '#555', lineHeight: 1.8, fontWeight: 300, marginBottom: 20, flex: 1 }}>{p.desc}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
+                  {p.pillars.map(pill => (
+                    <span key={pill} style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', color: p.color, background: p.bg, padding: '4px 10px', borderRadius: 2, textTransform: 'uppercase' }}>{pill}</span>
+                  ))}
+                </div>
+                <a href={p.cta} style={{ fontSize: 12, color: p.color, fontWeight: 600, letterSpacing: '0.06em' }}>See how we can help →</a>
               </div>
             ))}
           </div>
