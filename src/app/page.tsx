@@ -11,6 +11,7 @@ const services = [
   { num: '05', title: 'Cloud Kitchen Services', desc: 'Turnkey operations and short-term rentals. HACCP and Codex Alimentarius certified central kitchens.', color: 'var(--amber)', bg: 'var(--amber-light)', kw: 'Cloud Kitchen Egypt', href: '/services#cloud-kitchen' },
   { num: '06', title: 'Technology Infrastructure', desc: 'Menu builder, ordering, reservations, mobile app, payments, CRM, loyalty — a complete digital stack.', color: 'var(--coral)', bg: 'var(--coral-light)', kw: 'Restaurant Technology Egypt', href: '/services#technology' },
   { num: '07', title: 'Site Selection & Lease Advisory', desc: "We don't just find you a space — we find you the right space. Foot traffic analysis, lease negotiation, and landlord management.", color: 'var(--teal)', bg: 'var(--teal-light)', kw: 'Restaurant Location Hunting Cairo', href: '/services#site-selection' },
+  { num: '08', title: 'F&B Financial Turnaround', desc: 'For operations that need to recover, stabilise, and grow again. We diagnose what is broken and build the path back to profitability.', color: 'var(--amber)', bg: 'var(--amber-light)', kw: 'F&B Turnaround Consulting Egypt', href: '/services#financial-turnaround' },
 ]
 
 const chefs = [
@@ -68,7 +69,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hero-right fade-up-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              {[{ v: '2013', l: 'Founded' }, { v: '10', l: "Int'l Chefs" }, { v: '7', l: 'Service Pillars' }, { v: '15+', l: 'Major Clients' }].map(s => (
+              {[{ v: '2013', l: 'Founded' }, { v: '10', l: "Int'l Chefs" }, { v: '8', l: 'Service Pillars' }, { v: '15+', l: 'Major Clients' }].map(s => (
                 <div key={s.v} className="card" style={{ padding: '28px 20px', textAlign: 'center' }}>
                   <div style={{ fontFamily: 'var(--serif)', fontSize: 48, fontWeight: 300, color: 'var(--teal)', lineHeight: 1 }}>{s.v}</div>
                   <div style={{ fontSize: 11, letterSpacing: '0.18em', color: '#888', marginTop: 8, textTransform: 'uppercase', fontWeight: 500 }}>{s.l}</div>
