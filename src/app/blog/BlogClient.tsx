@@ -1,9 +1,7 @@
 'use client'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { useState, useEffect } from 'react'
-import { client } from '@/sanity/lib/client'
-import { ARTICLES_QUERY } from '@/sanity/lib/queries'
+import { useState } from 'react'
 
 const categoryColors: Record<string, { color: string; bg: string }> = {
   'Startup Guide': { color: 'var(--teal)', bg: 'var(--teal-light)' },
@@ -28,17 +26,8 @@ type Article = {
   publishedAt: string
 }
 
-export default function BlogClient() {
+export default function BlogClient({ articles }: { articles: Article[] }) {
   const [cat, setCat] = useState('All')
-  const [articles, setArticles] = useState<Article[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    client.fetch(ARTICLES_QUERY).then((data: Article[]) => {
-      setArticles(data)
-      setLoading(false)
-    })
-  }, [])
 
   const filtered = cat === 'All' ? articles : articles.filter(a => a.category === cat)
   const featured = articles.filter(a => a.featured)
@@ -50,16 +39,6 @@ export default function BlogClient() {
     if (!dateStr) return ''
     return new Date(dateStr).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
   }
-
-  if (loading) return (
-    <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
-      <Nav />
-      <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontSize: 16, color: 'var(--muted)' }}>Loading articles...</div>
-      </div>
-      <Footer />
-    </div>
-  )
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
