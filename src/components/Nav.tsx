@@ -9,6 +9,8 @@ const links = [
   { label: 'Blog', href: '/blog' },
   { label: 'Resources', href: '/resources' },
   { label: 'Team', href: '/team' },
+  { label: 'Academy', href: '/academy' },
+  { label: 'Investment', href: '/invest' },
   { label: 'Partners', href: '/partners/kf-digital-studio' },
 ]
 
