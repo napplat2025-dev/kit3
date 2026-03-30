@@ -68,12 +68,12 @@ const personas = [
   },
   {
     icon: '🌍',
-    title: 'GCC & International Investors',
-    desc: 'Entering the Egypt market post-2024? Kitchen Three is your on-the-ground partner — combining local market knowledge with international culinary standards and full compliance infrastructure.',
+    title: 'International & Regional Investors',
+    desc: 'Entering the Egypt market from anywhere in the world? Kitchen Three is your on-the-ground partner — local expertise, international standards, and full compliance infrastructure.',
     pillars: ['Market Entry Advisory', 'Michelin Chef Hire', 'Brand Localisation', 'Full Compliance'],
     color: 'var(--teal)',
     bg: 'var(--teal-light)',
-    cta: '/contact',
+    cta: '/invest',
   },
   {
     icon: '☁️',
@@ -87,7 +87,7 @@ const personas = [
   {
     icon: '✨',
     title: 'Creative Founders & Concept Builders',
-    desc: 'You have the aesthetic vision and the Instagram following — we bring the operational rigour, food costing, and brand depth to turn it into a sustainable business.',
+    desc: 'You have the aesthetic vision and the following — we bring the operational rigour, food costing, and brand depth to turn it into a sustainable business.',
     pillars: ['Concept Development', 'Food Theater & Design', 'Menu Engineering', 'Launch Strategy'],
     color: 'var(--coral)',
     bg: 'var(--coral-light)',
@@ -240,7 +240,7 @@ export default function Home() {
           <div className="section-header">
             <div className="eyebrow" style={{ color: 'var(--teal)' }}>Who We Work With</div>
             <h2>Built for the People <em style={{ color: 'var(--teal)' }}>Who Build F&B</em></h2>
-            <p>Whether you are launching your first concept, rescuing an existing operation, or entering Egypt as a GCC investor — Kitchen Three has the right team and the right tools for your situation.</p>
+            <p>Whether you are launching your first concept, rescuing an existing operation, or entering Egypt as an investor from anywhere in the world — Kitchen Three has the right team and the right tools for your situation.</p>
           </div>
           <div className="grid-3">
             {personas.map(p => (
@@ -270,7 +270,7 @@ export default function Home() {
                 Investment <em style={{ color: 'var(--amber)' }}>Opportunities</em>
               </h2>
               <p style={{ fontSize: 16, color: '#7ab8b0', lineHeight: 1.9, fontWeight: 300, marginBottom: 32 }}>
-                Kitchen Three periodically develops and co-invests in Egypt F&B ventures — from certified production infrastructure to culinary concept ventures. When an opportunity opens, our network hears first.
+                Kitchen Three periodically develops and co-invests in Egypt F&B ventures — from certified production infrastructure to culinary concept ventures. We work with investors, operators, and capital partners from anywhere in the world. When an opportunity opens, our network hears first.
               </p>
               <a href="/invest" className="btn btn-white">Interested in Investment Opportunities →</a>
             </div>
@@ -278,7 +278,7 @@ export default function Home() {
               {[
                 { icon: '🏗', label: 'Production Infrastructure' },
                 { icon: '🍽', label: 'Culinary Concept Ventures' },
-                { icon: '🎓', label: 'Education & Training Assets' },
+                { icon: '🌍', label: 'Global investor Network' },
                 { icon: '📈', label: 'Egypt F&B Growth Market' },
               ].map(item => (
                 <div key={item.label} style={{ padding: '20px 16px', background: 'rgba(168,216,210,0.07)', border: '1px solid rgba(168,216,210,0.15)', borderRadius: 'var(--radius)', textAlign: 'center' }}>
