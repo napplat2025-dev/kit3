@@ -48,6 +48,7 @@ export default function Home() {
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
       <Nav />
 
+      {/* Hero */}
       <section style={{ background: 'linear-gradient(135deg, #c2e8e3 0%, var(--cream) 50%, #fdefd0 100%)', padding: '80px 24px 64px', minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
         <div className="container" style={{ width: '100%' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
@@ -80,6 +81,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trusted by */}
       <section style={{ background: '#fff', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '20px 24px', overflowX: 'auto' }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -91,6 +93,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services */}
       <section className="section" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="section-header">
@@ -112,6 +115,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Approach */}
       <section className="section" style={{ background: 'var(--forest)' }}>
         <div className="container">
           <div className="section-header" style={{ color: '#fff' }}>
@@ -130,6 +134,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Chefs */}
       <section className="section" style={{ background: '#fff' }}>
         <div className="container">
           <div className="section-header">
@@ -154,6 +159,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Clients */}
       <section className="section" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div className="section-header">
@@ -171,6 +177,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Investment */}
+      <section className="section" style={{ background: 'var(--forest)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center' }} className="invest-home-grid">
+            <div>
+              <div className="eyebrow" style={{ color: 'var(--amber)' }}>Beyond Consulting</div>
+              <h2 style={{ color: '#fff', marginBottom: 16 }}>
+                Investment <em style={{ color: 'var(--amber)' }}>Opportunities</em>
+              </h2>
+              <p style={{ fontSize: 16, color: '#7ab8b0', lineHeight: 1.9, fontWeight: 300, marginBottom: 32 }}>
+                Kitchen Three periodically develops and co-invests in Egypt F&B ventures — from certified production infrastructure to culinary concept ventures. When an opportunity opens, our network hears first.
+              </p>
+              <a href="/invest" className="btn btn-white">Interested in Investment Opportunities →</a>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              {[
+                { icon: '🏗', label: 'Production Infrastructure' },
+                { icon: '🍽', label: 'Culinary Concept Ventures' },
+                { icon: '🎓', label: 'Education & Training Assets' },
+                { icon: '📈', label: 'Egypt F&B Growth Market' },
+              ].map(item => (
+                <div key={item.label} style={{ padding: '20px 16px', background: 'rgba(168,216,210,0.07)', border: '1px solid rgba(168,216,210,0.15)', borderRadius: 'var(--radius)', textAlign: 'center' }}>
+                  <div style={{ fontSize: 28, marginBottom: 10 }}>{item.icon}</div>
+                  <div style={{ fontSize: 12, color: '#a8d8d2', fontWeight: 400, lineHeight: 1.5 }}>{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community */}
       <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div className="community-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
@@ -212,6 +250,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact */}
       <section id="contact" className="section" style={{ background: 'var(--cream)', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
@@ -266,6 +305,7 @@ export default function Home() {
         @media (max-width: 768px) {
           .community-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .invest-home-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
       `}</style>
     </div>
