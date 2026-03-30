@@ -31,6 +31,10 @@ const services = [
     desc:"Location is one of the most consequential decisions in any F&B venture — and one of the most underserved. Kitchen Three brings 13 years of Cairo market knowledge to every site decision, from foot traffic analysis and competitive mapping to lease negotiation and landlord management. We don't just find you a space — we find you the right space.",
     bullets:['Foot traffic analysis and catchment area mapping','Competitive landscape assessment per location','Lease negotiation and landlord management','F&B-specific fit-out and compliance assessment','Site shortlisting and comparative evaluation','End-to-end location management from search to signed lease'],
     clients:"Vinny's Pizza Bar, Garten, Mori, Wok & Wok" },
+  { num:'08', title:'F&B Financial Turnaround', slug:'financial-turnaround', tagline:'Diagnose. Stabilise. Recover.', color:'var(--amber)', bg:'var(--amber-light)', kw:'F&B Turnaround Consulting Egypt',
+    desc:'Not every engagement starts at concept stage. Some of the most important work Kitchen Three does is with operations that are already open — but struggling. Whether margins have collapsed, costs have spiralled, or the concept has lost direction, we bring the diagnostic rigour and operational expertise to identify what is broken and build a clear, executable path back to profitability.',
+    bullets:['Operational cost audit and P&L diagnostic','Menu restructure for margin and efficiency recovery','Supplier and procurement review and renegotiation','Staff performance assessment and restructuring guidance','Concept repositioning and brand realignment','Ongoing financial monitoring and recovery milestones'],
+    clients:'Available for all operation types and scales — enquire to discuss your situation.' },
 ]
 
 export default function ServicesClient() {
@@ -49,7 +53,7 @@ export default function ServicesClient() {
             Fully Fledged Culinary Services<br /><em style={{ color: 'var(--teal)' }}>Under One Roof</em>
           </h1>
           <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 600, lineHeight: 1.9, fontWeight: 300 }}>
-            Seven integrated service pillars designed to take your food business from concept to operational excellence. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
+            Eight integrated service pillars designed to take your food business from concept to operational excellence — and to recover and grow operations that need a reset. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
           </p>
         </div>
       </section>
