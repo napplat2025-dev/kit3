@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Metadata } from 'next'
+import Nav from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 const milestones = [
   {
@@ -82,9 +83,9 @@ const milestones = [
     label: 'Resilience',
     heading: 'We survived the hardest test.',
     body: [
-      'In 2020, COVID-19 shut everything down. We lost accounts. We regrouped in silence.',
-      'What came out of that period was clarity. In June 2021, we launched Kitchen Hive — an international-standard cloud kitchen facility in New Cairo\'s industrial zone, built to a specification no local competitor has matched since: HACCP certified, Codex Alimentarius compliant, fully equipped, and ready for serious food businesses.',
-      'We didn\'t rebuild what we had. We built what the market needed next.',
+      "In 2020, COVID-19 shut everything down. We lost accounts. We regrouped in silence.",
+      "What came out of that period was clarity. In June 2021, we launched Kitchen Hive — an international-standard cloud kitchen facility in New Cairo's industrial zone, built to a specification no local competitor has matched since: HACCP certified, Codex Alimentarius compliant, fully equipped, and ready for serious food businesses.",
+      "We didn't rebuild what we had. We built what the market needed next.",
     ],
     photos: [],
     video: 'https://www.youtube.com/embed/T77z1KpH_DY',
@@ -94,8 +95,8 @@ const milestones = [
     label: '2026',
     heading: 'Where we are today.',
     body: [
-      'Twelve years on, Kitchen Three is one of Egypt\'s culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.',
-      'Our clients range from first-time Cairo investors and growing F&B brands to international groups entering Egypt. What they all share is the same starting point we had in November 2013: a belief that quality, made with the right ingredients and the right people, is the only recipe that lasts.',
+      "Twelve years on, Kitchen Three is one of Egypt's culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
+      "Our clients range from first-time Cairo investors and growing F&B brands to international groups entering Egypt. What they all share is the same starting point we had in November 2013: a belief that quality, made with the right ingredients and the right people, is the only recipe that lasts.",
     ],
     photos: [
       { src: '/images/our-story/kt-today-1.jpg', alt: 'Kitchen Three today' },
@@ -144,7 +145,8 @@ function PhotoGrid({ photos }: { photos: { src: string; alt: string }[] }) {
 
 export default function OurStoryPage() {
   return (
-    <main className="bg-white text-gray-900">
+    <div style={{ fontFamily: 'var(--sans)', background: '#fff' }}>
+      <Nav />
 
       {/* Hero */}
       <section className="px-5 md:px-16 lg:px-24 pt-28 md:pt-36 pb-12 md:pb-20 max-w-6xl mx-auto">
@@ -269,6 +271,7 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-    </main>
+      <Footer />
+    </div>
   )
 }
