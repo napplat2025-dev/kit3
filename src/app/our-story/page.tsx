@@ -20,7 +20,8 @@ const milestones = [
     photos: [
       { src: "/images/our-story/cookies-pies-logo.jpg", alt: "Cookies & Pies — where it all began" },
       { src: "/images/our-story/cookies-pies-stall.jpg", alt: "Cookies & Pies market stall" },
-      { src: "/images/our-story/pastries-oven.jpg", alt: "Freshly baked pastries" },
+      { src: "/images/our-story/cookies-pies-stall-2.jpg", alt: "Kitchen Three retail stall" },
+      { src: "/images/our-story/kt-outdoor-stall.jpg", alt: "Kitchen Three outdoor stall" },
     ],
   },
   {
@@ -33,10 +34,11 @@ const milestones = [
       "Alongside it, we launched kitchen rental — giving operators, chefs, and food startups access to a fully equipped, professional kitchen for menu testing, chef evaluations, event execution, and hands-on courses. No overheads. No compromise on quality.",
     ],
     photos: [
-      { src: "/images/our-story/training-class.jpg", alt: "Kitchen Three culinary training class" },
+      { src: "/images/our-story/hadil-teaching-class.jpg", alt: "Hadil teaching culinary class" },
       { src: "/images/our-story/hadil-teaching.jpg", alt: "Hadil teaching pastry class" },
-      { src: "/images/our-story/kids-pasta.jpg", alt: "Kids pasta making class" },
+      { src: "/images/our-story/training-class.jpg", alt: "Kitchen Three culinary training" },
       { src: "/images/our-story/certificates-class.jpg", alt: "Graduates with certificates" },
+      { src: "/images/our-story/kids-pasta.jpg", alt: "Kids pasta making class" },
     ],
   },
   {
@@ -49,9 +51,17 @@ const milestones = [
       "We were no longer just advising the food industry. We were operating inside it, at scale, every day.",
     ],
     photos: [
-      { src: "/images/our-story/michelin-chef-event.jpg", alt: "Michelin chef Giorgio Diana — Sous-vide masterclass 2018" },
+      { src: "/images/our-story/freezer-products.jpg", alt: "Kitchen Three frozen product range" },
+      { src: "/images/our-story/zucchini-soup-product.jpg", alt: "Kitchen Three Zucchini Soup" },
+      { src: "/images/our-story/beef-stock-product.jpg", alt: "Kitchen Three Beef Stock" },
+      { src: "/images/our-story/cloud-kitchen-pastry-1.jpg", alt: "Cloud kitchen pastry production" },
+      { src: "/images/our-story/cloud-kitchen-pastry-2.jpg", alt: "Cloud kitchen pastry products" },
+      { src: "/images/our-story/sourdough-bread.jpg", alt: "Freshly baked sourdough" },
+      { src: "/images/our-story/baguettes.jpg", alt: "Freshly baked baguettes" },
+      { src: "/images/our-story/catering-aubergine.jpg", alt: "Catering — stuffed aubergine dish" },
       { src: "/images/our-story/catering-buffet.jpg", alt: "Kitchen Three catering service" },
-      { src: "/images/our-story/christmas-event.jpg", alt: "Christmas event at Nefertari school" },
+      { src: "/images/our-story/sea-queen-catering.jpg", alt: "Sea Queen Fleet catering" },
+      { src: "/images/our-story/kt-retail-stand.jpg", alt: "Kitchen Three retail stand" },
     ],
   },
   {
@@ -62,7 +72,14 @@ const milestones = [
       "By 2018, culinary consultancy had become a core offering in its own right. Clients kept asking us how we did what we did — how we developed recipes, structured kitchens, sourced suppliers, built brands. So we formalized it.",
       "Everything came together under one name: Kitchen Three — a full-service culinary consultancy operating across eight pillars, from concept and brand design to chef placement, technology, and site selection.",
     ],
-    photos: [],
+    photos: [
+      { src: "/images/our-story/michelin-chef-event.jpg", alt: "Michelin chef Giorgio Diana — Sous-vide masterclass 2018" },
+      { src: "/images/our-story/corporate-training-1.jpg", alt: "Corporate culinary training — HR Corporate" },
+      { src: "/images/our-story/corporate-event-1.jpg", alt: "Corporate team building event" },
+      { src: "/images/our-story/corporate-event-2.jpg", alt: "Corporate culinary event" },
+      { src: "/images/our-story/corporate-event-3.jpg", alt: "Corporate event participants" },
+      { src: "/images/our-story/christmas-event.jpg", alt: "Christmas event at Nefertari school" },
+    ],
   },
   {
     year: "2021",
@@ -74,6 +91,7 @@ const milestones = [
       "We didn't rebuild what we had. We built what the market needed next.",
     ],
     photos: [],
+    video: "https://www.youtube.com/embed/T77z1KpH_DY",
   },
   {
     year: "Today",
@@ -153,6 +171,18 @@ export default function OurStoryPage() {
                 ))}
               </div>
 
+              {"video" in m && m.video && (
+                <div className="mb-8 rounded-sm overflow-hidden" style={{ aspectRatio: "16/9" }}>
+                  <iframe
+                    src={m.video}
+                    title="Kitchen Hive — Cloud Kitchen Facility"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+              )}
+
               {m.photos.length > 0 && (
                 <div
                   className={`grid gap-3 ${
@@ -160,7 +190,7 @@ export default function OurStoryPage() {
                       ? "grid-cols-2"
                       : m.photos.length === 3
                       ? "grid-cols-3"
-                      : "grid-cols-2 md:grid-cols-4"
+                      : "grid-cols-2 md:grid-cols-3"
                   }`}
                 >
                   {m.photos.map((photo, k) => (
@@ -174,7 +204,7 @@ export default function OurStoryPage() {
                         alt={photo.alt}
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 50vw, 25vw"
+                        sizes="(max-width: 768px) 50vw, 33vw"
                       />
                     </div>
                   ))}
