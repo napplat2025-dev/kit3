@@ -92,8 +92,6 @@ const milestones = [
 export default function OurStoryPage() {
   return (
     <main className="bg-white text-gray-900">
-
-      {/* Hero */}
       <section className="px-6 md:px-16 lg:px-24 pt-36 pb-20 max-w-6xl mx-auto">
         <p className="text-[#1a7f6e] uppercase tracking-[0.25em] text-xs font-semibold mb-5">
           Est. November 2013 · Cairo, Egypt
@@ -115,7 +113,6 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* Timeline */}
       <section className="px-6 md:px-16 lg:px-24 max-w-6xl mx-auto pb-32">
         {milestones.map((m, i) => (
           <div
@@ -188,7 +185,6 @@ export default function OurStoryPage() {
         </p>
       </section>
 
-      {/* CTA */}
       <section className="bg-[#f7f5f2] border-t border-gray-200 px-6 md:px-16 lg:px-24 py-24">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div>
@@ -199,7 +195,7 @@ export default function OurStoryPage() {
               Ready to write your own story?
             </h3>
             <p className="text-gray-500 text-lg">
-              Let&apos;s talk about your F&amp;B concept.
+              {"Let's talk about your F&B concept."}
             </p>
           </div>
           
@@ -210,7 +206,6 @@ export default function OurStoryPage() {
           </a>
         </div>
       </section>
-
     </main>
   );
 }
