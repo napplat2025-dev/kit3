@@ -30,12 +30,22 @@ export default function Footer() {
                     <circle cx="4" cy="4" r="2"/>
                   </svg>
                 </a>
+                <a href="https://www.instagram.com/kitchenthree" target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.2)'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'; (e.currentTarget as HTMLElement).style.color = '#7ab8b0'; }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Services</div>
-            {['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology'].map(s => (
+            {['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology', 'F&B Financial Turnaround'].map(s => (
               <a key={s} href="/services" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{s}</a>
@@ -43,7 +53,7 @@ export default function Footer() {
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Company</div>
-            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['Resources', '/resources'], ['Team', '/team'], ['Contact', '/contact']].map(([label, href]) => (
+            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']].map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>
@@ -62,6 +72,9 @@ export default function Footer() {
             <a href="/privacy" style={{ fontSize: 11, color: '#4a8a80', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a8a80'}>Privacy Policy</a>
+            <a href="/our-story" style={{ fontSize: 11, color: '#4a8a80', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a8a80'}>Our Story</a>
             <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#4a8a80', textTransform: 'uppercase' }}>B2B Culinary Consultancy · Est. 2013</div>
           </div>
         </div>
