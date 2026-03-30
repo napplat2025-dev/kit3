@@ -10,7 +10,7 @@ const milestones = [
   {
     year: "2013",
     label: "The Beginning",
-    heading: "It started with cookies, pies, and a partnership.",
+    heading: "It started with cookies, pies, women empowerment and a family partnership.",
     body: [
       "In November 2013, Cookies & Pies was born — a cloud kitchen family business built around a simple belief: that real food, made with premium ingredients and genuine care, could build something lasting. It was also a personal mission — to create a platform that empowered Hadil, my wife and partner in crime, to do what she does best.",
       "What started as a home kitchen operation quickly proved there was a serious market for quality. We baked. We delivered. We refined. And we listened closely to what the market was telling us it needed.",
