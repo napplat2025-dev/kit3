@@ -21,7 +21,6 @@ const clients = [
 const sectors = ['All', 'University', 'FMCG', 'Diplomatic', 'International Organisation', 'Corporate', 'Maritime', 'HORECA', 'F&B Brand', 'Restaurant', 'Education']
 
 export default function ClientsClient() {
-  const [active, setActive] = useState<string | null>(null)
   const [sector, setSector] = useState('All')
   const filtered = sector === 'All' ? clients : clients.filter(c => c.sector === sector)
 
@@ -58,29 +57,21 @@ export default function ClientsClient() {
         <div className="container">
           <div className="grid-3" style={{ gap: 16 }}>
             {filtered.map(c => (
-              <div key={c.name}>
-                <div onClick={() => setActive(active === c.name ? null : c.name)}
-                  style={{ background: active === c.name ? c.bg : '#fff', border: '1px solid ' + (active === c.name ? c.color : 'var(--border)'), borderRadius: 4, padding: '24px 20px', cursor: 'pointer', transition: 'all 0.3s' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-                    <div>
-                      <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 500, color: 'var(--forest)', marginBottom: 3 }}>{c.name}</div>
-                      <div style={{ fontSize: 11, color: 'var(--muted)' }}>{c.full}</div>
-                    </div>
-                    <span style={{ background: c.bg, color: c.color, padding: '3px 8px', borderRadius: 2, fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap', flexShrink: 0 }}>{c.sector}</span>
+              <div key={c.name} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 4, padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 8, flexWrap: 'wrap' }}>
+                  <div>
+                    <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 500, color: 'var(--forest)', marginBottom: 3 }}>{c.name}</div>
+                    <div style={{ fontSize: 11, color: 'var(--muted)' }}>{c.full}</div>
                   </div>
-                  <div style={{ fontSize: 11, color: c.color, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8, fontWeight: 600 }}>{c.service}</div>
-                  <div style={{ fontSize: 11, color: 'var(--muted)', marginTop: 10 }}>{active === c.name ? 'CLOSE ↑' : 'VIEW DETAILS ↓'}</div>
+                  <span style={{ background: c.bg, color: c.color, padding: '3px 8px', borderRadius: 2, fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap', flexShrink: 0 }}>{c.sector}</span>
                 </div>
-                {active === c.name && (
-                  <div style={{ background: '#fff', border: '1px solid ' + c.color + '44', borderTop: 'none', borderRadius: '0 0 4px 4px', padding: '20px' }}>
-                    <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 16 }}>{c.description}</p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                      {c.services.map(s => (
-                        <span key={s} style={{ background: c.bg, color: c.color, padding: '4px 10px', borderRadius: 2, fontSize: 11 }}>{s}</span>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <div style={{ fontSize: 11, color: c.color, letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600 }}>{c.service}</div>
+                <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, margin: 0 }}>{c.description}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
+                  {c.services.map(s => (
+                    <span key={s} style={{ background: c.bg, color: c.color, padding: '4px 10px', borderRadius: 2, fontSize: 11 }}>{s}</span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
