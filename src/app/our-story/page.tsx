@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Story | Kitchen Three — Egypt's Culinary Consultancy Since 2013",
@@ -100,11 +101,14 @@ export default function OurStoryPage() {
           className="text-6xl md:text-8xl font-extrabold tracking-tight leading-none text-gray-900 mb-10"
           style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
         >
-          Our<br />Story
+          {"Our"}
+          <br />
+          {"Story"}
         </h1>
         <p className="text-xl md:text-2xl text-gray-500 max-w-xl leading-relaxed font-light">
-          Twelve years. One conviction.<br />
-          Quality is the only recipe that lasts.
+          {"Twelve years. One conviction."}
+          <br />
+          {"Quality is the only recipe that lasts."}
         </p>
         <div className="mt-16 flex items-center gap-4">
           <div className="h-px flex-1 bg-gray-200" />
@@ -181,7 +185,7 @@ export default function OurStoryPage() {
         ))}
 
         <p className="mt-16 text-sm text-gray-400 uppercase tracking-widest text-center">
-          Kitchen Three LLC · Est. November 2013 · Cairo, Egypt
+          {"Kitchen Three LLC · Est. November 2013 · Cairo, Egypt"}
         </p>
       </section>
 
@@ -192,18 +196,18 @@ export default function OurStoryPage() {
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"
               style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              Ready to write your own story?
+              {"Ready to write your own story?"}
             </h3>
             <p className="text-gray-500 text-lg">
               {"Let's talk about your F&B concept."}
             </p>
           </div>
-          
+          <Link
             href="/contact"
             className="inline-block bg-[#1a7f6e] hover:bg-[#156b5c] text-white font-semibold px-10 py-4 rounded-sm transition-colors duration-200 whitespace-nowrap text-sm uppercase tracking-widest"
           >
-            Get in Touch
-          </a>
+            {"Get in Touch"}
+          </Link>
         </div>
       </section>
     </main>
