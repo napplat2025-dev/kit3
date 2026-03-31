@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation'
 const links = [
   { label: 'Services', href: '/services' },
   { label: 'Chefs', href: '/chefs' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'Team', href: '/team' },
   { label: 'Academy', href: '/academy' },
   { label: 'Investment', href: '/invest' },
   { label: 'Clients', href: '/clients' },
+  { label: 'Team', href: '/team' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Partners', href: '/partners/kf-digital-studio' },
 ]
 
