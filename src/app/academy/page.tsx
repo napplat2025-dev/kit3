@@ -143,6 +143,7 @@ export default function AcademyPage() {
               <input type="hidden" name="type" value="Academy Interest" />
               <input name="name" required placeholder="Your name" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: '#fff', width: '100%' }} />
               <input name="email" type="email" required placeholder="Email address" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: '#fff', width: '100%' }} />
+              <input name="phone" type="tel" placeholder="Phone / WhatsApp number" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: '#fff', width: '100%' }} />
               <select name="track" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: '#fff', width: '100%', color: '#555' }}>
                 <option value="">Interested in which track? (optional)</option>
                 <option value="Track A — Technical Culinary Skills">Track A — Technical Culinary Skills</option>
