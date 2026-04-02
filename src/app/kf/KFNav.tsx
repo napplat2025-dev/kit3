@@ -11,12 +11,16 @@ export default function KFNav({ onOpenModal }: { onOpenModal: () => void }) {
     <nav style={{ position: 'sticky', top: 0, zIndex: 100, background: 'rgba(250,247,242,0.96)', backdropFilter: 'blur(12px)', borderBottom: `1px solid ${border}` }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 24px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: muted, textDecoration: 'none', letterSpacing: '0.08em', textTransform: 'uppercase', borderRight: `1px solid ${border}`, paddingRight: 16, whiteSpace: 'nowrap' }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = flame}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = muted}>
-            ← Kitchen Three
+
+          {/* Kitchen Three logo — links back to main site */}
+          <a href="/" title="Back to Kitchen Three" style={{ display: 'flex', alignItems: 'center', borderRight: `1px solid ${border}`, paddingRight: 16, opacity: 0.55, transition: 'opacity 0.2s' }}
+            onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
+            onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '0.55'}>
+            <img src="/images/logo.jpg" alt="Kitchen Three" width={32} height={32} style={{ borderRadius: 3, objectFit: 'contain' }} />
           </a>
-          <a href="/partners/kf-digital-studio" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+
+          {/* KF Digital Studio logo */}
+          <a href="/kf" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <KFLogo size={36} />
             <span className="kf-brand-name" style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: dark, letterSpacing: 2 }}>KF DIGITAL STUDIO</span>
           </a>
