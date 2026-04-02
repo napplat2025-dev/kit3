@@ -6,7 +6,7 @@ export default function Footer() {
         <div className="footer-grid" style={{ marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 500, color: '#fff', letterSpacing: '0.06em', marginBottom: 6 }}>KITCHEN THREE</div>
-            <div style={{ fontSize: 10, letterSpacing: '0.18em', color: 'var(--coral)', textTransform: 'uppercase', marginBottom: 16 }}>Premium Quality Creations</div>
+            <div style={{ fontSize: 10, letterSpacing: '0.18em', color: 'var(--coral)', textTransform: 'uppercase', marginBottom: 16 }}>Method Creates Distinction</div>
             <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.</p>
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
               <div>Cairo, Egypt</div>
@@ -59,6 +59,14 @@ export default function Footer() {
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>
             ))}
+            <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(168,216,210,0.1)' }}>
+              <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 12 }}>Partners</div>
+              <a href="/kf" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>
+                KF Digital Studio
+              </a>
+            </div>
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Certifications</div>
