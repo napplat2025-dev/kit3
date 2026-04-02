@@ -86,7 +86,7 @@ export default function Home() {
 
           {/* Remaining services — pill row */}
           <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 20px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+            <div className="service-pills" style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
               <span style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 500, marginRight: 4 }}>+ {remainingServices.length} more services</span>
               {remainingServices.map(s => (
                 <a key={s.num} href={s.href} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: s.color, background: s.bg, padding: '4px 12px', borderRadius: 999, textDecoration: 'none', whiteSpace: 'nowrap' }}>{s.title}</a>
@@ -274,6 +274,9 @@ export default function Home() {
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .invest-home-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 480px) {
+          .service-pills { display: none !important; }
         }
       `}</style>
     </div>
