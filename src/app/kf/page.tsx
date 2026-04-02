@@ -58,21 +58,76 @@ export default function KFDigitalStudio() {
           YOUR BRAND<br />
           <span style={{ background: `linear-gradient(135deg, ${flame} 0%, ${gold} 60%, ${ember} 100%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>RISES HERE</span>
         </h1>
-        <p style={{ fontSize: 17, color: muted, maxWidth: 500, lineHeight: 1.8, marginBottom: 40, fontWeight: 300 }}>
+        <p style={{ fontSize: 17, color: muted, maxWidth: 520, lineHeight: 1.8, marginBottom: 16, fontWeight: 300 }}>
           We start with the right questions. We deliver with precision. Turning your vision into a digital presence that commands attention.
         </p>
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <p style={{ fontSize: 13, color: muted, maxWidth: 480, lineHeight: 1.7, marginBottom: 40, opacity: 0.8 }}>
+          Built for F&B brands, entrepreneurs, and businesses ready to build a serious digital presence — at community rates, with no compromise on quality.
+        </p>
+        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 40 }}>
           <button onClick={() => setModalOpen(true)} style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '14px 32px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', fontWeight: 500 }}>
-            Begin the Journey
+            Start Your Discovery Brief
           </button>
           <a href="#services" style={{ background: 'transparent', color: dark, border: `1px solid rgba(26,18,8,0.2)`, padding: '14px 32px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', borderRadius: 2, fontFamily: 'inherit', textDecoration: 'none' }}>
             See Our Services
           </a>
         </div>
+        {/* Kitchen Three credibility line */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '10px 20px', border: `1px solid ${border}`, borderRadius: 999, fontSize: 12, color: muted }}>
+          <img src="/images/logo.jpg" alt="Kitchen Three" width={20} height={20} style={{ borderRadius: 2, objectFit: 'contain', opacity: 0.7 }} />
+          Backed by <a href="/" style={{ color: flame, fontWeight: 500, textDecoration: 'none', marginLeft: 4 }}>Kitchen Three</a> — Egypt's leading culinary consultancy since 2013
+        </div>
+      </section>
+
+      {/* FOUNDER STORY */}
+      <section style={{ padding: '80px 24px', background: bg }}>
+        <div style={{ maxWidth: 900, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>Who We Are</div>
+            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>BUILT BY A FOUNDER,<br />FOR FOUNDERS</h2>
+          </div>
+          <div className="kf-why" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
+            <div>
+              <p style={{ fontSize: 16, color: muted, lineHeight: 1.9, marginBottom: 20, fontWeight: 300 }}>
+                KF Digital Studio was not born in an agency. It was built out of a simple belief: that great digital work should be accessible to everyone — not just those with enterprise budgets.
+              </p>
+              <p style={{ fontSize: 16, color: muted, lineHeight: 1.9, marginBottom: 20, fontWeight: 300 }}>
+                Our founder is self-taught — every skill learned by doing, every project built from scratch. The same hands that built <a href="https://www.kitchenthree.co" target="_blank" rel="noopener noreferrer" style={{ color: flame, textDecoration: 'none', fontWeight: 500 }}>kitchenthree.co</a> and the AI platform <a href="https://www.abcorb.com" target="_blank" rel="noopener noreferrer" style={{ color: flame, textDecoration: 'none', fontWeight: 500 }}>abcorb.com</a> are the hands that will build yours.
+              </p>
+              <p style={{ fontSize: 16, color: muted, lineHeight: 1.9, fontWeight: 300 }}>
+                We offer professional-grade delivery at community rates — because we know what it takes to build something from nothing, and we want to make it easier for the next person.
+              </p>
+            </div>
+            {/* Portfolio */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: flame, marginBottom: 4 }}>Live Work</div>
+              <a href="https://www.kitchenthree.co" target="_blank" rel="noopener noreferrer" style={{ display: 'block', background: bg2, border: `1px solid ${border}`, borderRadius: 4, padding: '20px 24px', textDecoration: 'none', transition: 'border-color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = flame}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = border}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <div style={{ fontSize: 13, fontWeight: 500, color: dark }}>kitchenthree.co</div>
+                  <div style={{ fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: '#1D9E75', background: '#E1F5EE', padding: '2px 8px', borderRadius: 999 }}>Live</div>
+                </div>
+                <div style={{ fontSize: 12, color: muted, lineHeight: 1.6 }}>B2B culinary consultancy — full website, CMS, blog, chef profiles, investment pages, and academy portal.</div>
+                <div style={{ fontSize: 11, color: flame, marginTop: 10 }}>View site →</div>
+              </a>
+              <a href="https://www.abcorb.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', background: bg2, border: `1px solid ${border}`, borderRadius: 4, padding: '20px 24px', textDecoration: 'none', transition: 'border-color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderColor = flame}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderColor = border}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
+                  <div style={{ fontSize: 13, fontWeight: 500, color: dark }}>abcorb.com</div>
+                  <div style={{ fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: '#854F0B', background: '#FAEEDA', padding: '2px 8px', borderRadius: 999 }}>In Development</div>
+                </div>
+                <div style={{ fontSize: 12, color: muted, lineHeight: 1.6 }}>AI-powered community platform — built from the ground up as a self-initiated product.</div>
+                <div style={{ fontSize: 11, color: flame, marginTop: 10 }}>View site →</div>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* HOW WE WORK */}
-      <section id="how" style={{ padding: '80px 24px', background: bg }}>
+      <section id="how" style={{ padding: '80px 24px', background: bg2 }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>The Process</div>
@@ -95,7 +150,7 @@ export default function KFDigitalStudio() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" style={{ padding: '80px 24px', background: bg2 }}>
+      <section id="services" style={{ padding: '80px 24px', background: bg }}>
         <div style={{ maxWidth: 1000, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>What We Offer</div>
@@ -106,9 +161,9 @@ export default function KFDigitalStudio() {
               { icon: '🌐', title: 'Website Creation', desc: 'Landing pages to full business sites. Fast, mobile-first, built to convert.', tag: 'Core Service' },
               { icon: '🎨', title: 'Logo & Branding', desc: 'A brand identity that speaks before you do. Crafted by top designers.', tag: 'Add-on' },
               { icon: '📣', title: 'Digital Marketing', desc: 'Social strategy, content, and campaigns — managed by specialists.', tag: 'Add-on' },
-              { icon: '⚡', title: 'AI-Powered Speed', desc: 'Latest AI tools cut delivery time in half — without cutting quality.', tag: 'Our Edge' },
+              { icon: '⚡', title: 'Launch in 7 Days', desc: 'AI-powered tools and an efficient process get your brand live faster than any traditional agency.', tag: 'Our Edge' },
             ].map(s => (
-              <div key={s.title} style={{ background: bg, padding: '32px 24px' }}>
+              <div key={s.title} style={{ background: bg2, padding: '32px 24px' }}>
                 <div style={{ width: 38, height: 38, border: `1px solid rgba(232,84,10,0.25)`, borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, fontSize: 18 }}>{s.icon}</div>
                 <h3 style={{ fontSize: 13, fontWeight: 500, marginBottom: 8, color: dark }}>{s.title}</h3>
                 <p style={{ fontSize: 13, color: muted, lineHeight: 1.65, marginBottom: 12 }}>{s.desc}</p>
@@ -120,7 +175,7 @@ export default function KFDigitalStudio() {
       </section>
 
       {/* WHY KF */}
-      <section id="why" style={{ padding: '80px 24px', background: bg }}>
+      <section id="why" style={{ padding: '80px 24px', background: bg2 }}>
         <div style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, letterSpacing: 4, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>Why KF</div>
@@ -143,7 +198,7 @@ export default function KFDigitalStudio() {
                 </div>
               ))}
             </div>
-            <div style={{ background: bg2, border: `1px solid ${border}`, borderRadius: 4, padding: '32px', textAlign: 'center' }}>
+            <div style={{ background: bg, border: `1px solid ${border}`, borderRadius: 4, padding: '32px', textAlign: 'center' }}>
               {[{ num: '48H', label: 'Proposal turnaround' }, { num: '7', label: 'Days avg. delivery' }, { num: '100%', label: 'Tailored to you' }].map(s => (
                 <div key={s.label} style={{ marginBottom: 24 }}>
                   <div style={{ fontFamily: 'Georgia, serif', fontSize: 56, fontWeight: 700, background: `linear-gradient(135deg, ${flame}, ${gold})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1 }}>{s.num}</div>
@@ -173,10 +228,7 @@ export default function KFDigitalStudio() {
             <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 56px)', letterSpacing: 3, color: dark, fontWeight: 700 }}>LET'S TALK</h2>
             <p style={{ fontSize: 15, color: muted, marginTop: 16, lineHeight: 1.7 }}>Have a project in mind? Send us a message and we'll get back to you within 24 hours.</p>
           </div>
-
           <div className="kf-contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
-
-            {/* Contact details */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
               <div>
                 <div style={{ fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: flame, marginBottom: 8 }}>Email</div>
@@ -196,8 +248,6 @@ export default function KFDigitalStudio() {
                 <p style={{ fontSize: 13, color: muted, marginTop: 4 }}>Available for projects worldwide</p>
               </div>
             </div>
-
-            {/* Contact form */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {formStatus === 'sent' ? (
                 <div style={{ textAlign: 'center', padding: '48px 24px', border: `1px solid rgba(232,84,10,0.2)`, borderRadius: 4 }}>
@@ -207,47 +257,20 @@ export default function KFDigitalStudio() {
                 </div>
               ) : (
                 <>
-                  <input
-                    style={inputStyle}
-                    type="text"
-                    placeholder="Full name *"
-                    value={formData.name}
-                    onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
-                  />
-                  <input
-                    style={inputStyle}
-                    type="email"
-                    placeholder="Email address *"
-                    value={formData.email}
-                    onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
-                  />
-                  <input
-                    style={inputStyle}
-                    type="tel"
-                    placeholder="Phone or WhatsApp number"
-                    value={formData.phone}
-                    onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))}
-                  />
-                  <textarea
-                    style={{ ...inputStyle, minHeight: 140, resize: 'vertical' }}
-                    placeholder="Tell us about your project *"
-                    value={formData.message}
-                    onChange={e => setFormData(p => ({ ...p, message: e.target.value }))}
-                  />
+                  <input style={inputStyle} type="text" placeholder="Full name *" value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
+                  <input style={inputStyle} type="email" placeholder="Email address *" value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} />
+                  <input style={inputStyle} type="tel" placeholder="Phone or WhatsApp number" value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} />
+                  <textarea style={{ ...inputStyle, minHeight: 140, resize: 'vertical' }} placeholder="Tell us about your project *" value={formData.message} onChange={e => setFormData(p => ({ ...p, message: e.target.value }))} />
                   {formStatus === 'error' && (
                     <p style={{ fontSize: 13, color: '#c0392b' }}>Something went wrong. Please try again or email us directly.</p>
                   )}
-                  <button
-                    onClick={handleSubmit}
-                    disabled={formStatus === 'sending'}
-                    style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '14px 32px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', fontWeight: 500, opacity: formStatus === 'sending' ? 0.7 : 1 }}
-                  >
+                  <button onClick={handleSubmit} disabled={formStatus === 'sending'}
+                    style={{ background: `linear-gradient(135deg, ${flame}, ${ember})`, color: '#fff', border: 'none', padding: '14px 32px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer', borderRadius: 2, fontFamily: 'inherit', fontWeight: 500, opacity: formStatus === 'sending' ? 0.7 : 1 }}>
                     {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
                   </button>
                 </>
               )}
             </div>
-
           </div>
         </div>
       </section>
