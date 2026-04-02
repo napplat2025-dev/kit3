@@ -19,10 +19,13 @@ export default function KFNav({ onOpenModal }: { onOpenModal: () => void }) {
             <img src="/images/logo.jpg" alt="Kitchen Three" width={32} height={32} style={{ borderRadius: 3, objectFit: 'contain' }} />
           </a>
 
-          {/* KF Digital Studio logo */}
+          {/* KF Digital Studio logo + tagline */}
           <a href="/kf" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <KFLogo size={36} />
-            <span className="kf-brand-name" style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: dark, letterSpacing: 2 }}>KF DIGITAL STUDIO</span>
+            <div className="kf-brand-name">
+              <div style={{ fontFamily: 'Georgia, serif', fontSize: 14, fontWeight: 700, color: dark, letterSpacing: 2, lineHeight: 1.2 }}>DIGITAL STUDIO</div>
+              <div style={{ fontSize: 9, letterSpacing: '0.18em', color: flame, textTransform: 'uppercase', fontWeight: 400, marginTop: 2 }}>Method Creates Distinction</div>
+            </div>
           </a>
         </div>
 
