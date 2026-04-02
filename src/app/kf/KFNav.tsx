@@ -36,7 +36,7 @@ export default function KFNav({ onOpenModal }: { onOpenModal: () => void }) {
           ))}
           <button onClick={() => { onOpenModal(); setMenuOpen(false) }}
             style={{ background: flame, color: '#fff', border: 'none', padding: '9px 20px', fontSize: 12, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
-            Start a Project
+            Start Your Discovery Brief
           </button>
         </div>
 
@@ -58,7 +58,7 @@ export default function KFNav({ onOpenModal }: { onOpenModal: () => void }) {
           ))}
           <button onClick={() => { onOpenModal(); setMenuOpen(false) }}
             style={{ marginTop: 16, background: flame, color: '#fff', border: 'none', padding: '14px', fontSize: 13, letterSpacing: 1, textTransform: 'uppercase', cursor: 'pointer', borderRadius: 2, fontFamily: 'inherit', width: '100%' }}>
-            Start a Project
+            Start Your Discovery Brief
           </button>
         </div>
       )}
