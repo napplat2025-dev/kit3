@@ -2,11 +2,14 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-const links = [
+const primaryLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Chefs', href: '/chefs' },
   { label: 'Academy', href: '/academy' },
   { label: 'Investment', href: '/invest' },
+]
+
+const secondaryLinks = [
   { label: 'Clients', href: '/clients' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
@@ -24,11 +27,11 @@ export default function Nav() {
           <img src="/images/logo.jpg" alt="Kitchen Three" width={42} height={42} style={{ borderRadius: 4, objectFit: 'contain' }} />
           <div>
             <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 17, color: 'var(--teal)', letterSpacing: '0.06em', lineHeight: 1.1 }}>KITCHEN THREE</div>
-            <div style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--coral)', textTransform: 'uppercase', fontWeight: 400 }}>Premium Quality Creations</div>
+            <div style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--coral)', textTransform: 'uppercase', fontWeight: 400 }}>Method Creates Distinction</div>
           </div>
         </a>
         <div className="nav-links" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
-          {links.map(({ label, href }) => {
+          {primaryLinks.map(({ label, href }) => {
             const active = pathname === href || pathname.startsWith(href + '/')
             return (
               <a key={href} href={href} style={{ fontSize: 12, fontWeight: active ? 500 : 400, letterSpacing: '0.1em', textTransform: 'uppercase', color: active ? 'var(--teal)' : '#555', borderBottom: active ? '2px solid var(--teal)' : '2px solid transparent', paddingBottom: 3, transition: 'all 0.2s' }}
@@ -45,8 +48,12 @@ export default function Nav() {
         </button>
       </nav>
       <div className={`mobile-menu${open ? ' open' : ''}`}>
-        {links.map(({ label, href }) => (
+        {primaryLinks.map(({ label, href }) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
+        ))}
+        <div style={{ height: 1, background: 'var(--border)', margin: '8px 0' }} />
+        {secondaryLinks.map(({ label, href }) => (
+          <a key={href} href={href} onClick={() => setOpen(false)} style={{ opacity: 0.6, fontSize: 13 }}>{label}</a>
         ))}
         <a href="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>Get In Touch</a>
       </div>
