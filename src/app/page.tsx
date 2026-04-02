@@ -10,6 +10,9 @@ export default function Home() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' })
   const [sent, setSent] = useState(false)
 
+  const featuredServices = services.slice(0, 3)
+  const remainingServices = services.slice(3)
+
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
       <Nav />
@@ -23,9 +26,9 @@ export default function Home() {
                 B2B Culinary Consultancy · Est. 2013 · Cairo, Egypt
               </div>
               <h1 style={{ color: 'var(--forest)', marginBottom: 24, marginTop: 8 }}>
-                Empowering<br />
-                <em style={{ color: 'var(--teal)' }}>Culinary Success</em><br />
-                with Precision &<br />Sustainability
+                Egypt's<br />
+                <em style={{ color: 'var(--teal)' }}>Full-Stack</em><br />
+                Culinary<br />Consultancy
               </h1>
               <p style={{ fontSize: 17, lineHeight: 1.9, color: '#4a5568', marginBottom: 40, maxWidth: 480, fontWeight: 300 }}>
                 From concept to execution — Kitchen Three partners with corporations, HORECA operators, and food brands to deliver world-class culinary solutions backed by a powerhouse roster of 10 international chefs.
@@ -67,8 +70,10 @@ export default function Home() {
             <h2>Fully Fledged Culinary Services <em style={{ color: 'var(--teal)' }}>Under One Roof</em></h2>
             <p>Whether you are a startup or an existing operation seeking growth, Kitchen Three provides comprehensive B2B culinary solutions — from concept to result.</p>
           </div>
-          <div className="grid-3">
-            {services.map(s => (
+
+          {/* 3 featured services */}
+          <div className="grid-3" style={{ marginBottom: 12 }}>
+            {featuredServices.map(s => (
               <a key={s.num} href={s.href} className="card" style={{ padding: '28px 24px', display: 'block' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 300, color: s.color, lineHeight: 1, marginBottom: 4, opacity: 0.3 }}>{s.num}</div>
                 <div className="badge" style={{ background: s.bg, color: s.color, marginBottom: 14 }}>{s.kw}</div>
@@ -77,6 +82,17 @@ export default function Home() {
                 <div style={{ marginTop: 16, fontSize: 12, color: s.color, fontWeight: 500, letterSpacing: '0.06em' }}>Learn more →</div>
               </a>
             ))}
+          </div>
+
+          {/* Remaining services — pill row */}
+          <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 20px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 500, marginRight: 4 }}>+ {remainingServices.length} more services</span>
+              {remainingServices.map(s => (
+                <a key={s.num} href={s.href} style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', color: s.color, background: s.bg, padding: '4px 12px', borderRadius: 999, textDecoration: 'none', whiteSpace: 'nowrap' }}>{s.title}</a>
+              ))}
+            </div>
+            <a href="/services" style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap', letterSpacing: '0.06em' }}>View all services →</a>
           </div>
         </div>
       </section>
@@ -152,9 +168,9 @@ export default function Home() {
             <p>Whether you are launching your first concept, rescuing an existing operation, or entering Egypt as an investor from anywhere in the world — Kitchen Three has the right team and the right tools for your situation.</p>
           </div>
           <div className="grid-3">
-            {personas.map(p => (
+            {personas.map((p, i) => (
               <div key={p.title} className="card" style={{ padding: '28px 24px', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: 36, marginBottom: 16 }}>{p.icon}</div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 40, fontWeight: 300, color: p.color, lineHeight: 1, marginBottom: 16, opacity: 0.25 }}>0{i + 1}</div>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: p.color, textTransform: 'uppercase', marginBottom: 10 }}>{p.title}</div>
                 <p style={{ fontSize: 14, color: '#555', lineHeight: 1.8, fontWeight: 300, marginBottom: 20, flex: 1 }}>{p.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
@@ -186,44 +202,6 @@ export default function Home() {
                 <div key={item.label} style={{ padding: '20px 16px', background: 'rgba(168,216,210,0.07)', border: '1px solid rgba(168,216,210,0.15)', borderRadius: 'var(--radius)', textAlign: 'center' }}>
                   <div style={{ fontSize: 28, marginBottom: 10 }}>{item.icon}</div>
                   <div style={{ fontSize: 12, color: '#a8d8d2', fontWeight: 400, lineHeight: 1.5 }}>{item.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Community */}
-      <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
-        <div className="container">
-          <div className="community-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'center' }}>
-            <div>
-              <div className="eyebrow" style={{ color: 'var(--teal)' }}>Community & CSR</div>
-              <h2>Free Sessions for <em style={{ color: 'var(--teal)' }}>New Foodies</em></h2>
-              <div className="divider" />
-              <p style={{ fontSize: 16, color: 'var(--muted)', lineHeight: 1.9, fontWeight: 300, marginBottom: 28 }}>
-                We believe in growing Egypt's culinary ecosystem. Kitchen Three offers free industry sessions, downloadable guides, and handouts for aspiring food entrepreneurs.
-              </p>
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                {subDone ? (
-                  <div style={{ fontSize: 14, color: 'var(--teal)', fontWeight: 500 }}>You are on the list!</div>
-                ) : (
-                  <>
-                    <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Your email address" style={{ flex: 1, minWidth: 180, padding: '12px 16px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)' }} />
-                    <button className="btn btn-primary" onClick={() => { if (email) setSubDone(true) }} style={{ padding: '12px 20px' }}>Subscribe</button>
-                  </>
-                )}
-              </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {guides.map(g => (
-                <div key={g.title} className="card" style={{ padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
-                  <div>
-                    <div style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--teal)', textTransform: 'uppercase', fontWeight: 500, marginBottom: 3 }}>Free PDF Guide</div>
-                    <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--forest)', marginBottom: 3 }}>{g.title}</div>
-                    <div style={{ fontSize: 11, color: 'var(--muted)', fontWeight: 300 }}>{g.desc}</div>
-                  </div>
-                  <a href="/resources" style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap' }}>Download →</a>
                 </div>
               ))}
             </div>
@@ -294,7 +272,6 @@ export default function Home() {
       <Footer />
       <style>{`
         @media (max-width: 768px) {
-          .community-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .invest-home-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
