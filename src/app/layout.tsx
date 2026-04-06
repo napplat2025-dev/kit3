@@ -38,7 +38,7 @@ const schemaOrg = {
       foundingDate: '2013',
       foundingLocation: 'Cairo, Egypt',
       areaServed: ['Egypt', 'Middle East', 'North Africa'],
-      email: 'info@kitchenthree.co',
+      email: 'kf@kitchenthree.co',
       sameAs: [
         'https://www.facebook.com/kitchenthree',
         'https://www.linkedin.com/company/kitchenthree',
