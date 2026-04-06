@@ -2,19 +2,28 @@
 import { useState } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { services, chefs, clients, steps, personas, waStyle, investItems, guides, stats, trustedBy } from '@/app/constants/homeData'
+import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy } from '@/app/constants/homeData'
 
 export default function Home() {
-  const [email, setEmail] = useState('')
-  const [subDone, setSubDone] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' })
   const [sent, setSent] = useState(false)
 
   const featuredServices = services.slice(0, 3)
   const remainingServices = services.slice(3)
+  const featuredPersonas = personas.slice(0, 4)
+
+  const investIcons: Record<string, string> = {
+    'Production Infrastructure': '01',
+    'Culinary Concept Ventures': '02',
+    'Global investor Network': '03',
+    'Egypt F&B Growth Market': '04',
+  }
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+
+      <title>Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo</title>
+
       <Nav />
 
       {/* Hero */}
@@ -70,8 +79,6 @@ export default function Home() {
             <h2>Fully Fledged Culinary Services <em style={{ color: 'var(--teal)' }}>Under One Roof</em></h2>
             <p>Whether you are a startup or an existing operation seeking growth, Kitchen Three provides comprehensive B2B culinary solutions — from concept to result.</p>
           </div>
-
-          {/* 3 featured services */}
           <div className="grid-3" style={{ marginBottom: 12 }}>
             {featuredServices.map(s => (
               <a key={s.num} href={s.href} className="card" style={{ padding: '28px 24px', display: 'block' }}>
@@ -83,8 +90,6 @@ export default function Home() {
               </a>
             ))}
           </div>
-
-          {/* Remaining services — pill row */}
           <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 20px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div className="service-pills" style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
               <span style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 500, marginRight: 4 }}>+ {remainingServices.length} more services</span>
@@ -159,7 +164,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who We Work With */}
+      {/* Mid-page CTA */}
+      <section style={{ background: 'var(--teal)', padding: '48px 24px' }}>
+        <div className="container">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24 }}>
+            <div>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px, 4vw, 36px)', color: '#fff', fontWeight: 400, lineHeight: 1.2, marginBottom: 8 }}>
+                13 years. 10 chefs. 8 pillars. <em style={{ color: 'var(--amber)' }}>One partner.</em>
+              </div>
+              <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>
+                Everything your F&B venture needs — under one roof, with one accountable team.
+              </div>
+            </div>
+            <a href="/contact" className="btn btn-white" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>
+              Start a Conversation →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Work With — trimmed to 4 */}
       <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div className="section-header">
@@ -167,8 +191,8 @@ export default function Home() {
             <h2>Built for the People <em style={{ color: 'var(--teal)' }}>Who Build F&B</em></h2>
             <p>Whether you are launching your first concept, rescuing an existing operation, or entering Egypt as an investor from anywhere in the world — Kitchen Three has the right team and the right tools for your situation.</p>
           </div>
-          <div className="grid-3">
-            {personas.map((p, i) => (
+          <div className="grid-4">
+            {featuredPersonas.map((p, i) => (
               <div key={p.title} className="card" style={{ padding: '28px 24px', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 40, fontWeight: 300, color: p.color, lineHeight: 1, marginBottom: 16, opacity: 0.25 }}>0{i + 1}</div>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.14em', color: p.color, textTransform: 'uppercase', marginBottom: 10 }}>{p.title}</div>
@@ -199,8 +223,8 @@ export default function Home() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {investItems.map(item => (
-                <div key={item.label} style={{ padding: '20px 16px', background: 'rgba(168,216,210,0.07)', border: '1px solid rgba(168,216,210,0.15)', borderRadius: 'var(--radius)', textAlign: 'center' }}>
-                  <div style={{ fontSize: 28, marginBottom: 10 }}>{item.icon}</div>
+                <div key={item.label} style={{ padding: '24px 16px', background: 'rgba(168,216,210,0.07)', border: '1px solid rgba(168,216,210,0.15)', borderRadius: 'var(--radius)', textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--serif)', fontSize: 32, fontWeight: 300, color: 'var(--amber)', lineHeight: 1, marginBottom: 12, opacity: 0.6 }}>{investIcons[item.label]}</div>
                   <div style={{ fontSize: 12, color: '#a8d8d2', fontWeight: 400, lineHeight: 1.5 }}>{item.label}</div>
                 </div>
               ))}
@@ -257,7 +281,7 @@ export default function Home() {
                       fetch('https://formspree.io/f/xojkprga', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, company: form.company, message: form.message })
+                        body: JSON.stringify(form)
                       }).then(() => setSent(true)).catch(() => setSent(true))
                     }}}>
                     Send Message
