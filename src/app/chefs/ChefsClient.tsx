@@ -3,23 +3,23 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 const chefs = [
-  { slug: 'yann-bonneau', name: 'Yann Bonneau', country: 'France', title: 'Pastry Chef & International Consultant', photo: '/images/chefs/yann-bonneau.jpg', color: 'var(--teal)', bg: 'var(--teal-light)' },
-  { slug: 'enzo-bonneau', name: 'Enzo Bonneau', country: 'France', title: 'Michelin-Trained Pastry Chef & Consultant', photo: '/images/chefs/enzo-bonneau.jpg', color: 'var(--amber)', bg: 'var(--amber-light)' },
-  { slug: 'niko-koulousias', name: 'Niko Koulousias', country: 'Greece', title: 'Executive Chef & Royal Event Specialist', photo: '/images/chefs/niko-koulousias.jpg', color: 'var(--coral)', bg: 'var(--coral-light)' },
-  { slug: 'hadil-amasheh', name: 'Hadil Amasheh', country: 'Jordan / Egypt', title: 'F&B Entrepreneur & Culinary Consultant', photo: '/images/chefs/hadil-amasheh.jpg', color: 'var(--teal)', bg: 'var(--teal-light)' },
-  { slug: 'gerard-livigni', name: 'Gerard Livigni', country: 'France', title: 'MOF Finalist & Master Baker', photo: '/images/chefs/gerard-livigni.jpg', color: 'var(--amber)', bg: 'var(--amber-light)' },
-  { slug: 'ramy-somoeil', name: 'Ramy Somoeil', country: 'Egypt', title: 'Mediterranean & Levantine Cuisine Expert', photo: '/images/chefs/ramy-somoeil.jpg', color: 'var(--coral)', bg: 'var(--coral-light)' },
-  { slug: 'walid-karim', name: 'Walid Karim', country: 'Egypt', title: 'Pizza Master & Italian Cuisine Specialist', photo: '/images/chefs/walid-karim.jpg', color: 'var(--teal)', bg: 'var(--teal-light)' },
-  { slug: 'giovani-mascari', name: 'Giovani Mascari', country: 'Italy', title: 'Executive Pizzaiolo & Innovation Chef', photo: '/images/chefs/giovani-mascari.jpg', color: 'var(--amber)', bg: 'var(--amber-light)' },
-  { slug: 'luca-montersino', name: 'Luca Montersino', country: 'Italy', title: 'Pastry Celebrity & F&B Empire Builder', photo: '/images/chefs/luca-montersino.jpg', color: 'var(--coral)', bg: 'var(--coral-light)' },
-  { slug: 'luca-borgioli', name: 'Luca Borgioli', country: 'Italy', title: 'World Panettone Champion', photo: '/images/chefs/luca-borgioli.jpg', color: 'var(--teal)', bg: 'var(--teal-light)' },
+  { slug: 'yann-bonneau', name: 'Yann Bonneau', country: 'France', title: 'Pastry Chef & International Consultant', photo: '/images/chefs/yann-bonneau.jpg', color: 'var(--teal)', bg: 'var(--teal-light)', alt: 'Yann Bonneau — French Michelin pastry chef and international culinary consultant available for hire in Egypt through Kitchen Three' },
+  { slug: 'enzo-bonneau', name: 'Enzo Bonneau', country: 'France', title: 'Michelin-Trained Pastry Chef & Consultant', photo: '/images/chefs/enzo-bonneau.jpg', color: 'var(--amber)', bg: 'var(--amber-light)', alt: 'Enzo Bonneau — Michelin-trained French pastry chef and culinary consultant available for hire in Egypt through Kitchen Three' },
+  { slug: 'niko-koulousias', name: 'Niko Koulousias', country: 'Greece', title: 'Executive Chef & Royal Event Specialist', photo: '/images/chefs/niko-koulousias.jpg', color: 'var(--coral)', bg: 'var(--coral-light)', alt: 'Niko Koulousias — Greek executive chef and royal event specialist available for hire in Egypt through Kitchen Three' },
+  { slug: 'hadil-amasheh', name: 'Hadil Amasheh', country: 'Jordan / Egypt', title: 'F&B Entrepreneur & Culinary Consultant', photo: '/images/chefs/hadil-amasheh.jpg', color: 'var(--teal)', bg: 'var(--teal-light)', alt: 'Hadil Amasheh — Jordanian-Egyptian F&B entrepreneur and culinary consultant, co-founder of Kitchen Three Cairo' },
+  { slug: 'gerard-livigni', name: 'Gerard Livigni', country: 'France', title: 'MOF Finalist & Master Baker', photo: '/images/chefs/gerard-livigni.jpg', color: 'var(--amber)', bg: 'var(--amber-light)', alt: 'Gerard Livigni — French MOF finalist and master baker available for artisan bread and bakery consulting in Egypt through Kitchen Three' },
+  { slug: 'ramy-somoeil', name: 'Ramy Somoeil', country: 'Egypt', title: 'Mediterranean & Levantine Cuisine Expert', photo: '/images/chefs/ramy-somoeil.jpg', color: 'var(--coral)', bg: 'var(--coral-light)', alt: 'Ramy Somoeil — Egyptian chef specialising in Mediterranean and Levantine cuisine available for consulting in Egypt through Kitchen Three' },
+  { slug: 'walid-karim', name: 'Walid Karim', country: 'Egypt', title: 'Pizza Master & Italian Cuisine Specialist', photo: '/images/chefs/walid-karim.jpg', color: 'var(--teal)', bg: 'var(--teal-light)', alt: 'Walid Karim — Egyptian pizza master and Italian cuisine specialist available for restaurant consulting in Egypt through Kitchen Three' },
+  { slug: 'giovani-mascari', name: 'Giovani Mascari', country: 'Italy', title: 'Executive Pizzaiolo & Innovation Chef', photo: '/images/chefs/giovani-mascari.jpg', color: 'var(--amber)', bg: 'var(--amber-light)', alt: 'Giovani Mascari — Italian executive pizzaiolo and innovation chef available for hire in Egypt through Kitchen Three' },
+  { slug: 'luca-montersino', name: 'Luca Montersino', country: 'Italy', title: 'Pastry Celebrity & F&B Empire Builder', photo: '/images/chefs/luca-montersino.jpg', color: 'var(--coral)', bg: 'var(--coral-light)', alt: 'Luca Montersino — Italian celebrity pastry chef and F&B entrepreneur available for consulting and events in Egypt through Kitchen Three' },
+  { slug: 'luca-borgioli', name: 'Luca Borgioli', country: 'Italy', title: 'World Panettone Champion', photo: '/images/chefs/luca-borgioli.jpg', color: 'var(--teal)', bg: 'var(--teal-light)', alt: 'Luca Borgioli — World Panettone Champion and Italian artisan pastry chef available for hire in Egypt through Kitchen Three' },
 ]
 
 function ChefCard({ c }: { c: typeof chefs[0] }) {
   return (
     <a href={'/chefs/' + c.slug} style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff' }}>
       <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
-        <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+        <img loading="lazy" src={c.photo} alt={c.alt} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
       </div>
       <div style={{ padding: '18px 20px 20px' }}>
         <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>
