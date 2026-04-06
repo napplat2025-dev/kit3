@@ -14,7 +14,7 @@ const secondaryLinks = [
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Partners', href: '/partners/kf-digital-studio' },
+  { label: 'Partners', href: '/kf' },
 ]
 
 export default function Nav() {
