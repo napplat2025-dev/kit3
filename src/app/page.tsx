@@ -7,10 +7,12 @@ import { services, chefs, clients, steps, personas, waStyle, investItems, stats,
 export default function Home() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [showAllClients, setShowAllClients] = useState(false)
 
   const featuredServices = services.slice(0, 3)
   const remainingServices = services.slice(3)
   const featuredPersonas = personas.slice(0, 4)
+  const visibleClients = showAllClients ? clients : clients.slice(0, 8)
 
   const investIcons: Record<string, string> = {
     'Production Infrastructure': '01',
@@ -148,16 +150,36 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <div className="eyebrow" style={{ color: 'var(--amber)' }}>Our Portfolio</div>
-            <h2>Clients & <em style={{ color: 'var(--teal)' }}>Partners</em></h2>
+            <h2>Our <em style={{ color: 'var(--teal)' }}>Clients</em></h2>
           </div>
           <div className="grid-4">
-            {clients.map(c => (
+            {visibleClients.map(c => (
               <div key={c.name} className="card" style={{ padding: '20px 16px' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 18, fontWeight: 500, color: 'var(--forest)', marginBottom: 6 }}>{c.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 300 }}>{c.sector}</div>
               </div>
             ))}
           </div>
+          {!showAllClients && clients.length > 8 && (
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <button
+                onClick={() => setShowAllClients(true)}
+                className="btn btn-outline"
+                style={{ fontSize: 13 }}>
+                Show more clients ({clients.length - 8} more)
+              </button>
+            </div>
+          )}
+          {showAllClients && (
+            <div style={{ textAlign: 'center', marginTop: 32 }}>
+              <button
+                onClick={() => setShowAllClients(false)}
+                className="btn btn-outline"
+                style={{ fontSize: 13 }}>
+                Show less
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
