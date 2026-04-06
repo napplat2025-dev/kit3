@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+  title: "Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo",
   description: 'Egypt\'s leading B2B culinary consultancy. Michelin-trained chefs, HACCP-certified operations, menu engineering, cloud kitchen services, and F&B brand development. Est. Cairo 2013.',
   keywords: 'culinary consultancy Egypt, F&B consultant Cairo, Michelin chef hire Egypt, cloud kitchen Egypt, menu engineering Cairo, food brand development Egypt, HACCP certified kitchen Egypt',
   metadataBase: new URL('https://www.kitchenthree.co'),
   alternates: { canonical: 'https://www.kitchenthree.co' },
   openGraph: {
-    title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+    title: "Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo",
     description: 'Egypt\'s leading B2B culinary consultancy since 2013. World-class chefs, HACCP-certified operations, and end-to-end F&B solutions.',
     url: 'https://www.kitchenthree.co',
     siteName: 'Kitchen Three',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kitchen Three | B2B Culinary Consultancy Cairo Egypt',
+    title: "Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo",
     description: 'Egypt\'s leading B2B culinary consultancy since 2013.',
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
@@ -107,7 +107,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
-        {/* Google Analytics 4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN6H912F31" />
         <script
           dangerouslySetInnerHTML={{
