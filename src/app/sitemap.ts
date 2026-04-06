@@ -48,6 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/invest`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/our-story`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     ...chefSlugs.map(slug => ({
       url: `${base}/chefs/${slug}`,
       lastModified: new Date(),
