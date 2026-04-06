@@ -21,7 +21,6 @@ export default function Home() {
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
-
       <Nav />
 
       {/* Hero */}
@@ -181,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Who We Work With — trimmed to 4 */}
+      {/* Who We Work With — 4 personas */}
       <section className="section" style={{ background: '#fff', borderTop: '1px solid var(--border)' }}>
         <div className="container">
           <div className="section-header">
