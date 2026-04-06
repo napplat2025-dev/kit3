@@ -10,36 +10,26 @@ export default function Footer() {
             <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.</p>
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
               <div>Cairo, Egypt</div>
-              <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kitchenthreecairo@gmail.com</a></div>
+              <div><a href="mailto:kf@kitchenthree.co" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kf@kitchenthree.co</a></div>
               <div><a href="tel:+201222186669" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>+20 122 218 6669</a></div>
               <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
                 <a href="https://www.facebook.com/kitchenthree" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.2)'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'; (e.currentTarget as HTMLElement).style.color = '#7ab8b0'; }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                  </svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/company/kitchenthree/" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.2)'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'; (e.currentTarget as HTMLElement).style.color = '#7ab8b0'; }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                    <rect x="2" y="9" width="4" height="12"/>
-                    <circle cx="4" cy="4" r="2"/>
-                  </svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
                 <a href="https://www.instagram.com/kitchenthree" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, borderRadius: '50%', background: 'rgba(168,216,210,0.1)', border: '1px solid rgba(168,216,210,0.25)', color: '#7ab8b0', transition: 'all 0.2s', textDecoration: 'none' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.2)'; (e.currentTarget as HTMLElement).style.color = '#fff'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(168,216,210,0.1)'; (e.currentTarget as HTMLElement).style.color = '#7ab8b0'; }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                  </svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 </a>
               </div>
             </div>
@@ -63,9 +53,7 @@ export default function Footer() {
               <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 12 }}>Partners</div>
               <a href="/kf" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>
-                KF Digital Studio
-              </a>
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>KF Digital Studio</a>
             </div>
           </div>
           <div>
