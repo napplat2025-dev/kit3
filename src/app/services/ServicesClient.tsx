@@ -6,35 +6,52 @@ const services = [
   { num:'01', title:'Culinary Consulting', slug:'culinary-consulting', tagline:'From Concept to Result', color:'var(--teal)', bg:'var(--teal-light)', kw:'Food Business Consulting Egypt',
     desc:'Kitchen Three partners with food entrepreneurs, corporates, and HORECA operators to build and grow food businesses from the ground up. Our consulting practice covers every dimension — from initial idea through operational excellence.',
     bullets:['Business concept development and feasibility studies','Brand strategy and market positioning','Menu engineering and product development','Guest experience design and service standards','Operational systems and workflow design','Growth strategy and expansion planning'],
-    clients:'AUC, Prime Holding, Divine Foodz, Happy Bites' },
+    clients:'AUC, Prime Holding, Divine Foodz, Happy Bites',
+    articles: [
+      { label: 'What does a culinary consultant do?', href: '/blog/what-does-a-culinary-consultant-do-egypt' },
+      { label: 'Menu engineering & food costing in Egypt', href: '/blog/menu-engineering-food-costing-egypt' },
+    ]},
   { num:'02', title:'Design Services', slug:'design-services', tagline:'Every Visual Touchpoint, Crafted', color:'var(--amber)', bg:'var(--amber-light)', kw:'Food Brand Design Cairo',
     desc:'A food brand is experienced before it is tasted. Kitchen Three designs every visual and sensory touchpoint — from the name on the door to the plate in front of the guest — with precision and intentionality.',
     bullets:['Brand identity and visual identity systems','Restaurant and concept naming','Go-to-market campaigns and launch strategy','Menu design and engineering','Plateware, packaging, and uniforms','Food theater and guest experience design'],
-    clients:"Garten, Vinny's Pizza Bar, Gateway School" },
+    clients:"Garten, Vinny's Pizza Bar, Gateway School",
+    articles: [
+      { label: 'Food brand development in Egypt: the complete guide', href: '/blog/food-brand-development-egypt' },
+    ]},
   { num:'03', title:'Chef Matchmaking', slug:'chef-matchmaking', tagline:'Michelin-Pedigreed. Precisely Matched.', color:'var(--coral)', bg:'var(--coral-light)', kw:'International Chef Hire Egypt',
     desc:"Kitchen Three maintains an exclusive roster of 10 international chefs — Michelin-starred, award-winning, and globally experienced. We match the right culinary talent to your exact project requirements.",
     bullets:['Access to 10 international chefs across French, Italian, Greek & Egyptian cuisines','Michelin-starred and award-winning credentials','Precise matching to project scope and requirements','Short-term engagements, masterclasses, and long-term placements','Royal wedding and diplomatic event experience','Pastry, pizza, Mediterranean, and patisserie specialists'],
-    clients:'Norwegian Embassy, ILO, Sea Queen Fleet' },
+    clients:'Norwegian Embassy, ILO, Sea Queen Fleet',
+    articles: [
+      { label: 'How to hire a Michelin-star chef in Egypt', href: '/blog/how-to-hire-michelin-star-chef-egypt' },
+    ]},
   { num:'04', title:'Recruitment & Training', slug:'recruitment-training', tagline:'Building Culinary Capacity', color:'var(--teal)', bg:'var(--teal-light)', kw:'Culinary Training Cairo',
     desc:"Your kitchen is only as strong as your team. Kitchen Three designs and delivers culinary training programs, recruitment solutions, and team-building experiences that build lasting capacity across your entire food operation.",
     bullets:['Staff training programs tailored to your operation','1-day intensive masterclasses','Food business startup bootcamps','Team building activities and culinary experiences','Chef recruitment and talent sourcing','Performance standards and SOPs development'],
-    clients:'AUC, Nestlé Egypt, Maggi' },
+    clients:'AUC, Nestlé Egypt, Maggi',
+    articles: []},
   { num:'05', title:'Cloud Kitchen Services', slug:'cloud-kitchen', tagline:'HACCP-Certified. Turnkey Ready.', color:'var(--amber)', bg:'var(--amber-light)', kw:'Cloud Kitchen Services Egypt',
     desc:'Kitchen Three operates and consults on state-of-the-art central kitchen facilities adhering to global HACCP and Codex Alimentarius standards. Whether you need a fully equipped production facility or short-term rental kitchen, we have the infrastructure.',
     bullets:['Brick & mortar and fully equipped central kitchens','Turnkey kitchen operations management','Short-term and long-term rental options','HACCP protocol implementation and certification','Codex Alimentarius compliance','Zero-waste kitchen design and operations'],
-    clients:'Prime Holding, Sea Queen Fleet, Divine Foodz' },
+    clients:'Prime Holding, Sea Queen Fleet, Divine Foodz',
+    articles: [
+      { label: 'How to start a cloud kitchen in Egypt: the complete guide', href: '/blog/cloud-kitchen-egypt-guide' },
+    ]},
   { num:'06', title:'Technology Infrastructure', slug:'technology', tagline:'A Complete Digital Stack for Food Businesses', color:'var(--coral)', bg:'var(--coral-light)', kw:'Restaurant Technology Egypt',
     desc:'Modern food businesses run on technology. Kitchen Three designs and deploys complete digital infrastructure for restaurants, cloud kitchens, and food brands — from the first online order to the loyalty program that keeps customers coming back.',
     bullets:['Online menu builder and digital menu management','Ordering systems and delivery integration','Reservations and table management','Mobile app development for food businesses','Payment processing and POS integration','CRM, loyalty programs, and customer retention tools'],
-    clients:"Garten, Vinny's Pizza Bar, Happy Bites" },
+    clients:"Garten, Vinny's Pizza Bar, Happy Bites",
+    articles: []},
   { num:'07', title:'Site Selection & Lease Advisory', slug:'site-selection', tagline:'The Right Location. The Right Terms.', color:'var(--teal)', bg:'var(--teal-light)', kw:'Restaurant Location Hunting Cairo',
     desc:"Location is one of the most consequential decisions in any F&B venture — and one of the most underserved. Kitchen Three brings 13 years of Cairo market knowledge to every site decision, from foot traffic analysis and competitive mapping to lease negotiation and landlord management. We don't just find you a space — we find you the right space.",
     bullets:['Foot traffic analysis and catchment area mapping','Competitive landscape assessment per location','Lease negotiation and landlord management','F&B-specific fit-out and compliance assessment','Site shortlisting and comparative evaluation','End-to-end location management from search to signed lease'],
-    clients:"Vinny's Pizza Bar, Garten, Mori, Wok & Wok" },
+    clients:"Vinny's Pizza Bar, Garten, Mori, Wok & Wok",
+    articles: []},
   { num:'08', title:'F&B Financial Turnaround', slug:'financial-turnaround', tagline:'Diagnose. Stabilise. Recover.', color:'var(--amber)', bg:'var(--amber-light)', kw:'F&B Turnaround Consulting Egypt',
     desc:'Not every engagement starts at concept stage. Some of the most important work Kitchen Three does is with operations that are already open — but struggling. Whether margins have collapsed, costs have spiralled, or the concept has lost direction, we bring the diagnostic rigour and operational expertise to identify what is broken and build a clear, executable path back to profitability.',
     bullets:['Operational cost audit and P&L diagnostic','Menu restructure for margin and efficiency recovery','Supplier and procurement review and renegotiation','Staff performance assessment and restructuring guidance','Concept repositioning and brand realignment','Ongoing financial monitoring and recovery milestones'],
-    clients:'Available for all operation types and scales — enquire to discuss your situation.' },
+    clients:'Available for all operation types and scales — enquire to discuss your situation.',
+    articles: []},
 ]
 
 export default function ServicesClient() {
@@ -86,6 +103,18 @@ export default function ServicesClient() {
                 <a href="/academy" style={{ display: 'inline-block', marginTop: 16, fontSize: 13, color: 'var(--teal)', fontWeight: 500, textDecoration: 'none', borderBottom: '1px solid var(--teal-mid)', paddingBottom: 2 }}>
                   Explore Kitchen Three Academy →
                 </a>
+              )}
+              {s.articles.length > 0 && (
+                <div style={{ marginTop: 24 }}>
+                  <div style={{ fontSize: 11, color: '#999', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 500, marginBottom: 10 }}>Related Reading</div>
+                  {s.articles.map(a => (
+                    <a key={a.href} href={a.href} style={{ display: 'block', fontSize: 13, color: s.color, fontWeight: 500, textDecoration: 'none', borderBottom: '1px solid transparent', paddingBottom: 2, marginBottom: 8, transition: 'border-color 0.2s' }}
+                      onMouseEnter={e => (e.currentTarget as HTMLElement).style.borderBottomColor = s.color}
+                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.borderBottomColor = 'transparent'}>
+                      {a.label} →
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
             <div>
