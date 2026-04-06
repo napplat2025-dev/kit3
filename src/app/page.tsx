@@ -22,8 +22,6 @@ export default function Home() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
 
-      <title>Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo</title>
-
       <Nav />
 
       {/* Hero */}
