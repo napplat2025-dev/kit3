@@ -5,7 +5,14 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Kitchen Three Academy — Culinary & F&B Business Training',
   description: 'Kitchen Three Academy offers online culinary and F&B business management training for aspiring chefs, food entrepreneurs, and restaurant teams across Egypt and the region.',
+  keywords: 'culinary academy Egypt, F&B training Cairo, online chef course Egypt, food business management course, HACCP training Egypt, restaurant training Egypt, culinary school Cairo',
   alternates: { canonical: 'https://www.kitchenthree.co/academy' },
+  openGraph: {
+    title: 'Kitchen Three Academy — Culinary & F&B Business Training Egypt',
+    description: 'Online culinary and food business training from Egypt\'s leading B2B culinary consultancy. Technical skills and business management for chefs and food entrepreneurs.',
+    url: 'https://www.kitchenthree.co/academy',
+    siteName: 'Kitchen Three',
+  },
 }
 
 const tracks = [

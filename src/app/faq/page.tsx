@@ -3,7 +3,14 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Kitchen Three — F&B Culinary Consultancy Egypt',
   description: 'Answers to the most common questions about Kitchen Three — Egypt\'s leading B2B culinary consultancy. Chef hire, cloud kitchen, menu engineering, HACCP compliance, and more.',
+  keywords: 'Kitchen Three FAQ, culinary consultancy questions Egypt, hire Michelin chef Egypt, cloud kitchen Egypt FAQ, HACCP certification Egypt, menu engineering Egypt, F&B consultant Cairo',
   alternates: { canonical: 'https://www.kitchenthree.co/faq' },
+  openGraph: {
+    title: 'FAQ — Kitchen Three | Egypt\'s B2B Culinary Consultancy',
+    description: 'Answers to common questions about Kitchen Three\'s services, chef roster, cloud kitchen, HACCP certification, and more.',
+    url: 'https://www.kitchenthree.co/faq',
+    siteName: 'Kitchen Three',
+  },
   robots: { index: true, follow: true },
 }
 

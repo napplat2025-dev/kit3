@@ -1,7 +1,37 @@
+import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { client } from '@/sanity/lib/client'
 import { notFound } from 'next/navigation'
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const article = await client.fetch(
+    `*[_type == "article" && slug.current == $slug][0] { title, excerpt, category, publishedAt }`,
+    { slug }
+  )
+  if (!article) return { title: 'Article | Kitchen Three' }
+  return {
+    title: `${article.title} | Kitchen Three Blog`,
+    description: article.excerpt,
+    keywords: `${article.category}, Kitchen Three, culinary consultancy Egypt, F&B Egypt, ${article.title}`,
+    alternates: { canonical: `https://www.kitchenthree.co/blog/${slug}` },
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      url: `https://www.kitchenthree.co/blog/${slug}`,
+      siteName: 'Kitchen Three',
+      type: 'article',
+      publishedTime: article.publishedAt,
+      authors: ['Kitchen Three'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+    },
+  }
+}
 
 const colorMap: Record<string, { color: string; bg: string }> = {
   teal:   { color: 'var(--teal)',   bg: 'var(--teal-light)' },
@@ -126,8 +156,20 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const color = categoryColor[article.category] || 'var(--teal)'
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.publishedAt,
+    author: { '@type': 'Organization', name: 'Kitchen Three', url: 'https://www.kitchenthree.co' },
+    publisher: { '@type': 'Organization', name: 'Kitchen Three', logo: { '@type': 'ImageObject', url: 'https://www.kitchenthree.co/images/logo.jpg' } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.kitchenthree.co/blog/${slug}` },
+  }
+
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Nav />
 
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>
