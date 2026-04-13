@@ -5,8 +5,9 @@ import Footer from '@/components/Footer'
 import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy } from '@/app/constants/homeData'
 
 export default function Home() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '', _gotcha: '' })
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState(false)
   const [showAllClients, setShowAllClients] = useState(false)
 
   const featuredServices = services.slice(0, 3)
@@ -293,15 +294,17 @@ export default function Home() {
                     <input key={k} placeholder={p} value={(form as any)[k]} onChange={e => setForm({ ...form, [k]: e.target.value })}
                       style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
                   ))}
+                  <input type="text" name="_gotcha" value={form._gotcha} onChange={e => setForm({ ...form, _gotcha: e.target.value })} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                   <textarea placeholder="Tell us about your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={4}
                     style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%', resize: 'vertical' }} />
+                  {error && <div style={{ fontSize: 13, color: '#c0392b' }}>Something went wrong. Please try again or message us on WhatsApp.</div>}
                   <button className="btn btn-primary" style={{ width: '100%', padding: '14px' }}
                     onClick={() => { if (form.name && form.email && form.message) {
                       fetch('https://formspree.io/f/xojkprga', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(form)
-                      }).then(() => setSent(true)).catch(() => setSent(true))
+                        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, company: form.company, message: form.message, _gotcha: form._gotcha })
+                      }).then(res => { if (res.ok) setSent(true); else setError(true) }).catch(() => setError(true))
                     }}}>
                     Send Message
                   </button>

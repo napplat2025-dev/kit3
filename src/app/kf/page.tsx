@@ -6,7 +6,7 @@ import { flame, ember, gold, bg, bg2, bg3, dark, muted, border, KFLogo } from '.
 
 export default function KFDigitalStudio() {
   const [modalOpen, setModalOpen] = useState(false)
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', _gotcha: '' })
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   const handleSubmit = async () => {
@@ -18,7 +18,7 @@ export default function KFDigitalStudio() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ ...formData, _subject: 'KF Digital Studio Enquiry' }),
       })
-      if (res.ok) { setFormStatus('sent'); setFormData({ name: '', email: '', phone: '', message: '' }) }
+      if (res.ok) { setFormStatus('sent'); setFormData({ name: '', email: '', phone: '', message: '', _gotcha: '' }) }
       else setFormStatus('error')
     } catch { setFormStatus('error') }
   }
@@ -259,6 +259,7 @@ export default function KFDigitalStudio() {
                 </div>
               ) : (
                 <>
+                  <input type="text" name="_gotcha" value={formData._gotcha} onChange={e => setFormData(p => ({ ...p, _gotcha: e.target.value }))} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                   <input style={inputStyle} type="text" placeholder="Full name *" value={formData.name} onChange={e => setFormData(p => ({ ...p, name: e.target.value }))} />
                   <input style={inputStyle} type="email" placeholder="Email address *" value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} />
                   <input style={inputStyle} type="tel" placeholder="Phone or WhatsApp number" value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} />

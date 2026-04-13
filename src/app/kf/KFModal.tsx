@@ -7,7 +7,7 @@ const steps = ['About You', 'Your Goals', 'Pages & Features', 'Style & Feel', 'B
 const initialForm = {
   fullName: '', businessName: '', industry: '', email: '', phone: '',
   mainGoal: '', audience: '', hasWebsite: 'No, this is a brand new website',
-  existingUrl: '', pages: [] as string[], features: [] as string[],
+  existingUrl: '', _gotcha: '', pages: [] as string[], features: [] as string[],
   vibe: '', websitesLove: '', competitors: '', brandColors: '',
   budget: '', timeline: '', extra: ''
 }
@@ -27,7 +27,7 @@ export default function KFModal({ onClose }: { onClose: () => void }) {
       await fetch('https://formspree.io/f/xojkprga', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'KF Digital Studio — Questionnaire' })
+        body: JSON.stringify({ ...form, _gotcha: form._gotcha, source: 'KF Digital Studio — Questionnaire' })
       })
     } catch (e) {}
     setSubmitting(false)
@@ -158,6 +158,7 @@ export default function KFModal({ onClose }: { onClose: () => void }) {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                   <h3 style={{ fontFamily: 'Georgia, serif', fontSize: 22, fontWeight: 700, color: dark, marginBottom: 4 }}>About You</h3>
                   <p style={{ fontSize: 13, color: muted, marginBottom: 8 }}>Let's start with the basics — who you are and what you do.</p>
+                  <input type="text" name="_gotcha" value={form._gotcha} onChange={e => setForm(f => ({ ...f, _gotcha: e.target.value }))} style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                   <div className="kf-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
                     <div><label style={labelStyle}>Full Name *</label><input style={inputStyle} placeholder="Your full name" value={form.fullName} onChange={e => setForm(f => ({ ...f, fullName: e.target.value }))} /></div>
                     <div><label style={labelStyle}>Business Name *</label><input style={inputStyle} placeholder="Your business" value={form.businessName} onChange={e => setForm(f => ({ ...f, businessName: e.target.value }))} /></div>
