@@ -266,7 +266,7 @@ export default function Home() {
               </p>
               <div style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.2, marginBottom: 24 }}>
                 <div>Cairo, Egypt</div>
-                <div><a href="mailto:kitchenthreecairo@gmail.com" style={{ color: 'var(--teal)' }}>kitchenthreecairo@gmail.com</a></div>
+                <div><a href="mailto:kf@kitchenthree.co" style={{ color: 'var(--teal)' }}>kf@kitchenthree.co</a></div>
                 <div><a href="tel:+201222186669" style={{ color: 'var(--teal)' }}>+20 122 218 6669</a></div>
                 <div><a href="https://www.kitchenthree.co" style={{ color: 'var(--teal)' }}>www.kitchenthree.co</a></div>
               </div>

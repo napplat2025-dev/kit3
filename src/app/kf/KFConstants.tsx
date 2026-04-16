@@ -15,7 +15,7 @@ export const budgetOptions = ['Below 10,000 EGP', '10,000 – 15,000 EGP', '15,0
 export const timelineOptions = ['As soon as possible', 'Within 2 weeks', 'Within 1 month', 'Flexible — quality first']
 
 export const whatsappURL = `https://wa.me/201222186669?text=${encodeURIComponent('Hi KF Digital Studio, I have a project brief I would like to share with you.')}`
-export const emailURL = `mailto:kitchenthreecairo@gmail.com?subject=${encodeURIComponent('KF Digital Studio — Project Brief')}&body=${encodeURIComponent('Hi KF Digital Studio,\n\nI have a project brief I would like to share with you.\n\nMy name is:\nMy phone number is:\n\nI have attached my brief to this email.')}`
+export const emailURL = `mailto:kf@kitchenthree.co?subject=${encodeURIComponent('KF Digital Studio — Project Brief')}&body=${encodeURIComponent('Hi KF Digital Studio,\n\nI have a project brief I would like to share with you.\n\nMy name is:\nMy phone number is:\n\nI have attached my brief to this email.')}`
 
 export const KFLogo = ({ size = 40 }: { size?: number }) => (
   <div style={{
