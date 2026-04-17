@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 const primaryLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Chefs', href: '/chefs' },
+  { label: 'Our Story', href: '/our-story' },
   { label: 'Academy', href: '/academy' },
   { label: 'Investment', href: '/invest' },
 ]

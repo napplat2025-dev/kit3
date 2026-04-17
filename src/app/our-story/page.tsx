@@ -42,6 +42,26 @@ const milestones = [
     video: null,
   },
   {
+    year: '2017',
+    label: 'The Retail Experiments',
+    heading: 'We tested what consumer food could be, twice at once.',
+    body: [
+      'With the school running and the cloud kitchen taking shape, we wanted to see what our kitchen could do in the retail aisle. So in 2017 we launched two consumer brands in parallel — different categories, same conviction that quality starts at the ingredient.',
+      'The first was Fresco — a jam and preserves brand built on one uncompromising rule: every jar started with true fresh fruit, sourced seasonally at peak, cooked and jarred in our own kitchen. No concentrate. No shortcuts. We developed the recipes, ran production, designed the packaging, and put Fresco into specialty retail across Cairo.',
+      'The second was an infant food venture — convenience meals for Egyptian babies, built for parents who read every label. Infant food is the hardest category in food: the nutritional precision is unforgiving, the compliance environment is dense, the parent-trust required is absolute. We formulated the recipes, navigated regulation, engineered shelf life, and launched to market.',
+      'Both brands taught us what it takes to build CPG in Egypt — the supply chain, the retail relationships, the margin math, the moment a product leaves your kitchen and lives on a shelf. Both brands wound down in 2020 when Corona collapsed fresh-fruit sourcing and retail distribution. What we learned from them is now embedded in every consumer-brand engagement we take on as consultants today.',
+    ],
+    photos: [
+      { src: '/images/our-story/fresco-jars.jpg', alt: 'Fresco jam jars — true fresh fruit preserves' },
+      { src: '/images/our-story/fresco-production.jpg', alt: 'Fresco jam production in the Kitchen Three kitchen' },
+      { src: '/images/our-story/fresco-retail.jpg', alt: 'Fresco on specialty retail shelves across Cairo' },
+      { src: '/images/our-story/baby-food-packaging.jpg', alt: 'Baby food packaging — infant nutrition venture' },
+      { src: '/images/our-story/baby-food-production.jpg', alt: 'Baby food production line' },
+      { src: '/images/our-story/baby-food-jars.jpg', alt: 'Baby food jars — Kitchen Three infant food venture' },
+    ],
+    video: null,
+  },
+  {
     year: '2018',
     label: 'Full Scale',
     heading: 'We took on food retail head on.',
