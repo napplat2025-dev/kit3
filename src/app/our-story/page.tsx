@@ -115,7 +115,7 @@ const milestones = [
     label: '2026',
     heading: 'Where we are today.',
     body: [
-      "Twelve years on, Kitchen Three is one of Egypt's culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
+      "Thirteen years on, Kitchen Three is one of Egypt's culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
       "Our clients range from first-time Cairo investors and growing F&B brands to international groups entering Egypt. What they all share is the same starting point we had in November 2013: a belief that quality, made with the right ingredients and the right people, is the only recipe that lasts.",
     ],
     photos: [
@@ -186,7 +186,7 @@ export default function OurStoryPage() {
           className="text-gray-500 leading-relaxed font-light"
           style={{ fontSize: 'clamp(16px, 2.5vw, 22px)', maxWidth: 480 }}
         >
-          Twelve years. One conviction.<br />
+          Thirteen years. One conviction.<br />
           Quality is the only recipe that lasts.
         </p>
         <div className="mt-10 md:mt-16 flex items-center gap-4">
