@@ -3,7 +3,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Kitchen Three Academy — Culinary & F&B Business Training',
+  title: 'Kitchen Three Academy — Online Culinary & F&B Business Training in Egypt',
   description: 'Kitchen Three Academy offers online culinary and F&B business management training for aspiring chefs, food entrepreneurs, and restaurant teams across Egypt and the region.',
   keywords: 'culinary academy Egypt, F&B training Cairo, online chef course Egypt, food business management course, HACCP training Egypt, restaurant training Egypt, culinary school Cairo',
   alternates: { canonical: 'https://www.kitchenthree.co/academy' },

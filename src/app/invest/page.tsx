@@ -1,12 +1,5 @@
-import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-
-export const metadata: Metadata = {
-  title: 'Investment Opportunities — Kitchen Three',
-  description: 'Kitchen Three periodically opens select investment opportunities in Egypt F&B ventures. Register to be notified when an opportunity becomes available.',
-  alternates: { canonical: 'https://www.kitchenthree.co/invest' },
-}
 
 const investorProfiles = [
   {

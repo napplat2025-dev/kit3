@@ -19,8 +19,8 @@ const services = [
       { label: 'Food brand development in Egypt: the complete guide', href: '/blog/food-brand-development-egypt' },
     ]},
   { num:'03', title:'Chef Matchmaking', slug:'chef-matchmaking', tagline:'Michelin-Pedigreed. Precisely Matched.', color:'var(--coral)', bg:'var(--coral-light)', kw:'International Chef Hire Egypt',
-    desc:"Kitchen Three maintains an exclusive roster of 10 international chefs — Michelin-starred, award-winning, and globally experienced. We match the right culinary talent to your exact project requirements.",
-    bullets:['Access to 10 international chefs across French, Italian, Greek & Egyptian cuisines','Michelin-starred and award-winning credentials','Precise matching to project scope and requirements','Short-term engagements, masterclasses, and long-term placements','Royal wedding and diplomatic event experience','Pastry, pizza, Mediterranean, and patisserie specialists'],
+    desc:"Kitchen Three maintains an exclusive roster of 10 international chefs — Michelin-pedigreed, award-winning, and globally experienced. We match the right culinary talent to your exact project requirements.",
+    bullets:['Access to 10 international chefs across French, Italian, Greek & Egyptian cuisines','Michelin-pedigreed and award-winning credentials','Precise matching to project scope and requirements','Short-term engagements, masterclasses, and long-term placements','Royal wedding and diplomatic event experience','Pastry, pizza, Mediterranean, and patisserie specialists'],
     clients:'Norwegian Embassy, ILO, Sea Queen Fleet',
     articles: [
       { label: 'How to hire a Michelin-star chef in Egypt', href: '/blog/how-to-hire-michelin-star-chef-egypt' },
