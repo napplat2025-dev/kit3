@@ -94,6 +94,32 @@ export default function InvestPage() {
         </div>
       </section>
 
+      {/* Market Signals 2026 */}
+      <section style={{ padding: '80px 24px', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 900 }}>
+          <div className="eyebrow" style={{ color: 'var(--teal)', marginBottom: 12 }}>Market Signals 2026</div>
+          <h2 style={{ color: 'var(--forest)', marginBottom: 20, maxWidth: 640 }}>
+            A More Favourable <em style={{ color: 'var(--teal)' }}>Investment Window</em>
+          </h2>
+          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, maxWidth: 720 }}>
+            Egypt&apos;s F&amp;B sector is entering a more favourable investment window than it has seen in years. Headline inflation eased to 11.9% in January 2026 and is forecast to settle at 9.1% by year-end and 6.5% by the close of 2027, restoring the purchasing-power runway that consumer demand depends on. Real wage growth is already turning positive, and against that backdrop food spending is forecast to expand from EGP5.0 trillion in 2025 to EGP9.0 trillion by 2030 — an average of 12.4% annually across a decade-long growth arc. The export story runs in parallel: Egypt&apos;s processed food exports surpassed USD6 billion in 2024, up 21% year-on-year and the highest in the sector&apos;s history, reflecting both capacity build-out and growing international acceptance of Egyptian product. On BMI&apos;s Food &amp; Drink Risk/Reward Index, Egypt now ranks first in North Africa, third in MENA, and 37th of 106 markets globally — a quantitative validation of the directional move that macro investors have been waiting for. For partners evaluating entry timing, this is the combination that matters: easing inflation, structurally expanding consumption, and a proven export vector. Kitchen Three operates at the centre of that intersection, with thirteen years of on-the-ground infrastructure built precisely for the cycle now arriving.
+          </p>
+        </div>
+      </section>
+
+      {/* Capital Is Already Moving */}
+      <section style={{ padding: '80px 24px', background: '#fff', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 900 }}>
+          <div className="eyebrow" style={{ color: 'var(--teal)', marginBottom: 12 }}>Capital Is Already Moving</div>
+          <h2 style={{ color: 'var(--forest)', marginBottom: 20, maxWidth: 640 }}>
+            Strategic Capital Has <em style={{ color: 'var(--teal)' }}>Already Repositioned</em>
+          </h2>
+          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, maxWidth: 720 }}>
+            Institutional and strategic capital is already repositioning around Egyptian F&amp;B, which is the clearest signal a market is ready to absorb more of it. In December 2025, Quantum Investment BV raised its stake in Edita Food Industries to 48.75% through an EGP1.26 billion investment, and Qatar-based Baladna lifted its position in Juhayna to 15% — two landmark consolidations in the country&apos;s largest listed food names. Edita followed in January 2026 with a trademark expansion agreement alongside Hostess Brands that extends its rights across more than 45 additional African markets, and Al Ahram Beverages has committed to tripling exports by the end of 2027. The multinationals are compounding the trend: Coca-Cola HBC has announced a USD1 billion Egypt investment programme, while Kraft Heinz, Nestlé, and PepsiCo are each adding production capacity on the ground. Modern-trade infrastructure is scaling at the same pace — Kazyon has crossed one thousand stores, Carrefour is pushing toward 140 stores by 2025 with Supeco targeting 144 by 2030, Lulu is executing a USD1 billion expansion, and Spinneys will add eight new locations to its 35-store footprint in 2026. For institutional and VC investors, these movements establish both validation and realistic exit pathways. Kitchen Three&apos;s role is to architect the ventures that sit inside this landscape.
+          </p>
+        </div>
+      </section>
+
       {/* What we mean by investment */}
       <section style={{ padding: '80px 24px', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: 900 }}>
@@ -117,6 +143,19 @@ export default function InvestPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Food Safety as Structural Opportunity */}
+      <section style={{ padding: '80px 24px', background: 'var(--amber-light)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 900 }}>
+          <div className="eyebrow" style={{ color: 'var(--amber)', marginBottom: 12 }}>Food Safety as Structural Opportunity</div>
+          <h2 style={{ color: 'var(--forest)', marginBottom: 20, maxWidth: 640 }}>
+            A Market-Access Asset, <em style={{ color: 'var(--amber)' }}>Not a Compliance Line</em>
+          </h2>
+          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, maxWidth: 720 }}>
+            Food safety is quietly becoming one of the most consequential structural gaps in Egypt&apos;s F&amp;B economy. The January 2026 recall by the National Food Safety Authority of Nestlé NAN infant formula batches, after cereulide toxin was detected, underscored that even the largest multinationals face active compliance pressure — and the NFSA&apos;s willingness to act is now part of the operating reality for every producer. BMI&apos;s own assessment is blunt about the asymmetry: small producers have a hard time keeping up with international standards, particularly those required for the EU. That gap is widening as modern trade expands — hypermarkets now account for 37.1% of meals-and-soups distribution, and listings require certified suppliers with auditable infrastructure. At the same time, the export ambitions driving sector growth, from Al Ahram Beverages&apos; tripling target to Edita&apos;s African rollout, are gated by food safety certification that most small and mid-sized producers cannot credibly reach alone. This is the layer where Kitchen Three&apos;s HACCP-certified infrastructure and food safety consultancy become a commercial enabler, not a compliance line item. Producers that partner with Kitchen Three access the standards, certification pathways, and audit-ready operations required to sit on modern retail shelves and pass the gates that export markets enforce. Food safety is no longer a back-office function; it is a market-access asset.
+          </p>
         </div>
       </section>
 
