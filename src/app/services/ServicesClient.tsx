@@ -52,6 +52,11 @@ const services = [
     bullets:['Operational cost audit and P&L diagnostic','Menu restructure for margin and efficiency recovery','Supplier and procurement review and renegotiation','Staff performance assessment and restructuring guidance','Concept repositioning and brand realignment','Ongoing financial monitoring and recovery milestones'],
     clients:'Available for all operation types and scales — enquire to discuss your situation.',
     articles: []},
+  { num:'09', title:'Market Research & Feasibility Studies', slug:'market-research-feasibility', tagline:'Every Serious Business Decision Starts With The Right Data', color:'var(--coral)', bg:'var(--coral-light)', kw:'Feasibility Studies Egypt',
+    desc:'Structured market intelligence and investor-ready feasibility studies — covering market sizing, competitive landscape, consumer demand, financial projections, and pricing strategy. Clarity before capital commitment.',
+    bullets:['Business Overview & Financial Analysis — diagnostic for existing businesses (P&L review, KPI benchmarking, SWOT). 7–10 days.','Market Research & Deep Scan — TAM/SAM sizing, competitive mapping, demand & trend analysis. 10–14 days.','Feasibility Study — full investor-ready document with CAPEX, P&L scenarios, break-even & ROI. 14–21 days.','Pricing Strategy — COGS per SKU, competitive benchmarking, positioning-led pricing & sensitivity analysis. 5–8 days.','Bankable, investor-ready deliverables built to be acted on','Led by Amr Salah — 4+ years at a leading MEA real estate developer, F&B specialist'],
+    clients:'Led by Amr Salah — Market Research & Feasibility Consultant, Kitchen Three.',
+    articles: []},
 ]
 
 export default function ServicesClient() {
@@ -70,7 +75,7 @@ export default function ServicesClient() {
             Fully Fledged Culinary Services<br /><em style={{ color: 'var(--teal)' }}>Under One Roof</em>
           </h1>
           <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 600, lineHeight: 1.9, fontWeight: 300 }}>
-            Eight integrated service pillars designed to take your food business from concept to operational excellence — and to recover and grow operations that need a reset. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
+            Nine integrated service pillars designed to take your food business from concept to operational excellence — and to recover and grow operations that need a reset. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
           </p>
         </div>
       </section>

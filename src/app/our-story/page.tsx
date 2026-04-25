@@ -82,11 +82,11 @@ const milestones = [
   },
   {
     year: '2018',
-    label: 'Eight Pillars',
+    label: 'Nine Pillars',
     heading: 'We built what we wished existed.',
     body: [
       'By 2018, culinary consultancy had become a core offering in its own right. Clients kept asking us how we did what we did — how we developed recipes, structured kitchens, sourced suppliers, built brands. So we formalized it.',
-      'Everything came together under one name: Kitchen Three — a full-service culinary consultancy operating across eight pillars, from concept and brand design to chef placement, technology, and site selection.',
+      'Everything came together under one name: Kitchen Three — a full-service culinary consultancy operating across nine pillars, from concept and brand design to chef placement, technology, and site selection.',
     ],
     photos: [
       { src: '/images/our-story/michelin-chef-event.jpg', alt: 'Michelin chef Giorgio Diana — Sous-vide masterclass 2018' },
@@ -115,7 +115,7 @@ const milestones = [
     label: '2026',
     heading: 'Where we are today.',
     body: [
-      "Thirteen years on, Kitchen Three is one of Egypt's culinary consultancies operating across all eight pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
+      "Thirteen years on, Kitchen Three is one of Egypt's culinary consultancies operating across all nine pillars of the F&B business, offering a world-class service of chef matchmaking and an online culinary academy with hands-on training for a wide range of food industry B2C and B2B clients and partners.",
       "Our clients range from first-time Cairo investors and growing F&B brands to international groups entering Egypt. What they all share is the same starting point we had in November 2013: a belief that quality, made with the right ingredients and the right people, is the only recipe that lasts.",
     ],
     photos: [

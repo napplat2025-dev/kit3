@@ -126,7 +126,7 @@ export const guides = [
 export const stats = [
   { v: '2013', l: 'Founded' },
   { v: '10', l: "Int'l Chefs" },
-  { v: '8', l: 'Service Pillars' },
+  { v: '9', l: 'Service Pillars' },
   { v: '15+', l: 'Major Clients' },
 ]
 

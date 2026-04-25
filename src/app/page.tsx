@@ -190,7 +190,7 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24 }}>
             <div>
               <div style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(22px, 4vw, 36px)', color: '#fff', fontWeight: 400, lineHeight: 1.2, marginBottom: 8 }}>
-                13 years. 10 chefs. 8 pillars. <em style={{ color: 'var(--amber)' }}>One partner.</em>
+                13 years. 10 chefs. 9 pillars. <em style={{ color: 'var(--amber)' }}>One partner.</em>
               </div>
               <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>
                 Everything your F&B venture needs — under one roof, with one accountable team.

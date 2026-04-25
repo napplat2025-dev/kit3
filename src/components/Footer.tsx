@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Services</div>
-            {['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology', 'F&B Financial Turnaround'].map(s => (
+            {['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology', 'Site Selection', 'F&B Financial Turnaround', 'Market Research & Feasibility'].map(s => (
               <a key={s} href="/services" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{s}</a>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'What is Kitchen Three?',
-    a: 'Kitchen Three is Egypt\'s leading B2B culinary consultancy, established in Cairo in 2013 as a Limited Liability Company. Kitchen Three provides eight integrated service pillars — culinary consulting, food brand design, Michelin chef matchmaking, recruitment and training, cloud kitchen services, restaurant technology infrastructure, site selection and lease advisory, and F&B financial turnaround — all under one roof. Kitchen Three serves corporations, HORECA operators, food entrepreneurs, and international investors across Egypt and globally.',
+    a: 'Kitchen Three is Egypt\'s leading B2B culinary consultancy, established in Cairo in 2013 as a Limited Liability Company. Kitchen Three provides nine integrated service pillars — culinary consulting, food brand design, Michelin chef matchmaking, recruitment and training, cloud kitchen services, restaurant technology infrastructure, site selection and lease advisory, F&B financial turnaround, and market research and feasibility studies — all under one roof. Kitchen Three serves corporations, HORECA operators, food entrepreneurs, and international investors across Egypt and globally.',
   },
   {
     q: 'What services does Kitchen Three offer?',
