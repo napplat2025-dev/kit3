@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
             {[
               {
                 title: '1. Who We Are',
-                body: 'Kitchen Three LLC is a B2B culinary consultancy registered in Cairo, Egypt. Our website is located at www.kitchenthree.co. We can be contacted at info@kitchenthree.co. References to "we", "us", or "Kitchen Three" in this policy refer to Kitchen Three LLC.',
+                body: 'Kitchen Three LLC is a B2B culinary consultancy registered in Cairo, Egypt. Our website is located at www.kitchenthree.co. We can be contacted at kf@kitchenthree.co. References to "we", "us", or "Kitchen Three" in this policy refer to Kitchen Three LLC.',
               },
               {
                 title: '2. What Data We Collect',
@@ -44,11 +44,11 @@ export default function PrivacyPolicy() {
               },
               {
                 title: '6. How Long We Keep Your Data',
-                body: 'We retain contact form submissions for up to 2 years for business correspondence purposes. You may request deletion of your data at any time by emailing info@kitchenthree.co and we will action your request within 30 days.',
+                body: 'We retain contact form submissions for up to 2 years for business correspondence purposes. You may request deletion of your data at any time by emailing kf@kitchenthree.co and we will action your request within 30 days.',
               },
               {
                 title: '7. Your Rights',
-                body: 'You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority in Egypt. To exercise any of these rights, contact us at info@kitchenthree.co.',
+                body: 'You have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, withdraw consent at any time, and lodge a complaint with the relevant data protection authority in Egypt. To exercise any of these rights, contact us at kf@kitchenthree.co.',
               },
               {
                 title: '8. Cookies',
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
               },
               {
                 title: '11. Contact Us',
-                body: 'If you have any questions about this Privacy Policy or how we handle your data, please contact us at: info@kitchenthree.co — Kitchen Three LLC, Cairo, Egypt.',
+                body: 'If you have any questions about this Privacy Policy or how we handle your data, please contact us at: kf@kitchenthree.co — Kitchen Three LLC, Cairo, Egypt.',
               },
             ].map(section => (
               <div key={section.title} style={{ marginBottom: 36 }}>

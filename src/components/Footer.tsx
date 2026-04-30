@@ -51,9 +51,9 @@ export default function Footer() {
             ))}
             <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid rgba(168,216,210,0.1)' }}>
               <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 12 }}>Partners</div>
-              <a href="/kf" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
+              <a href="https://www.gritwrx.com" target="_blank" rel="noopener noreferrer" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>KF Digital Studio</a>
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>Gritwrx</a>
             </div>
           </div>
           <div>

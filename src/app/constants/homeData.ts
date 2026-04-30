@@ -7,6 +7,7 @@ export const services = [
   { num: '06', title: 'Technology Infrastructure', desc: 'Menu builder, ordering, reservations, mobile app, payments, CRM, loyalty — a complete digital stack.', color: 'var(--coral)', bg: 'var(--coral-light)', kw: 'Restaurant Technology Egypt', href: '/services#technology' },
   { num: '07', title: 'Site Selection & Lease Advisory', desc: "We don't just find you a space — we find you the right space. Foot traffic analysis, lease negotiation, and landlord management.", color: 'var(--teal)', bg: 'var(--teal-light)', kw: 'Restaurant Location Hunting Cairo', href: '/services#site-selection' },
   { num: '08', title: 'F&B Financial Turnaround', desc: 'For operations that need to recover, stabilise, and grow again. We diagnose what is broken and build the path back to profitability.', color: 'var(--amber)', bg: 'var(--amber-light)', kw: 'F&B Turnaround Consulting Egypt', href: '/services#financial-turnaround' },
+  { num: '09', title: 'Market Research & Feasibility', desc: 'Bankable, investor-ready studies — TAM/SAM sizing, competitive mapping, financial projections, and pricing strategy. Every serious decision starts with the right data.', color: 'var(--coral)', bg: 'var(--coral-light)', kw: 'Feasibility Studies Egypt', href: '/services#market-research-feasibility' },
 ]
 
 export const chefs = [
