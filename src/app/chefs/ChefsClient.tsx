@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
@@ -19,7 +20,7 @@ function ChefCard({ c }: { c: typeof chefs[0] }) {
   return (
     <a href={'/chefs/' + c.slug} style={{ textDecoration: 'none', display: 'block', borderRadius: 4, overflow: 'hidden', border: '1px solid var(--border)', background: '#fff' }}>
       <div style={{ width: '100%', height: 220, overflow: 'hidden', background: c.bg }}>
-        <img loading="lazy" src={c.photo} alt={c.alt} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+        <Image src={c.photo} alt={c.alt} width={400} height={300} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
       </div>
       <div style={{ padding: '18px 20px 20px' }}>
         <div style={{ fontSize: 10, color: c.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>{c.country}</div>

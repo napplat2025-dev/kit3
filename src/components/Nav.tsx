@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const primaryLinks = [
@@ -25,7 +26,7 @@ export default function Nav() {
     <>
       <nav style={{ background: 'rgba(253,250,246,0.96)', borderBottom: '1px solid var(--border)', padding: '0 24px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 50, backdropFilter: 'blur(10px)' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src="/images/logo.jpg" alt="Kitchen Three" width={42} height={42} style={{ borderRadius: 4, objectFit: 'contain' }} />
+          <Image src="/images/logo.jpg" alt="Kitchen Three" width={84} height={64} priority style={{ width: 42, height: 42, borderRadius: 4, objectFit: 'contain' }} />
           <div>
             <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 17, color: 'var(--teal)', letterSpacing: '0.06em', lineHeight: 1.1 }}>KITCHEN THREE</div>
             <div style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--coral)', textTransform: 'uppercase', fontWeight: 400 }}>Method Creates Distinction</div>

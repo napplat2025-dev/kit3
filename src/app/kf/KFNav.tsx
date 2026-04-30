@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import { flame, muted, border, dark, bg, KFLogo } from './KFConstants'
 
 const navLinks = [['#how', 'Process'], ['#services', 'Services'], ['#why', 'Why Us']]
@@ -16,7 +17,7 @@ export default function KFNav({ onOpenModal }: { onOpenModal: () => void }) {
           <a href="/" title="Back to Kitchen Three" style={{ display: 'flex', alignItems: 'center', borderRight: `1px solid ${border}`, paddingRight: 16, opacity: 0.55, transition: 'opacity 0.2s' }}
             onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = '1'}
             onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = '0.55'}>
-            <img src="/images/logo.jpg" alt="Kitchen Three" width={32} height={32} style={{ borderRadius: 3, objectFit: 'contain' }} />
+            <Image src="/images/logo.jpg" alt="Kitchen Three" width={84} height={64} priority style={{ width: 32, height: 32, borderRadius: 3, objectFit: 'contain' }} />
           </a>
 
           {/* KF Digital Studio logo + tagline */}

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy } from '@/app/constants/homeData'
@@ -133,7 +134,7 @@ export default function Home() {
             {chefs.map(c => (
               <a key={c.slug} href={'/chefs/' + c.slug} style={{ textDecoration: 'none', textAlign: 'center', display: 'block' }}>
                 <div style={{ width: 80, height: 80, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 10px', border: '2px solid var(--border)' }}>
-                  <img loading="lazy" src={c.photo} alt={c.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+                  <Image src={c.photo} alt={c.name} width={160} height={160} sizes="80px" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
                 <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--forest)', marginBottom: 2 }}>{c.name}</div>
                 <div style={{ fontSize: 10, color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 }}>{c.country}</div>
