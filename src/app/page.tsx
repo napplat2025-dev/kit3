@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy } from '@/app/constants/homeData'
+import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy, tracks } from '@/app/constants/homeData'
 
 export default function Home() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '', _gotcha: '' })
@@ -226,6 +226,45 @@ export default function Home() {
                 <a href={p.cta} style={{ fontSize: 12, color: p.color, fontWeight: 600, letterSpacing: '0.06em' }}>See how we can help →</a>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academy */}
+      <section className="section" style={{ background: '#fff' }}>
+        <div className="container">
+          <div className="section-header">
+            <div className="eyebrow" style={{ color: 'var(--amber)' }}>Kitchen Three Academy</div>
+            <h2>Learn From <em style={{ color: 'var(--teal)' }}>The Inside</em></h2>
+            <p>Online culinary and F&amp;B business training built by the team behind Egypt's leading culinary consultancy. Two tracks, eight courses — for chefs, entrepreneurs, and operators.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginBottom: 32 }}>
+            {tracks.map(track => (
+              <div key={track.code} style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden' }}>
+                <div style={{ background: track.bg, padding: '20px 24px', borderBottom: `2px solid ${track.color}` }}>
+                  <div style={{ fontSize: 10, letterSpacing: '0.16em', color: track.color, textTransform: 'uppercase', fontWeight: 600, marginBottom: 6 }}>{track.code}</div>
+                  <h3 style={{ fontSize: 19, color: 'var(--forest)', marginBottom: 8 }}>{track.title}</h3>
+                  <p style={{ fontSize: 13, color: '#555', lineHeight: 1.7, fontWeight: 300 }}>{track.desc}</p>
+                </div>
+                <div style={{ padding: '8px 24px', background: '#fff' }}>
+                  {track.courses.map((course, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 0', borderBottom: i < track.courses.length - 1 ? '1px solid var(--border)' : 'none', gap: 12 }}>
+                      <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--forest)' }}>{course.title}</div>
+                      {course.free && <span style={{ fontSize: 10, fontWeight: 600, color: 'var(--teal)', background: 'var(--teal-light)', padding: '3px 8px', borderRadius: 2, letterSpacing: '0.08em', textTransform: 'uppercase', flexShrink: 0 }}>Free</span>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'rgba(253,239,208,0.4)', border: '1px solid var(--amber)', borderRadius: 'var(--radius)', padding: '8px 16px', marginBottom: 20 }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--amber)' }} />
+              <span style={{ fontSize: 11, color: '#9a6b00', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Launching Soon — Register to Be Notified</span>
+            </div>
+            <div>
+              <a href="/academy" className="btn btn-outline">View Full Academy</a>
+            </div>
           </div>
         </div>
       </section>

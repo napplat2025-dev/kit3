@@ -118,6 +118,35 @@ export const investItems = [
   { icon: '📈', label: 'Egypt F&B Growth Market' },
 ]
 
+export const tracks = [
+  {
+    code: 'Track A',
+    title: 'Technical Culinary Skills',
+    color: 'var(--teal)',
+    bg: 'var(--teal-light)',
+    desc: 'Hands-on culinary knowledge delivered online — from kitchen fundamentals to advanced technique. Designed for aspiring chefs, culinary students, and kitchen teams looking to sharpen their craft.',
+    courses: [
+      { title: 'Kitchen Fundamentals', level: 'Beginner', status: 'Coming Soon', free: true },
+      { title: 'Menu Engineering & Food Costing', level: 'Intermediate', status: 'Coming Soon', free: false },
+      { title: 'Food Safety & HACCP Essentials', level: 'Beginner', status: 'Coming Soon', free: true },
+      { title: 'Advanced Culinary Techniques', level: 'Advanced', status: 'Coming Soon', free: false },
+    ],
+  },
+  {
+    code: 'Track B',
+    title: 'F&B Business Management',
+    color: 'var(--amber)',
+    bg: 'var(--amber-light)',
+    desc: 'The business side of running a successful food operation — from concept to profitability. Built for new food entrepreneurs, existing operators, and anyone planning to launch an F&B venture.',
+    courses: [
+      { title: 'Launching Your F&B Concept', level: 'Beginner', status: 'Coming Soon', free: true },
+      { title: 'Financial Planning for Restaurants', level: 'Intermediate', status: 'Coming Soon', free: false },
+      { title: 'Brand Building for Food Businesses', level: 'Intermediate', status: 'Coming Soon', free: false },
+      { title: 'Operations & SOPs for F&B', level: 'Advanced', status: 'Coming Soon', free: false },
+    ],
+  },
+]
+
 export const guides = [
   { title: 'Egypt F&B Startup Checklist', desc: 'Everything you need to launch a food business in Egypt.' },
   { title: 'How to Write a Menu That Sells', desc: 'Menu engineering principles from our consultant team.' },
