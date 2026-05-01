@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 const primaryLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Chefs', href: '/chefs' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Academy', href: '/academy' },
   { label: 'Investment', href: '/invest' },
 ]
@@ -14,7 +15,7 @@ const secondaryLinks = [
   { label: 'Clients', href: '/clients' },
   { label: 'Team', href: '/team' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Resources', href: '/resources' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Our Story', href: '/our-story' },
 ]
 

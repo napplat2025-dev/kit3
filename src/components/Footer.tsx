@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Company</div>
-            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']].map(([label, href]) => (
+            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']].map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>
