@@ -15,8 +15,8 @@
   --ink:        #0a2420;
   --muted:      #4a5568;
   --border:     #ddd6cc;
-  --serif:      'Cormorant Garamond', Georgia, serif;
-  --sans:       'DM Sans', system-ui, sans-serif;
+  --serif:      var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  --sans:       var(--font-sans), 'DM Sans', system-ui, sans-serif;
   --shadow-sm:  0 1px 4px rgba(13,43,38,0.06);
   --shadow-md:  0 4px 20px rgba(13,43,38,0.09);
   --shadow-lg:  0 12px 48px rgba(13,43,38,0.13);
