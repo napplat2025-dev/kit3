@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import BlogClient from './BlogClient'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import { client } from '@/sanity/lib/client'
 import { ARTICLES_QUERY } from '@/sanity/lib/queries'
 
@@ -12,5 +13,15 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const articles = await client.fetch(ARTICLES_QUERY)
-  return <BlogClient articles={articles} />
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Blog', item: 'https://www.kitchenthree.co/blog' },
+        ]}
+      />
+      <BlogClient articles={articles} />
+    </>
+  )
 }

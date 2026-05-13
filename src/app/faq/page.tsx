@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | Kitchen Three — F&B Culinary Consultancy Egypt',
@@ -81,6 +82,12 @@ const schemaFaq = {
 export default function FAQPage() {
   return (
     <div style={{ fontFamily: 'Georgia, serif', background: '#fff', color: '#1a1a1a', padding: '60px 24px', maxWidth: 860, margin: '0 auto' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'FAQ', item: 'https://www.kitchenthree.co/faq' },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }}

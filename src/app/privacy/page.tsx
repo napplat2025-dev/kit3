@@ -1,10 +1,17 @@
 'use client'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 
 export default function PrivacyPolicy() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Privacy', item: 'https://www.kitchenthree.co/privacy' },
+        ]}
+      />
       <Nav />
 
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import { client } from '@/sanity/lib/client'
 import { notFound } from 'next/navigation'
 
@@ -170,6 +171,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)', color: 'var(--ink)' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Blog', item: 'https://www.kitchenthree.co/blog' },
+          { name: article.title, item: `https://www.kitchenthree.co/blog/${slug}` },
+        ]}
+      />
       <Nav />
 
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>

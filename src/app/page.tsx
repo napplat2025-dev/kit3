@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import { services, chefs, clients, steps, personas, waStyle, investItems, stats, trustedBy, tracks } from '@/app/constants/homeData'
 
 export default function Home() {
@@ -25,6 +26,11 @@ export default function Home() {
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+        ]}
+      />
       <Nav />
 
       {/* Hero */}

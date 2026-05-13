@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 
 const waStyle: React.CSSProperties = {
   display: 'flex',
@@ -24,6 +25,12 @@ export default function ContactPage() {
 
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Contact', item: 'https://www.kitchenthree.co/contact' },
+        ]}
+      />
       <Nav />
 
       <section style={{ background: 'var(--forest)', padding: '80px 0 64px' }}>

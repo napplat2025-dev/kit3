@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 import { tracks } from '@/app/constants/homeData'
 
 export const metadata: Metadata = {
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
 export default function AcademyPage() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Academy', item: 'https://www.kitchenthree.co/academy' },
+        ]}
+      />
       <Nav />
 
       {/* Hero */}

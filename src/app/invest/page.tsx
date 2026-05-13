@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 
 const investorProfiles = [
   {
@@ -47,6 +48,12 @@ const investorProfiles = [
 export default function InvestPage() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: 'var(--cream)' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Investment', item: 'https://www.kitchenthree.co/invest' },
+        ]}
+      />
       <Nav />
 
       {/* Hero */}

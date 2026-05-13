@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import BreadcrumbJsonLd from '@/components/BreadcrumbJsonLd'
 
 const milestones = [
   {
@@ -166,6 +167,12 @@ function PhotoGrid({ photos }: { photos: { src: string; alt: string }[] }) {
 export default function OurStoryPage() {
   return (
     <div style={{ fontFamily: 'var(--sans)', background: '#fff' }}>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: 'https://www.kitchenthree.co' },
+          { name: 'Our Story', item: 'https://www.kitchenthree.co/our-story' },
+        ]}
+      />
       <Nav />
 
       {/* Hero */}
