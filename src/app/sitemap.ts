@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Fallback to known slugs if Sanity fetch fails
     blogSlugs = [
       'cloud-kitchen-egypt-guide',
-      'haccp-requirements-egypt',
+      'haccp-requirements-egypt-small-business',
       'menu-engineering-food-costing-egypt',
       'food-brand-development-egypt',
       'what-does-a-culinary-consultant-do-egypt',
