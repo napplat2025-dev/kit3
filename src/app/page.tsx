@@ -78,6 +78,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Operating leadership */}
+      <section style={{ background: '#fff', borderBottom: '1px solid var(--border)', padding: '40px 24px' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div className="eyebrow" style={{ color: 'var(--amber)' }}>Operating Leadership</div>
+          <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--forest)', marginBottom: 14 }}>
+            Alfred Melkon <span style={{ fontWeight: 300, color: '#777' }}>— Founding Advisor &amp; Operating Partner</span>
+          </div>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 16 }}>
+            {[
+              'GM of Cilantro — 84 stores, loss to profit in 18 months',
+              "10 years at McDonald's Egypt",
+              "Co-founder, Molly's Bakery — 0 to 8 stores in 30 months",
+            ].map(c => (
+              <span key={c} style={{ fontSize: 12.5, color: '#555', background: 'var(--cream)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 14px' }}>{c}</span>
+            ))}
+          </div>
+          <a href="/team" style={{ fontSize: 13, color: 'var(--teal)', fontWeight: 500 }}>Meet the full team →</a>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="section" style={{ background: 'var(--cream)' }}>
         <div className="container">

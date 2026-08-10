@@ -75,6 +75,73 @@ export default function InvestPage() {
         </div>
       </section>
 
+      {/* Current status */}
+      <section style={{ padding: '80px 24px', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
+        <div className="container" style={{ maxWidth: 760, textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'var(--teal-light)', border: '1px solid var(--teal)', borderRadius: 'var(--radius)', padding: '10px 20px', marginBottom: 32 }}>
+            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal)' }} />
+            <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Active Opportunity</span>
+          </div>
+          <h2 style={{ color: 'var(--forest)', marginBottom: 20 }}>
+            Cloud Kitchen Supply<br />
+            <em style={{ color: 'var(--teal)' }}>Expansion</em>
+          </h2>
+          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 24 }}>
+            The demand is proven, not projected. Our Kitchen Hive facility has operated at full occupancy since June 2021, housing brands like Vinny&apos;s Pizza Bar and Garten — and today there is more qualified demand than there is space to put it in.
+          </p>
+          <div style={{ display: 'grid', gap: 12, textAlign: 'left', maxWidth: 560, margin: '0 auto 24px' }}>
+            {[
+              { n: '01', t: 'Unfurnished cloud kitchens', d: 'Certified shell space operators fit out themselves.' },
+              { n: '02', t: 'Furnished cloud kitchens — custom design & function', d: 'Purpose-built for the operator, engineered to the Kitchen Three standard.' },
+              { n: '03', t: 'Furnished cloud kitchens — short-term rental', d: 'Ready-to-cook space by the day or week for launches, pop-ups, and production runs.' },
+            ].map(s => (
+              <div key={s.n} style={{ display: 'flex', gap: 14, background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 18px' }}>
+                <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 13 }}>{s.n}</span>
+                <div>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{s.t}</div>
+                  <div style={{ fontSize: 13, color: '#777', fontWeight: 300, lineHeight: 1.6 }}>{s.d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 15, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 40 }}>
+            Three demand segments, zero supply. Kitchen Three brings the execution standard, the operating capability, the tenant pipeline, and the brand; the investment partner brings capital. Terms are shared with qualified partners on direct contact — register below to open that conversation.
+          </p>
+          <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '36px 32px', maxWidth: 480, margin: '0 auto' }}>
+            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>Register Your Interest</div>
+            <div style={{ fontSize: 13, color: '#888', marginBottom: 24, fontWeight: 300 }}>We&apos;ll follow up directly with the opportunity brief and terms.</div>
+            <form action="https://formspree.io/f/xojkprga" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <input type="hidden" name="_subject" value="Investment Interest Registration — Kitchen Three" />
+              <input type="hidden" name="type" value="Investment Interest" />
+              <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+              <input name="name" required placeholder="Your name" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+              <input name="email" type="email" required placeholder="Email address" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+              <input name="phone" type="tel" placeholder="Phone / WhatsApp (with country code)" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+              <input name="company" placeholder="Organisation (optional)" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+              <input name="country" placeholder="Country" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
+              <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '14px' }}>Notify Me</button>
+            </form>
+            <div style={{ marginTop: 16, fontSize: 11, color: '#aaa', lineHeight: 1.6 }}>
+              You can also stay informed via our newsletter — subscribe on the <a href="/#contact" style={{ color: 'var(--teal)' }}>homepage</a>.
+            </div>
+          </div>
+
+          {/* In the pipeline — food industry platform (linkless until public) */}
+          <div style={{ maxWidth: 640, margin: '56px auto 0', paddingTop: 40, borderTop: '1px solid var(--border)' }}>
+            <div className="eyebrow" style={{ color: '#999', marginBottom: 12 }}>In the Pipeline</div>
+            <h3 style={{ color: 'var(--forest)', fontSize: 22, marginBottom: 14 }}>
+              food industry — <em style={{ color: 'var(--teal)' }}>Egypt&apos;s F&amp;B community, structured</em>
+            </h3>
+            <p style={{ fontSize: 15, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 16 }}>
+              A B2B platform for Egyptian F&amp;B operators, suppliers, and talent — a verified supplier directory, a two-sided job board, an equipment marketplace, commercial spaces, and an academy. It was born from 44 months of community research led by Kitchen Three: 11,885 messages coded, 22 operator pain points ranked.
+            </p>
+            <p style={{ fontSize: 14, color: '#777', lineHeight: 1.8, fontWeight: 300, fontStyle: 'italic' }}>
+              Now in private beta; the investment vehicle is being structured. Demo access and the opportunity brief are shared with registered partners on request.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Egypt opportunity */}
       <section style={{ padding: '80px 24px', background: '#fff', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: 900 }}>
@@ -187,41 +254,6 @@ export default function InvestPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Current status */}
-      <section style={{ padding: '80px 24px', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: 760, textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'var(--amber-light)', border: '1px solid var(--amber)', borderRadius: 'var(--radius)', padding: '10px 20px', marginBottom: 32 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--amber)' }} />
-            <span style={{ fontSize: 12, color: 'var(--amber)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>No Active Opportunity at This Time</span>
-          </div>
-          <h2 style={{ color: 'var(--forest)', marginBottom: 20 }}>
-            When an Opportunity Opens,<br />
-            <em style={{ color: 'var(--teal)' }}>You'll Hear First</em>
-          </h2>
-          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 40 }}>
-            We do not publicly list investment opportunities. When a new venture is ready for partners, we notify our network directly. Register below to be in that conversation — wherever you are in the world.
-          </p>
-          <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '36px 32px', maxWidth: 480, margin: '0 auto' }}>
-            <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>Register Your Interest</div>
-            <div style={{ fontSize: 13, color: '#888', marginBottom: 24, fontWeight: 300 }}>We'll notify you when a new opportunity becomes available.</div>
-            <form action="https://formspree.io/f/xojkprga" method="POST" style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <input type="hidden" name="_subject" value="Investment Interest Registration — Kitchen Three" />
-              <input type="hidden" name="type" value="Investment Interest" />
-              <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-              <input name="name" required placeholder="Your name" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
-              <input name="email" type="email" required placeholder="Email address" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
-              <input name="phone" type="tel" placeholder="Phone / WhatsApp (with country code)" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
-              <input name="company" placeholder="Organisation (optional)" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
-              <input name="country" placeholder="Country" style={{ padding: '12px 14px', border: '1.5px solid var(--border)', borderRadius: 'var(--radius)', fontSize: 14, outline: 'none', background: 'var(--cream)', width: '100%' }} />
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '14px' }}>Notify Me</button>
-            </form>
-            <div style={{ marginTop: 16, fontSize: 11, color: '#aaa', lineHeight: 1.6 }}>
-              You can also stay informed via our newsletter — subscribe on the <a href="/#contact" style={{ color: 'var(--teal)' }}>homepage</a>.
-            </div>
           </div>
         </div>
       </section>
