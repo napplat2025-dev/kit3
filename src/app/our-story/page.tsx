@@ -100,6 +100,18 @@ const milestones = [
     video: null,
   },
   {
+    year: '2019',
+    label: 'El Mahata',
+    heading: 'We built a kitchen that moved.',
+    body: [
+      'In 2019, a client came to us with an Egyptian street-food concept and nowhere to cook it. El Mahata was the answer — a food truck for the streets of 6th of October City, designed and built by Kitchen Three from an empty shell.',
+      'A truck is the most unforgiving kitchen there is. Every centimetre is spoken for, every service line has to work at arm’s reach, and the whole operation has to hold the same food-safety standard as a fixed kitchen while it moves. We handled the design and the build; the client ran the concept.',
+      'El Mahata closed when COVID emptied the streets it depended on. The discipline it taught us — designing a working kitchen into an impossible space — sits inside every technical design we do today.',
+    ],
+    photos: [],
+    video: null,
+  },
+  {
     year: '2021',
     label: 'Resilience',
     heading: 'We survived the hardest test.',
