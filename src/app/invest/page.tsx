@@ -75,38 +75,41 @@ export default function InvestPage() {
         </div>
       </section>
 
-      {/* Current status */}
+      {/* Active opportunities */}
       <section style={{ padding: '80px 24px', background: 'var(--cream)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: 760, textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'var(--teal-light)', border: '1px solid var(--teal)', borderRadius: 'var(--radius)', padding: '10px 20px', marginBottom: 32 }}>
-            <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal)' }} />
-            <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Active Opportunity</span>
+        <div className="container" style={{ maxWidth: 1000 }}>
+          <div style={{ maxWidth: 760, margin: '0 auto 40px', textAlign: 'center' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: 'var(--teal-light)', border: '1px solid var(--teal)', borderRadius: 'var(--radius)', padding: '10px 20px', marginBottom: 32 }}>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--teal)' }} />
+              <span style={{ fontSize: 12, color: 'var(--teal)', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Active Opportunities</span>
+            </div>
+            <h2 style={{ color: 'var(--forest)', marginBottom: 20 }}>
+              Three Openings.<br />
+              <em style={{ color: 'var(--teal)' }}>Zero Supply in Market.</em>
+            </h2>
+            <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300 }}>
+              The demand is proven, not projected. Our Kitchen Hive facility has operated at full occupancy since June 2021, housing brands like Vinny&apos;s Pizza Bar and Garten — and today there is more qualified demand than there is space to put it in.
+            </p>
           </div>
-          <h2 style={{ color: 'var(--forest)', marginBottom: 20 }}>
-            Cloud Kitchen Supply<br />
-            <em style={{ color: 'var(--teal)' }}>Expansion</em>
-          </h2>
-          <p style={{ fontSize: 16, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 24 }}>
-            The demand is proven, not projected. Our Kitchen Hive facility has operated at full occupancy since June 2021, housing brands like Vinny&apos;s Pizza Bar and Garten — and today there is more qualified demand than there is space to put it in.
-          </p>
-          <div style={{ display: 'grid', gap: 12, textAlign: 'left', maxWidth: 560, margin: '0 auto 24px' }}>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20, marginBottom: 40 }}>
             {[
-              { n: '01', t: 'Unfurnished cloud kitchens', d: 'Certified shell space operators fit out themselves.' },
-              { n: '02', t: 'Furnished cloud kitchens — custom design & function', d: 'Purpose-built for the operator, engineered to the Kitchen Three standard.' },
-              { n: '03', t: 'Furnished cloud kitchens — short-term rental', d: 'Ready-to-cook space by the day or week for launches, pop-ups, and production runs.' },
+              { n: '01', t: 'Unfurnished Cloud Kitchens', d: 'Certified shell space that operators fit out themselves, to their own equipment specification.' },
+              { n: '02', t: 'Cloud Kitchen Expansion', d: 'Furnished kitchens, custom-designed and purpose-built for the operator, engineered to the Kitchen Three standard.' },
+              { n: '03', t: 'Fully Fitted Central Kitchen — Short-Term Rental', d: 'Ready-to-cook production space by the day or the week, for launches, pop-ups, seasonal runs, and overflow production.' },
             ].map(s => (
-              <div key={s.n} style={{ display: 'flex', gap: 14, background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 18px' }}>
-                <span style={{ color: 'var(--teal)', fontWeight: 700, fontSize: 13 }}>{s.n}</span>
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)' }}>{s.t}</div>
-                  <div style={{ fontSize: 13, color: '#777', fontWeight: 300, lineHeight: 1.6 }}>{s.d}</div>
-                </div>
+              <div key={s.n} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '28px 24px', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 32, fontWeight: 300, color: 'var(--teal)', lineHeight: 1, marginBottom: 14 }}>{s.n}</div>
+                <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--forest)', marginBottom: 10, lineHeight: 1.4 }}>{s.t}</div>
+                <div style={{ fontSize: 13.5, color: '#666', fontWeight: 300, lineHeight: 1.75 }}>{s.d}</div>
               </div>
             ))}
           </div>
-          <p style={{ fontSize: 15, color: '#555', lineHeight: 1.9, fontWeight: 300, marginBottom: 40 }}>
+
+          <p style={{ fontSize: 15, color: '#555', lineHeight: 1.9, fontWeight: 300, maxWidth: 760, margin: '0 auto 40px', textAlign: 'center' }}>
             Three demand segments, zero supply. Kitchen Three brings the execution standard, the operating capability, the tenant pipeline, and the brand; the investment partner brings capital. Terms are shared with qualified partners on direct contact — register below to open that conversation.
           </p>
+
           <div style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '36px 32px', maxWidth: 480, margin: '0 auto' }}>
             <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--forest)', marginBottom: 6 }}>Register Your Interest</div>
             <div style={{ fontSize: 13, color: '#888', marginBottom: 24, fontWeight: 300 }}>We&apos;ll follow up directly with the opportunity brief and terms.</div>
@@ -127,7 +130,7 @@ export default function InvestPage() {
           </div>
 
           {/* In the pipeline — food industry platform (linkless until public) */}
-          <div style={{ maxWidth: 640, margin: '56px auto 0', paddingTop: 40, borderTop: '1px solid var(--border)' }}>
+          <div style={{ maxWidth: 640, margin: '56px auto 0', paddingTop: 40, borderTop: '1px solid var(--border)', textAlign: 'center' }}>
             <div className="eyebrow" style={{ color: '#999', marginBottom: 12 }}>In the Pipeline</div>
             <h3 style={{ color: 'var(--forest)', fontSize: 22, marginBottom: 14 }}>
               food industry — <em style={{ color: 'var(--teal)' }}>Egypt&apos;s F&amp;B community, structured</em>
