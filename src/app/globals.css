@@ -95,3 +95,26 @@ em { font-style: italic; }
   .btn { padding: 12px 24px; font-size: 11px; }
   .container { padding: 0 14px; }
 }
+
+/* ---------------------------------------------------------------
+   Arabic / RTL
+   Scoped to .rtl-root so the English tree is completely unaffected.
+   --------------------------------------------------------------- */
+.rtl-root {
+  --serif: var(--font-serif-ar), 'Amiri', Georgia, serif;
+  --sans:  var(--font-sans-ar), 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  direction: rtl;
+  font-family: var(--sans);
+}
+.rtl-root h1, .rtl-root h2, .rtl-root h3 { font-family: var(--serif); }
+
+/* Arabic is a joined script: letter-spacing breaks the connections between
+   glyphs, and uppercase is meaningless. Both are reset across the RTL tree. */
+.rtl-root, .rtl-root * { letter-spacing: normal !important; text-transform: none !important; }
+
+/* Arabic runs taller than Latin at the same size; a little extra leading
+   keeps descenders and diacritics from crowding. */
+.rtl-root p, .rtl-root li { line-height: 2; }
+
+/* Directional flips for the few places the layout assumes LTR. */
+.rtl-root .arrow-flip { display: inline-block; transform: scaleX(-1); }

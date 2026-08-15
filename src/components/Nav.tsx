@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import type { Locale } from '@/i18n/config'
+import { ar } from '@/i18n/dictionaries/ar'
 
 const primaryLinks = [
   { label: 'Services', href: '/services' },
@@ -19,21 +21,34 @@ const secondaryLinks = [
   { label: 'Our Story', href: '/our-story' },
 ]
 
-export default function Nav() {
+export default function Nav({ locale = 'en' }: { locale?: Locale }) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const isAr = locale === 'ar'
+
+  // Stage 1 translates the homepage only, so the Arabic nav points at sections
+  // of /ar rather than at pages that have no Arabic version yet.
+  const links = isAr ? ar.nav.primary : primaryLinks
+  const secondary = isAr ? [] : secondaryLinks
+  const ctaLabel = isAr ? ar.nav.cta : 'Get In Touch'
+  const ctaHref = isAr ? '/ar#contact' : '/contact'
+  const tagline = isAr ? ar.nav.tagline : 'Method Creates Distinction'
+  const homeHref = isAr ? '/ar' : '/'
+  const switchHref = isAr ? '/' : '/ar'
+  const switchLabel = isAr ? 'English' : 'العربية'
+
   return (
     <>
       <nav style={{ background: 'rgba(253,250,246,0.96)', borderBottom: '1px solid var(--border)', padding: '0 24px', height: 72, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 50, backdropFilter: 'blur(10px)' }}>
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <a href={homeHref} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Image src="/images/logo.jpg" alt="Kitchen Three" width={84} height={64} priority style={{ width: 42, height: 42, borderRadius: 4, objectFit: 'contain' }} />
           <div>
             <div style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 17, color: 'var(--teal)', letterSpacing: '0.06em', lineHeight: 1.1 }}>KITCHEN THREE</div>
-            <div style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--coral)', textTransform: 'uppercase', fontWeight: 400 }}>Method Creates Distinction</div>
+            <div style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--coral)', textTransform: 'uppercase', fontWeight: 400 }}>{tagline}</div>
           </div>
         </a>
         <div className="nav-links" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
-          {primaryLinks.map(({ label, href }) => {
+          {links.map(({ label, href }) => {
             const active = pathname === href || pathname.startsWith(href + '/')
             return (
               <a key={href} href={href} style={{ fontSize: 12, fontWeight: active ? 500 : 400, letterSpacing: '0.1em', textTransform: 'uppercase', color: active ? 'var(--teal)' : '#555', borderBottom: active ? '2px solid var(--teal)' : '2px solid transparent', paddingBottom: 3, transition: 'all 0.2s' }}
@@ -43,21 +58,28 @@ export default function Nav() {
               </a>
             )
           })}
-          <a href="/contact" className="btn btn-primary" style={{ padding: '9px 22px' }}>Get In Touch</a>
+          <a href={switchHref} aria-label={isAr ? 'Switch to English' : 'التبديل إلى العربية'}
+            style={{ fontSize: 12, fontWeight: 500, color: '#555', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '5px 12px', transition: 'all 0.2s' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--teal)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--teal)' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#555'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}>
+            {switchLabel}
+          </a>
+          <a href={ctaHref} className="btn btn-primary" style={{ padding: '9px 22px' }}>{ctaLabel}</a>
         </div>
         <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(!open)} aria-label="Menu">
           <span /><span /><span />
         </button>
       </nav>
       <div className={`mobile-menu${open ? ' open' : ''}`}>
-        {primaryLinks.map(({ label, href }) => (
+        {links.map(({ label, href }) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>
         ))}
-        <div style={{ height: 1, background: 'var(--border)', margin: '8px 0' }} />
-        {secondaryLinks.map(({ label, href }) => (
+        {secondary.length > 0 && <div style={{ height: 1, background: 'var(--border)', margin: '8px 0' }} />}
+        {secondary.map(({ label, href }) => (
           <a key={href} href={href} onClick={() => setOpen(false)} style={{ opacity: 0.6, fontSize: 13 }}>{label}</a>
         ))}
-        <a href="/contact" className="btn btn-primary" onClick={() => setOpen(false)}>Get In Touch</a>
+        <a href={switchHref} onClick={() => setOpen(false)} style={{ opacity: 0.75, fontSize: 13 }}>{switchLabel}</a>
+        <a href={ctaHref} className="btn btn-primary" onClick={() => setOpen(false)}>{ctaLabel}</a>
       </div>
     </>
   )
