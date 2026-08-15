@@ -6,6 +6,12 @@ import Footer from '@/components/Footer'
 import { chefs, clients, trustedBy, waStyle } from '@/app/constants/homeData'
 import { ar as t } from '@/i18n/dictionaries/ar'
 
+const slugs = [
+  'culinary-consulting', 'design-services', 'chef-matchmaking', 'recruitment-training',
+  'cloud-kitchen', 'technology', 'site-selection', 'financial-turnaround', 'market-research-feasibility',
+]
+const personaTargets = ['culinary-consulting', 'financial-turnaround', 'chef-matchmaking', 'market-research-feasibility']
+
 const accents = ['var(--teal)', 'var(--amber)', 'var(--coral)']
 const accentBgs = ['var(--teal-light)', 'var(--amber-light)', 'var(--coral-light)']
 
@@ -40,8 +46,8 @@ export default function ArabicHome() {
                 {t.hero.body}
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                <a href="#services" className="btn btn-primary">{t.hero.ctaPrimary}</a>
-                <a href="#chefs" className="btn btn-outline">{t.hero.ctaSecondary}</a>
+                <a href="/ar/services" className="btn btn-primary">{t.hero.ctaPrimary}</a>
+                <a href="/ar/chefs" className="btn btn-outline">{t.hero.ctaSecondary}</a>
               </div>
             </div>
             <div className="hero-right fade-up-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
@@ -81,7 +87,7 @@ export default function ArabicHome() {
               <span key={c} style={{ fontSize: 12.5, color: '#555', background: 'var(--cream)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '8px 14px' }}>{c}</span>
             ))}
           </div>
-          <span style={{ fontSize: 13, color: 'var(--teal)', fontWeight: 500 }}>{t.leadership.link}</span>
+          <a href="/ar/team" style={{ fontSize: 13.5, color: 'var(--teal)', fontWeight: 500 }}>{t.leadership.link}</a>
         </div>
       </section>
 
@@ -95,21 +101,23 @@ export default function ArabicHome() {
           </div>
           <div className="grid-3" style={{ marginBottom: 12 }}>
             {featured.map((s, i) => (
-              <div key={s.num} className="card" style={{ padding: '28px 24px' }}>
+              <a key={s.num} href={`/ar/services#${slugs[i]}`} className="card" style={{ padding: '28px 24px', display: 'block' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 56, fontWeight: 400, color: accents[i % 3], lineHeight: 1, marginBottom: 4, opacity: 0.3 }}>{s.num}</div>
                 <div className="badge" style={{ background: accentBgs[i % 3], color: accents[i % 3], marginBottom: 14 }}>{s.kw}</div>
                 <h3 style={{ fontSize: 20, marginBottom: 10, color: 'var(--forest)' }}>{s.title}</h3>
                 <p style={{ fontSize: 14, color: '#666', fontWeight: 300 }}>{s.desc}</p>
-              </div>
+                <div style={{ marginTop: 16, fontSize: 13, color: accents[i % 3], fontWeight: 500 }}>{t.services.learnMore}</div>
+              </a>
             ))}
           </div>
           <div style={{ border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '16px 20px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div className="service-pills" style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
               <span style={{ fontSize: 12, color: 'var(--muted)', fontWeight: 500, marginLeft: 4 }}>{t.services.moreCount(remaining.length)}</span>
               {remaining.map((s, i) => (
-                <span key={s.num} style={{ fontSize: 11, fontWeight: 600, color: accents[i % 3], background: accentBgs[i % 3], padding: '4px 12px', borderRadius: 999, whiteSpace: 'nowrap' }}>{s.title}</span>
+                <a key={s.num} href={`/ar/services#${slugs[i + 3]}`} style={{ fontSize: 12, fontWeight: 600, color: accents[i % 3], background: accentBgs[i % 3], padding: '4px 12px', borderRadius: 999, whiteSpace: 'nowrap' }}>{s.title}</a>
               ))}
             </div>
+            <a href="/ar/services" style={{ fontSize: 12.5, color: 'var(--teal)', fontWeight: 500, whiteSpace: 'nowrap' }}>{t.services.viewAll}</a>
           </div>
         </div>
       </section>
@@ -143,14 +151,17 @@ export default function ArabicHome() {
           </div>
           <div className="grid-5">
             {chefs.map(c => (
-              <div key={c.slug} style={{ textAlign: 'center' }}>
+              <a key={c.slug} href="/ar/chefs" style={{ textAlign: 'center', display: 'block' }}>
                 <div style={{ width: 80, height: 80, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 10px', border: '2px solid var(--border)' }}>
                   <Image src={c.photo} alt={c.name} width={160} height={160} sizes="80px" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
                 </div>
                 <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--forest)', marginBottom: 2, direction: 'ltr' }}>{c.name}</div>
                 <div style={{ fontSize: 11, color: 'var(--teal)', fontWeight: 600 }}>{t.chefs.countries[c.country] ?? c.country}</div>
-              </div>
+              </a>
             ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: 40 }}>
+            <a href="/ar/chefs" className="btn btn-outline">{t.chefs.cta}</a>
           </div>
         </div>
       </section>
@@ -182,6 +193,9 @@ export default function ArabicHome() {
               <button onClick={() => setShowAllClients(false)} className="btn btn-outline" style={{ fontSize: 13 }}>{t.clients.showLess}</button>
             </div>
           )}
+          <div style={{ textAlign: 'center', marginTop: 24 }}>
+            <a href="/ar/clients" style={{ fontSize: 13, color: 'var(--teal)', fontWeight: 500 }}>{t.clients.titleEm} ←</a>
+          </div>
         </div>
       </section>
 
@@ -195,7 +209,7 @@ export default function ArabicHome() {
               </div>
               <div style={{ fontSize: 15, color: 'rgba(255,255,255,0.75)', fontWeight: 300 }}>{t.midCta.sub}</div>
             </div>
-            <a href="#contact" className="btn btn-white" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>{t.midCta.cta}</a>
+            <a href="/ar/contact" className="btn btn-white" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>{t.midCta.cta}</a>
           </div>
         </div>
       </section>
@@ -214,11 +228,12 @@ export default function ArabicHome() {
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 40, fontWeight: 400, color: accents[i % 3], lineHeight: 1, marginBottom: 16, opacity: 0.25 }}>0{i + 1}</div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: accents[i % 3], marginBottom: 10 }}>{p.title}</div>
                 <p style={{ fontSize: 14, color: '#555', fontWeight: 300, marginBottom: 20, flex: 1 }}>{p.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
                   {p.pillars.map(pill => (
                     <span key={pill} style={{ fontSize: 11, fontWeight: 600, color: accents[i % 3], background: accentBgs[i % 3], padding: '4px 10px', borderRadius: 2 }}>{pill}</span>
                   ))}
                 </div>
+                <a href={`/ar/services#${personaTargets[i]}`} style={{ fontSize: 12.5, color: accents[i % 3], fontWeight: 600 }}>{t.personas.cta}</a>
               </div>
             ))}
           </div>
@@ -257,6 +272,9 @@ export default function ArabicHome() {
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--amber)' }} />
               <span style={{ fontSize: 12, color: '#9a6b00', fontWeight: 600 }}>{t.academy.notice}</span>
             </div>
+            <div style={{ marginTop: 20 }}>
+              <a href="/ar/academy" className="btn btn-outline">{t.academy.cta}</a>
+            </div>
           </div>
         </div>
       </section>
@@ -269,7 +287,7 @@ export default function ArabicHome() {
               <div className="eyebrow" style={{ color: 'var(--amber)' }}>{t.invest.eyebrow}</div>
               <h2 style={{ color: '#fff', marginBottom: 16 }}>{t.invest.titleTop} <em style={{ color: 'var(--amber)' }}>{t.invest.titleEm}</em></h2>
               <p style={{ fontSize: 16, color: '#7ab8b0', fontWeight: 300, marginBottom: 32 }}>{t.invest.body}</p>
-              <a href="#contact" className="btn btn-white">{t.invest.cta}</a>
+              <a href="/ar/invest" className="btn btn-white">{t.invest.cta}</a>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               {t.invest.items.map((label, i) => (
