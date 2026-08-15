@@ -65,7 +65,7 @@ export default function Footer({ locale = 'en' }: { locale?: Locale }) {
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>{t.companyTitle}</div>
             {(isAr
-              ? [['الطهاة', '/ar/chefs'], ['العملاء', '/ar/clients'], ['الخدمات', '/ar/services'], ['الأكاديمية', '/ar/academy'], ['الأسئلة الشائعة', '/ar/faq'], ['تواصل معنا', '/ar/contact']]
+              ? [['الطهاة', '/ar/chefs'], ['العملاء', '/ar/clients'], ['الأسئلة الشائعة', '/ar/faq'], ['المصادر', '/ar/resources'], ['الفريق', '/ar/team'], ['قصتنا', '/ar/our-story'], ['الاستثمار', '/ar/invest'], ['تواصل معنا', '/ar/contact'], ['سياسة الخصوصية', '/ar/privacy']]
               : [['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']]
             ).map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
