@@ -18,7 +18,7 @@ export default function Footer({ locale = 'en' }: { locale?: Locale }) {
     certifications: isAr ? [...ar.footer.certifications] : enCertifications,
     rights: isAr ? ar.footer.rights : '© 2026 Kitchen Three LLC — Cairo, Egypt. All rights reserved.',
     strapline: isAr ? ar.footer.strapline : 'B2B Culinary Consultancy · Est. 2013',
-    servicesHref: isAr ? '/ar#services' : '/services',
+    servicesHref: isAr ? '/ar/services' : '/services',
   }
   return (
     <footer style={{ background: 'var(--forest)', color: '#a8d8d2', padding: '56px 24px 32px' }}>
@@ -64,7 +64,10 @@ export default function Footer({ locale = 'en' }: { locale?: Locale }) {
           </div>
           <div>
             <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>{t.companyTitle}</div>
-            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']].map(([label, href]) => (
+            {(isAr
+              ? [['الطهاة', '/ar/chefs'], ['العملاء', '/ar/clients'], ['الخدمات', '/ar/services'], ['الأكاديمية', '/ar/academy'], ['الأسئلة الشائعة', '/ar/faq'], ['تواصل معنا', '/ar/contact']]
+              : [['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']]
+            ).map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>

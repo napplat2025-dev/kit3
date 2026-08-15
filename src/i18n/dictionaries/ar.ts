@@ -13,10 +13,15 @@ export const ar = {
   nav: {
     tagline: 'المنهج يصنع التميّز',
     primary: [
-      { label: 'الخدمات', href: '/ar#services' },
-      { label: 'الطهاة', href: '/ar#chefs' },
-      { label: 'الأكاديمية', href: '/ar#academy' },
-      { label: 'الاستثمار', href: '/ar#invest' },
+      { label: 'الخدمات', href: '/ar/services' },
+      { label: 'الطهاة', href: '/ar/chefs' },
+      { label: 'الأكاديمية', href: '/ar/academy' },
+      { label: 'العملاء', href: '/ar/clients' },
+      { label: 'الأسئلة الشائعة', href: '/ar/faq' },
+    ],
+    secondary: [
+      { label: 'الصفحة الرئيسية', href: '/ar' },
+      { label: 'تواصل معنا', href: '/ar/contact' },
     ],
     cta: 'تواصل معنا',
   },

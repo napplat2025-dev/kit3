@@ -26,12 +26,12 @@ export default function Nav({ locale = 'en' }: { locale?: Locale }) {
   const [open, setOpen] = useState(false)
   const isAr = locale === 'ar'
 
-  // Stage 1 translates the homepage only, so the Arabic nav points at sections
-  // of /ar rather than at pages that have no Arabic version yet.
+  // The Arabic nav lists only pages that exist in Arabic; pages still English-only
+  // are reached from the language switcher rather than being linked as dead ends.
   const links = isAr ? ar.nav.primary : primaryLinks
-  const secondary = isAr ? [] : secondaryLinks
+  const secondary = isAr ? ar.nav.secondary : secondaryLinks
   const ctaLabel = isAr ? ar.nav.cta : 'Get In Touch'
-  const ctaHref = isAr ? '/ar#contact' : '/contact'
+  const ctaHref = isAr ? '/ar/contact' : '/contact'
   const tagline = isAr ? ar.nav.tagline : 'Method Creates Distinction'
   const homeHref = isAr ? '/ar' : '/'
   const switchHref = isAr ? '/' : '/ar'
