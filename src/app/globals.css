@@ -118,3 +118,7 @@ em { font-style: italic; }
 
 /* Directional flips for the few places the layout assumes LTR. */
 .rtl-root .arrow-flip { display: inline-block; transform: scaleX(-1); }
+
+/* Visitors the proxy blocks from the Arabic site never see the switcher —
+   the class is set before paint by the inline script in the root layout. */
+.geo-eg .lang-switch { display: none !important; }

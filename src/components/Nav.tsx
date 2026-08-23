@@ -58,7 +58,7 @@ export default function Nav({ locale = 'en' }: { locale?: Locale }) {
               </a>
             )
           })}
-          <a href={switchHref} aria-label={isAr ? 'Switch to English' : 'التبديل إلى العربية'}
+          <a href={switchHref} className="lang-switch" aria-label={isAr ? 'Switch to English' : 'التبديل إلى العربية'}
             style={{ fontSize: 12, fontWeight: 500, color: '#555', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '5px 12px', transition: 'all 0.2s' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = 'var(--teal)'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--teal)' }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#555'; (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}>
@@ -78,7 +78,7 @@ export default function Nav({ locale = 'en' }: { locale?: Locale }) {
         {secondary.map(({ label, href }) => (
           <a key={href} href={href} onClick={() => setOpen(false)} style={{ opacity: 0.6, fontSize: 13 }}>{label}</a>
         ))}
-        <a href={switchHref} onClick={() => setOpen(false)} style={{ opacity: 0.75, fontSize: 13 }}>{switchLabel}</a>
+        <a href={switchHref} className="lang-switch" onClick={() => setOpen(false)} style={{ opacity: 0.75, fontSize: 13 }}>{switchLabel}</a>
         <a href={ctaHref} className="btn btn-primary" onClick={() => setOpen(false)}>{ctaLabel}</a>
       </div>
     </>

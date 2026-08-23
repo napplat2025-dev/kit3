@@ -129,6 +129,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
         />
+        {/* Runs before paint so the Arabic switcher never flashes for visitors
+            the proxy blocks from /ar. Reads the cookie the proxy sets. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=document.cookie.match(/(?:^|; )kt-country=([^;]*)/);if(m&&decodeURIComponent(m[1])==='EG'){document.documentElement.classList.add('geo-eg')}}catch(e){}})()`,
+          }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN6H912F31" />
         <script
           dangerouslySetInnerHTML={{
