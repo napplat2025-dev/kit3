@@ -50,7 +50,7 @@ export default function Home() {
                 Culinary craft. Operational intelligence.
               </div>
               <p style={{ fontSize: 17, lineHeight: 1.9, color: '#4a5568', marginBottom: 40, maxWidth: 480, fontWeight: 300 }}>
-                From concept to execution — Kitchen Three partners with corporations, HORECA operators and food brands: world-class culinary solutions from a roster of 10 international chefs, and AI computer-vision technology that turn the cameras and POS you already have into daily operational reporting.
+                Kitchen Three builds food businesses from concept to execution — 10 international chefs for the craft, AI and computer vision for everything you can only fix once you can measure it.
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <a href="/services" className="btn btn-primary">Explore Services</a>
