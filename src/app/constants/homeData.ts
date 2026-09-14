@@ -8,6 +8,7 @@ export const services = [
   { num: '07', title: 'Site Selection & Store Fit-Out', desc: "We don't just find you the right space — we build it out. Foot traffic analysis, lease negotiation, full store fit-out as your contractor, and complete procurement.", color: 'var(--teal)', bg: 'var(--teal-light)', kw: 'Restaurant Location Hunting Cairo', href: '/services#site-selection' },
   { num: '08', title: 'F&B Financial Turnaround', desc: 'For operations that need to recover, stabilise, and grow again. We diagnose what is broken and build the path back to profitability.', color: 'var(--amber)', bg: 'var(--amber-light)', kw: 'F&B Turnaround Consulting Egypt', href: '/services#financial-turnaround' },
   { num: '09', title: 'Market Research & Feasibility', desc: 'Bankable, investor-ready studies — TAM/SAM sizing, competitive mapping, financial projections, and pricing strategy. Every serious decision starts with the right data.', color: 'var(--coral)', bg: 'var(--coral-light)', kw: 'Feasibility Studies Egypt', href: '/services#market-research-feasibility' },
+  { num: '10', title: 'AI Automation & Computer Vision', desc: 'The cameras you already have, turned into daily operational reporting — plus automation across guest, kitchen, admin, and marketing.', color: 'var(--teal)', bg: 'var(--teal-light)', kw: 'AI Automation Hospitality Egypt', href: '/services#ai-automation' },
 ]
 
 export const chefs = [
@@ -156,7 +157,7 @@ export const guides = [
 export const stats = [
   { v: '2013', l: 'Founded' },
   { v: '10', l: "Int'l Chefs" },
-  { v: '9', l: 'Service Pillars' },
+  { v: '10', l: 'Service Pillars' },
   { v: '15+', l: 'Major Clients' },
 ]
 

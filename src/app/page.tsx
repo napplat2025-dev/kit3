@@ -46,8 +46,11 @@ export default function Home() {
                 <em style={{ color: 'var(--teal)' }}>Full-Stack</em><br />
                 Culinary<br />Consultancy
               </h1>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontStyle: 'italic', color: 'var(--teal)', marginBottom: 20, lineHeight: 1.4 }}>
+                Culinary craft. Operational intelligence.
+              </div>
               <p style={{ fontSize: 17, lineHeight: 1.9, color: '#4a5568', marginBottom: 40, maxWidth: 480, fontWeight: 300 }}>
-                From concept to execution — Kitchen Three partners with corporations, HORECA operators, and food brands to deliver world-class culinary solutions backed by a powerhouse roster of 10 international chefs.
+                Kitchen Three builds food businesses from concept to execution — 10 international chefs for the craft, AI and computer vision for everything you can only fix once you can measure it.
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
                 <a href="/services" className="btn btn-primary">Explore Services</a>

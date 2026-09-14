@@ -57,6 +57,11 @@ const services = [
     bullets:['Business Overview & Financial Analysis — diagnostic for existing businesses (P&L review, KPI benchmarking, SWOT). 7–10 days.','Market Research & Deep Scan — TAM/SAM sizing, competitive mapping, demand & trend analysis. 10–14 days.','Feasibility Study — full investor-ready document with CAPEX, P&L scenarios, break-even & ROI. 14–21 days.','Pricing Strategy — COGS per SKU, competitive benchmarking, positioning-led pricing & sensitivity analysis. 5–8 days.','Bankable, investor-ready deliverables built to be acted on','Led by Amr Salah — 4+ years at a leading MEA real estate developer, F&B specialist'],
     clients:'Led by Amr Salah — Market Research & Feasibility Consultant, Kitchen Three.',
     articles: []},
+  { num:'10', title:'AI Automation & Computer Vision', slug:'ai-automation', tagline:'Systems That Watch, Count and Report', color:'var(--teal)', bg:'var(--teal-light)', kw:'AI Automation Hospitality Egypt',
+    desc:'Hospitality operations lose margin to two things: work nobody should be doing by hand, and problems nobody sees until the month-end numbers arrive. Most properties are already sitting on the best operational data they own — hundreds of cameras nobody watches. Kitchen Three designs and deploys AI systems built around how your operation actually runs, then trains your team to run them. Delivered in collaboration with our partner AI digital transformation agency.',
+    bullets:['Computer vision on the cameras you already have — plate waste and portioning, cleanliness and hygiene compliance, service and prep timings, stock movement and shrinkage, queue and cover counts','Reported daily against the areas and shifts they came from, not left in a recording nobody reviews','Guest-facing automation — WhatsApp ordering and reservations, AI phone answering, automated review responses, loyalty and win-back messaging','Back of house — purchasing and inventory forecasting, recipe costing that updates with supplier prices, waste and yield tracking, automated prep sheets','Admin and reporting — daily sales and labour reports, invoice and delivery-note capture, aggregator reconciliation, digitised HACCP logs','Marketing — menu photography and copy at scale, social content calendars, bilingual English and Arabic campaign production','Deployed on your existing cameras, POS and delivery stack — no rip-and-replace'],
+    clients:'Built for hotels and resorts, multi-site restaurant groups, catering operations, and hospital and institutional food service — enquire to discuss your setup.',
+    articles: []},
 ]
 
 export default function ServicesClient() {
@@ -75,7 +80,7 @@ export default function ServicesClient() {
             Fully Fledged Culinary Services<br /><em style={{ color: 'var(--teal)' }}>Under One Roof</em>
           </h1>
           <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 600, lineHeight: 1.9, fontWeight: 300 }}>
-            Nine integrated service pillars designed to take your food business from concept to operational excellence — and to recover and grow operations that need a reset. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
+            Ten integrated service pillars designed to take your food business from concept to operational excellence — and to recover and grow operations that need a reset. Whether launching, scaling, or transforming — Kitchen Three has the expertise, the talent, and the tools.
           </p>
         </div>
       </section>
@@ -101,7 +106,7 @@ export default function ServicesClient() {
               <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', color: 'var(--forest)', marginBottom: 12 }}>{s.title}</h2>
               <div style={{ fontSize: 13, color: s.color, letterSpacing: '0.1em', marginBottom: 24, fontWeight: 500, textTransform: 'uppercase' }}>{s.tagline}</div>
               <div style={{ padding: '16px 20px', background: s.bg, borderRadius: 'var(--radius)', borderLeft: `3px solid ${s.color}` }}>
-                <div style={{ fontSize: 11, color: s.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500, marginBottom: 6 }}>Notable Clients</div>
+                <div style={{ fontSize: 11, color: s.color, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500, marginBottom: 6 }}>{s.slug === 'ai-automation' ? 'Built For' : 'Notable Clients'}</div>
                 <div style={{ fontSize: 13, color: '#555', fontWeight: 300 }}>{s.clients}</div>
               </div>
               {s.slug === 'recruitment-training' && (

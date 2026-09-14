@@ -270,7 +270,7 @@ export default function InvestPage() {
             Any investment Kitchen Three opens to partners is backed by the same team, infrastructure, and culinary talent that serves Egypt's leading F&B clients — not a new venture built for capital raising.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
-            {[['2013', 'Established'], ['10', "Int'l Chefs"], ['HACCP', 'Certified'], ['8', 'Service Pillars']].map(([v, l]) => (
+            {[['2013', 'Established'], ['10', "Int'l Chefs"], ['HACCP', 'Certified'], ['10', 'Service Pillars']].map(([v, l]) => (
               <div key={l} style={{ textAlign: 'center' }}>
                 <div style={{ fontFamily: 'var(--serif)', fontSize: 40, fontWeight: 300, color: 'var(--amber)', lineHeight: 1 }}>{v}</div>
                 <div style={{ fontSize: 11, color: '#4a8a80', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 6 }}>{l}</div>
