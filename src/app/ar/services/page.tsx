@@ -13,6 +13,7 @@ const accentBgs = ['var(--teal-light)', 'var(--amber-light)', 'var(--coral-light
 const slugs = [
   'culinary-consulting', 'design-services', 'chef-matchmaking', 'recruitment-training',
   'cloud-kitchen', 'technology', 'site-selection', 'financial-turnaround', 'market-research-feasibility',
+  'ai-automation',
 ]
 
 const pillarClients = [
@@ -25,6 +26,7 @@ const pillarClients = [
   "Vinny's Pizza Bar, Garten, Mori, Wok & Wok",
   'متاح لجميع أنواع العمليات وأحجامها — تواصل معنا لمناقشة حالتك.',
   'بقيادة Amr Salah — استشاري أبحاث السوق ودراسات الجدوى، Kitchen Three.',
+  'مصمَّم للفنادق والمنتجعات، ومجموعات المطاعم متعددة الفروع، وعمليات التموين، وخدمات التغذية في المستشفيات والمؤسسات — تواصل معنا لمناقشة منظومتك.',
 ]
 
 export default function ArServices() {
@@ -58,7 +60,7 @@ export default function ArServices() {
                 <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', color: 'var(--forest)', marginBottom: 12 }}>{s.title}</h2>
                 <div style={{ fontSize: 14, color, marginBottom: 24, fontWeight: 500 }}>{p.taglines[i]}</div>
                 <div style={{ padding: '16px 20px', background: bg, borderRadius: 'var(--radius)', borderRight: `3px solid ${color}` }}>
-                  <div style={{ fontSize: 12, color, fontWeight: 500, marginBottom: 6 }}>{p.notableClients}</div>
+                  <div style={{ fontSize: 12, color, fontWeight: 500, marginBottom: 6 }}>{slugs[i] === 'ai-automation' ? p.builtFor : p.notableClients}</div>
                   <div style={{ fontSize: 13.5, color: '#555', fontWeight: 300 }}>{pillarClients[i]}</div>
                 </div>
                 {slugs[i] === 'recruitment-training' && (

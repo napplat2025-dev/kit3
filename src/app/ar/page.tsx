@@ -42,6 +42,10 @@ export default function ArabicHome() {
                 <em style={{ color: 'var(--teal)' }}>{t.hero.titleEm}</em><br />
                 {t.hero.titleBottom}
               </h1>
+              {/* No italic: Arabic has no true italic and Amiri's synthesised oblique breaks the joins. */}
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 24, color: 'var(--teal)', marginBottom: 20, lineHeight: 1.6 }}>
+                {t.hero.tagline}
+              </div>
               <p style={{ fontSize: 17, color: '#4a5568', marginBottom: 40, maxWidth: 480, fontWeight: 300 }}>
                 {t.hero.body}
               </p>
