@@ -1,15 +1,35 @@
 'use client'
-export default function Footer() {
+import type { Locale } from '@/i18n/config'
+import { ar } from '@/i18n/dictionaries/ar'
+
+const enServices = ['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology', 'Site Selection', 'F&B Financial Turnaround', 'Market Research & Feasibility']
+const enCertifications = ['HACCP Certified', 'Codex Alimentarius', 'Est. Cairo 2013', 'B2B Consultancy']
+
+export default function Footer({ locale = 'en' }: { locale?: Locale }) {
+  const isAr = locale === 'ar'
+  const t = {
+    tagline: isAr ? ar.footer.tagline : 'Method Creates Distinction',
+    blurb: isAr ? ar.footer.blurb : "Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.",
+    city: isAr ? ar.contact.city : 'Cairo, Egypt',
+    servicesTitle: isAr ? ar.footer.servicesTitle : 'Services',
+    services: isAr ? [...ar.footer.services] : enServices,
+    companyTitle: isAr ? ar.footer.companyTitle : 'Company',
+    certificationsTitle: isAr ? ar.footer.certificationsTitle : 'Certifications',
+    certifications: isAr ? [...ar.footer.certifications] : enCertifications,
+    rights: isAr ? ar.footer.rights : '© 2026 Kitchen Three LLC — Cairo, Egypt. All rights reserved.',
+    strapline: isAr ? ar.footer.strapline : 'B2B Culinary Consultancy · Est. 2013',
+    servicesHref: isAr ? '/ar/services' : '/services',
+  }
   return (
     <footer style={{ background: 'var(--forest)', color: '#a8d8d2', padding: '56px 24px 32px' }}>
       <div className="container">
         <div className="footer-grid" style={{ marginBottom: 48 }}>
           <div>
             <div style={{ fontFamily: 'var(--serif)', fontSize: 22, fontWeight: 500, color: '#fff', letterSpacing: '0.06em', marginBottom: 6 }}>KITCHEN THREE</div>
-            <div style={{ fontSize: 10, letterSpacing: '0.18em', color: 'var(--coral)', textTransform: 'uppercase', marginBottom: 16 }}>Method Creates Distinction</div>
-            <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>Egypt's leading B2B culinary consultancy. Empowering food businesses since 2013 with world-class chefs, HACCP-certified operations, and end-to-end culinary solutions.</p>
+            <div style={{ fontSize: 10, letterSpacing: '0.18em', color: 'var(--coral)', textTransform: 'uppercase', marginBottom: 16 }}>{t.tagline}</div>
+            <p style={{ fontSize: 13, lineHeight: 1.9, color: '#7ab8b0', fontWeight: 300, maxWidth: 280 }}>{t.blurb}</p>
             <div style={{ marginTop: 24, fontSize: 13, color: '#7ab8b0' }}>
-              <div>Cairo, Egypt</div>
+              <div>{t.city}</div>
               <div><a href="mailto:kf@kitchenthree.co" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>kf@kitchenthree.co</a></div>
               <div><a href="tel:+201222186669" style={{ color: 'var(--teal-mid)', transition: 'color 0.2s' }}>+20 122 218 6669</a></div>
               <div style={{ marginTop: 16, display: 'flex', gap: 12, alignItems: 'center' }}>
@@ -35,16 +55,19 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Services</div>
-            {['Culinary Consulting', 'Design Services', 'Chef Matchmaking', 'Recruitment & Training', 'Cloud Kitchen', 'Technology', 'Site Selection', 'F&B Financial Turnaround', 'Market Research & Feasibility'].map(s => (
-              <a key={s} href="/services" style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
+            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>{t.servicesTitle}</div>
+            {t.services.map(s => (
+              <a key={s} href={t.servicesHref} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{s}</a>
             ))}
           </div>
           <div>
-            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Company</div>
-            {[['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']].map(([label, href]) => (
+            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>{t.companyTitle}</div>
+            {(isAr
+              ? [['الطهاة', '/ar/chefs'], ['العملاء', '/ar/clients'], ['الأسئلة الشائعة', '/ar/faq'], ['المصادر', '/ar/resources'], ['الفريق', '/ar/team'], ['قصتنا', '/ar/our-story'], ['الاستثمار', '/ar/invest'], ['تواصل معنا', '/ar/contact'], ['سياسة الخصوصية', '/ar/privacy']]
+              : [['Our Chefs', '/chefs'], ['Clients', '/clients'], ['Blog', '/blog'], ['FAQ', '/faq'], ['Resources', '/resources'], ['Team', '/team'], ['Our Story', '/our-story'], ['Investment', '/invest'], ['Contact', '/contact']]
+            ).map(([label, href]) => (
               <a key={label} href={href} style={{ display: 'block', fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300, transition: 'color 0.2s' }}
                 onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
                 onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#7ab8b0'}>{label}</a>
@@ -57,14 +80,14 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>Certifications</div>
-            {['HACCP Certified', 'Codex Alimentarius', 'Est. Cairo 2013', 'B2B Consultancy'].map(c => (
+            <div style={{ fontSize: 11, letterSpacing: '0.16em', color: '#fff', textTransform: 'uppercase', fontWeight: 500, marginBottom: 20 }}>{t.certificationsTitle}</div>
+            {t.certifications.map(c => (
               <div key={c} style={{ fontSize: 13, color: '#7ab8b0', marginBottom: 10, fontWeight: 300 }}>{c}</div>
             ))}
           </div>
         </div>
         <div style={{ borderTop: '1px solid rgba(168,216,210,0.15)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <div style={{ fontSize: 12, color: '#4a8a80' }}>© 2026 Kitchen Three LLC — Cairo, Egypt. All rights reserved.</div>
+          <div style={{ fontSize: 12, color: '#4a8a80' }}>{t.rights}</div>
           <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
             <a href="/privacy" style={{ fontSize: 11, color: '#4a8a80', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
@@ -72,7 +95,7 @@ export default function Footer() {
             <a href="/our-story" style={{ fontSize: 11, color: '#4a8a80', textDecoration: 'none', letterSpacing: '0.08em', transition: 'color 0.2s' }}
               onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = 'var(--teal-mid)'}
               onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4a8a80'}>Our Story</a>
-            <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#4a8a80', textTransform: 'uppercase' }}>B2B Culinary Consultancy · Est. 2013</div>
+            <div style={{ fontSize: 11, letterSpacing: '0.12em', color: '#4a8a80', textTransform: 'uppercase' }}>{t.strapline}</div>
           </div>
         </div>
       </div>

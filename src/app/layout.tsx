@@ -21,7 +21,14 @@ export const metadata: Metadata = {
   description: 'Egypt\'s B2B culinary consultancy since 2013. Michelin chefs, HACCP-certified operations, menu engineering, cloud kitchens, F&B brand development.',
   keywords: 'culinary consultancy Egypt, F&B consultant Cairo, Michelin chef hire Egypt, cloud kitchen Egypt, menu engineering Cairo, food brand development Egypt, HACCP certified kitchen Egypt',
   metadataBase: new URL('https://www.kitchenthree.co'),
-  alternates: { canonical: 'https://www.kitchenthree.co' },
+  alternates: {
+    canonical: 'https://www.kitchenthree.co',
+    languages: {
+      en: 'https://www.kitchenthree.co',
+      ar: 'https://www.kitchenthree.co/ar',
+      'x-default': 'https://www.kitchenthree.co',
+    },
+  },
   openGraph: {
     title: "Egypt's Full-Stack Culinary Consultancy | Kitchen Three · Cairo",
     description: 'Egypt\'s leading B2B culinary consultancy since 2013. World-class chefs, HACCP-certified operations, and end-to-end F&B solutions.',
@@ -121,6 +128,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
+        {/* Runs before paint so the Arabic switcher never flashes for visitors
+            the proxy blocks from /ar. Reads the cookie the proxy sets. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=document.cookie.match(/(?:^|; )kt-country=([^;]*)/);if(m&&decodeURIComponent(m[1])==='EG'){document.documentElement.classList.add('geo-eg')}}catch(e){}})()`,
+          }}
         />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN6H912F31" />
         <script
