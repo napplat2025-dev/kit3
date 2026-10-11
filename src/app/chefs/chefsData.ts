@@ -16,6 +16,7 @@ export const chefs = [
     bio: "After completing his training in the finest Parisian patisseries, Yann moved to Saint Tropez to take his first position as head chef at age 21 at the Château de la Messardière, a palace hotel — where he became the pastry chef to the stars. He then went to Val d'Isère to lead the pastry team of a 5-star hotel. Seeking new challenges, he moved to Spain with his family, opened five shops, and became the Champion of Spain in artistic pieces and a finalist for the World Cup representing Spain. He captained the Spanish team in the sugar arts. Today he is an international pastry consultant and trainer, and co-founder of the World Cup of Chocolatine in Toulouse — which he has organized in China, Kazakhstan, Morocco, and Cameroon.",
     specialties: ['French Patisserie', 'Chocolate & Sugar Arts', 'Pastry Team Training', 'Product Development'],
     available: 'Masterclasses, product development, pastry team training',
+    bestFor: "Hotels, patisseries and pastry brands that need a signature range, a stronger pastry team, or a showpiece masterclass.",
     signatures: [
       '/images/chefs/yann-bonneau_dish_01.jpeg',
       '/images/chefs/yann-bonneau_dish_02.jpeg',
@@ -40,6 +41,7 @@ export const chefs = [
     bio: "Enzo Bonneau, a French pastry chef born in 1997 in Toulouse, is renowned for his creativity and expertise in luxury hospitality. After training in Valencia, he honed his skills at prestigious venues including The Waterside Inn (3 Michelin stars, England) and La Dame de Pic (2 Michelin stars, London), later leading pastry teams at top establishments such as Hôtel Arima (4-star, San Sebastian) and La Gaia (1 Michelin star, Ibiza). Since 2019, Enzo has worked as an international consultant, mentoring aspiring chefs and earning accolades including 2nd place at the 2021 Toque d'Or Pâtisserie (France). Fluent in multiple languages, he blends classic French techniques with global flavours. Chef Enzo specialises in plated desserts.",
     specialties: ['Classical French Pastry', 'Plated Desserts', 'Fine Dining Consulting', 'Chef Mentorship'],
     available: 'Fine dining projects, menu development, chef training programs',
+    bestFor: "Fine-dining restaurants and luxury hotels building a plated-dessert menu or training a young pastry brigade.",
     signatures: [
       '/images/chefs/enzo-bonneau_dish_01.jpeg',
       '/images/chefs/enzo-bonneau_dish_02.jpeg',
@@ -66,6 +68,7 @@ export const chefs = [
     bio: "In 2018, Greek chef Niko Koulousias was part of the team that crafted the menu for Prince Harry and Meghan Markle's wedding, later catering Queen Elizabeth's 70th Jubilee. Hailing from Neapoli in Kozani, Niko's passion for cooking sparked in his uncle's vegetable garden, leading him to earn degrees from the New England Culinary Art Institute and Claude Dornier-Schule Friedrichshafen. A globetrotting chef dubbed 'Future Nokia' for connecting people globally, he is a business facilitator who played a key role in founding the Ghana Chef Association. Known for his marketing finesse, Niko linked Ducasse Education to establish a culinary school in Lebanon, and has cooked for world leaders worldwide.",
     specialties: ['Mediterranean Cuisine', 'Royal & Diplomatic Events', 'Large-Scale Luxury Catering', 'Executive Consulting'],
     available: 'Luxury events, diplomatic catering, executive chef consultancy',
+    bestFor: "Embassies, luxury venues and event organisers running high-profile, large-scale Mediterranean menus.",
     signatures: [
       '/images/chefs/niko-koulousias_dish_01.jpeg',
       '/images/chefs/niko-koulousias_dish_02.jpeg',
@@ -89,6 +92,7 @@ export const chefs = [
     bio: "Hadeel Amasheh, a Jordanian entrepreneur and mother of two, moved to Cairo in 1988 where she built a thriving life. A proud AUC alumna and Goldman Sachs 10,000 Women graduate, she spent over a decade refining her skills in the culinary arts as a member of the Egyptian Chefs Association, with a passion for pastry and bakery arts. In 2013, Hadeel turned her love for baking into reality by launching Cookies N Pies, an eco-friendly, zero-waste bakery. Starting from a small family kitchen, it grew into a premium online bakery offering over 120 delectable treats, including gluten-free and vegan options. With a focus on quality, innovation, and sustainability, Hadeel has set a new benchmark in Cairo's artisanal bakery scene.",
     specialties: ['Pastry & Bakery Arts', 'F&B Entrepreneurship', 'Sustainable Food Business', 'MENA Food Markets'],
     available: 'Business consulting, culinary education, F&B strategy',
+    bestFor: "Founders and small F&B businesses that need a sound business model and strategy before or after launch.",
     signatures: [
       '/images/chefs/hadil-amasheh_dish_01.jpeg',
       '/images/chefs/hadil-amasheh_dish_02.jpeg',
@@ -115,6 +119,7 @@ export const chefs = [
     bio: "After completing his training as a baker in some very prestigious establishments, Gérard opened his own business and became a teacher at a training centre for apprentices, rising to head of the bakery division. He coached numerous apprentices for regional and national competitions, and later took over the management of a training centre. In 2011, he was a finalist for the MOF — Meilleur Ouvrier de France, or Best Craftsman of France — one of the most prestigious titles in French cuisine. To this day, he is an international consultant promoting the art of French baking around the world.",
     specialties: ['French Artisan Baking', 'Bread & Viennoiserie', 'Kitchen Management', 'Team Training'],
     available: 'Bakery consulting, kitchen management, team training',
+    bestFor: "Bakeries and hotel bakery departments that want French artisan bread and viennoiserie standards and a trained team.",
     signatures: [
       '/images/chefs/gerard-livigni_dish_01.jpeg',
       '/images/chefs/gerard-livigni_dish_02.jpeg',
@@ -141,6 +146,7 @@ export const chefs = [
     bio: "Chef Ramy Somoeil Gad Gerges, a dedicated Egyptian chef, has spent over 20 years mastering Lebanese, Italian, and Mediterranean cuisines, blending passion into every dish. A graduate of the Faculty of Tourism and Hotels, he refined his skills in prestigious kitchens like NileCity, Rossini Restaurant, and Callisto's in Italy, later leading teams as General Chef at Raffaello and Abdel-Wahab, and now serving as Sous Chef at Babyl Restaurant. Fluent in Arabic and Italian, Ramy's creativity, work ethic, and collaborative spirit shine through in his bold, refined culinary creations, delivering unforgettable fine-dining experiences with international flair.",
     specialties: ['Lebanese Cuisine', 'Mediterranean Cuisine', 'Italian Cuisine', 'Menu Development'],
     available: 'Menu development, kitchen training, cuisine consulting',
+    bestFor: "Restaurants serving Lebanese, Mediterranean or Italian food that need a menu built or retuned and a kitchen trained to run it.",
     signatures: [
       '/images/chefs/ramy-somoeil_dish_01.jpeg',
       '/images/chefs/ramy-somoeil_dish_02.jpeg',
@@ -167,6 +173,7 @@ export const chefs = [
     bio: "Walid Karim is a seasoned pizza chef with over 20 years of experience working in top-tier restaurants. A graduate of Ain Shams University, Walid has mastered his craft in renowned establishments such as Mercato Italiano, Casper and Gambini, Macaroni Grill, and many more. Known for his leadership, fast learning, and ability to thrive under pressure, Walid excels at mentoring new employees and delivering exceptional quality in every pizza he creates. Fluent in Arabic and proficient in English, he brings passion, skill, and dedication to every kitchen he joins.",
     specialties: ['Neapolitan Pizza', 'Italian Cuisine', 'Dough Science', 'Pizzeria Concept Development'],
     available: 'Pizzeria concepts, kitchen training, product development',
+    bestFor: "Pizzerias and Italian restaurants opening a new concept or fixing dough, consistency and kitchen workflow.",
     signatures: [
       '/images/chefs/walid-karim_dish_01.jpeg',
       '/images/chefs/walid-karim_dish_02.jpeg',
@@ -191,6 +198,7 @@ export const chefs = [
     bio: "Chef Giovanni Mascari is an acclaimed Italian pizza chef originally from Palermo, known for his innovative approach to pizza and his signature creation: Sushi Pizza. As the executive pizzaiolo at Fratelli Panza in Udine, Mascari has built a reputation for blending traditional Italian pizza-making with creative, unexpected twists. His Sushi Pizza — now a registered trademark — is a unique fusion dish that combines the aesthetics and flavours of sushi with the craft of pizza, reflecting his passion for experimentation and culinary evolution. Mascari is active on social media where he shares his creations and culinary philosophy, inspiring both pizza lovers and fellow chefs worldwide.",
     specialties: ['Fusion Pizza', 'Innovation Menus', 'Sushi Pizza', 'Concept Development'],
     available: 'Innovation concepts, fusion menus, executive training',
+    bestFor: "Pizza brands that want a distinctive, innovation-led menu to stand out from traditional competitors.",
     signatures: [
       '/images/chefs/giovani-mascari_dish_01.jpeg',
       '/images/chefs/giovani-mascari_dish_02.jpeg',
@@ -215,6 +223,7 @@ export const chefs = [
     bio: "Luca Montersino is a celebrated Italian pastry chef, visionary entrepreneur, and television sensation whose name is synonymous with innovation and irresistible indulgence. Born in Turin in 1973, Luca has revolutionised the world of pastry by blending Italian tradition with cutting-edge creativity and a commitment to wellness. As the founder of the iconic Golosi di Salute pastry lab in Alba, he pioneered the art of healthy, gourmet desserts — proving that taste and well-being can go hand in hand. His culinary empire stretches from Italy to Tokyo and New York. His groundbreaking web school brings his expertise to kitchens around the globe.",
     specialties: ['Italian Pastry', 'Healthy Gourmet Desserts', 'Brand Building', 'Pastry Education'],
     available: 'Brand development, pastry consulting, masterclasses',
+    bestFor: "Pastry and dessert brands building a name, a product line or a healthier gourmet range, and venues hosting a headline masterclass.",
     signatures: [
       '/images/chefs/luca-montersino_dish_01.jpeg',
       '/images/chefs/luca-montersino_dish_02.jpeg',
@@ -244,6 +253,7 @@ export const chefs = [
     bio: "Luca Borgioli is an acclaimed Italian pastry chef and consultant, renowned for his innovative approach to traditional Italian desserts, particularly in the realm of pâte à choux. Borgioli began his professional journey in France, immersing himself in the rich traditions of French patisserie. In 2015, he took on the role of laboratory manager at Pasticceria Barbera in Signa, Italy. By 2018, he was instrumental in revitalising I Frari delle Logge, transforming it into a culinary hotspot in Prato. His dedication to the craft was internationally recognised in 2020 when he won the gold medal in the Innovative Panettone category at the FIPGC World Panettone Championship. Borgioli is celebrated for his modern reinterpretations of classic pastries, especially éclairs and bignè.",
     specialties: ['Panettone & Leavened Products', 'Artisan Italian Bakery', 'Pâte à Choux', 'Bakery Consulting'],
     available: 'Bakery consulting, product development, masterclasses',
+    bestFor: "Bakeries and pastry shops adding panettone, leavened products or pâte à choux, or launching a seasonal line.",
     signatures: [
       '/images/chefs/luca-borgioli_dish_01.jpeg',
       '/images/chefs/luca-borgioli_dish_02.jpeg',

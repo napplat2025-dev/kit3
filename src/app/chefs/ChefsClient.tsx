@@ -42,7 +42,7 @@ export default function ChefsClient() {
             A Powerhouse Lineup of <em style={{ color: 'var(--amber)' }}>Culinary Masters</em>
           </h1>
           <p style={{ fontSize: 17, color: '#d4efeb', maxWidth: 580, lineHeight: 1.8, fontWeight: 300 }}>
-            10 international chefs — Michelin-pedigreed, royal event specialists, and award-winning culinary masters. Click any chef to view their full profile.
+            Kitchen Three matches restaurants, hotels, bakeries and F&B brands in Egypt with 10 international chefs — Michelin-pedigreed, royal event specialists, and award-winning culinary masters — for menu and product development, kitchen and pastry training, and masterclasses. Each profile says who the chef is best suited for.
           </p>
         </div>
       </section>

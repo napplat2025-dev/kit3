@@ -51,7 +51,7 @@ export default function BlogClient({ articles }: { articles: Article[] }) {
             Culinary Industry <em style={{ color: 'var(--amber)' }}>Insights</em>
           </h1>
           <p style={{ fontSize: 17, color: '#d4efeb', maxWidth: 600, lineHeight: 1.8, fontWeight: 300 }}>
-            Practical knowledge from Egypt's leading culinary consultancy — startup guides, industry analysis, and expert perspectives on the F&B business.
+            Practical guides from Kitchen Three, a Cairo-based B2B culinary consultancy, on starting and running a food business in Egypt — menu engineering and food costing, HACCP compliance, cloud kitchens, food brand development, and hiring chefs.
           </p>
         </div>
       </section>

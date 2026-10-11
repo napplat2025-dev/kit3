@@ -15,6 +15,7 @@ type Chef = {
   bio: string
   specialties: string[]
   available: string
+  bestFor: string
   signatures: string[]
 }
 
@@ -63,7 +64,10 @@ export default function ChefProfileClient({ chef, prevChef, nextChef, allChefs }
             <div style={{ paddingBottom: 8 }}>
               <div className="eyebrow" style={{ color: 'var(--amber)', marginBottom: 12 }}>{chef.country}</div>
               <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(36px, 4vw, 60px)', fontWeight: 400, color: '#ffffff', lineHeight: 1.1, marginBottom: 12 }}>{chef.name}</h1>
-              <div style={{ fontSize: 16, color: '#d4efeb', marginBottom: 32, fontWeight: 300 }}>{chef.title}</div>
+              <div style={{ fontSize: 16, color: '#d4efeb', marginBottom: 20, fontWeight: 300 }}>{chef.title}</div>
+              <p style={{ fontSize: 15, color: '#ffffff', lineHeight: 1.7, marginBottom: 32, maxWidth: 560 }}>
+                <strong style={{ color: 'var(--amber)', fontWeight: 600 }}>Best suited for:</strong> {chef.bestFor}
+              </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 36 }}>
                 {chef.credentials.map(cr => (
                   <div key={cr} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
