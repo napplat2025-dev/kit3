@@ -133,6 +133,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
+        <script
+          async
+          src="https://gritwrx-backend-470514729674.us-central1.run.app/widget/pk_pQQZpZQYYeNY7QF-8vUrayey.js"
+        />
       </head>
       <body>{children}</body>
     </html>
