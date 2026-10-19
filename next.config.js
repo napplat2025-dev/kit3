@@ -23,7 +23,7 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=("https://gritwrx-backend-470514729674.us-central1.run.app"), geolocation=(), interest-cohort=()',
+            value: 'camera=(), microphone=(self "https://gritwrx-backend-470514729674.us-central1.run.app"), geolocation=(), interest-cohort=()',
           },
           {
             key: 'Content-Security-Policy',
